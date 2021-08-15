@@ -3,6 +3,8 @@ import TelegramBotSDK
 
 func finishHandler(context: Context) -> Bool {
 
+	let forceFlag = (context.args.scanWord()?.lowercased() == "force") ? true : false
+
 	if context.privateChat {
 		// in private chat
 		context.respondAsync("本功能仅支持在群组中使用。", replyToMessageId: context.message?.messageId)
@@ -51,7 +53,7 @@ func finishHandler(context: Context) -> Bool {
 				result[tgUserId] = play.score
 				let newMultiplay = Multiplay(started: true, song: multiplay.song, players: multiplay.players, result: result)
 
-				if newMultiplay.players.count == newMultiplay.result.count {
+				if (newMultiplay.players.count == newMultiplay.result.count) || forceFlag {
 					// multiplay finished
 					finishMultiplay(context: context, multiplay: newMultiplay)
 					deleteMultiplay(room: room)
@@ -61,7 +63,7 @@ func finishHandler(context: Context) -> Bool {
 					for player in newMultiplay.players {
 						if !newMultiplay.result.keys.contains(player) {
 							let name = getUserInfoFromDatabase(tgUserId: player)!.content.name
-							respondText += "- \(name)"
+							respondText += "\n- \(name)"
 						}
 					}
 					context.respondAsync(respondText, replyToMessageId: context.message?.messageId)

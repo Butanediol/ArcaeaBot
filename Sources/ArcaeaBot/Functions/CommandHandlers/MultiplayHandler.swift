@@ -52,7 +52,7 @@ func multiplayHandler(context: Context) -> Bool {
 					case .success(let randomSong):
 						multiplay = Multiplay(started: false, song: randomSong.content.id, players: [tgUserId])
 					case .failure(let apiError):
-						context.respondAsync(apiError.message.capitalized)
+						context.respondAsync(apiError.message.capitalized, replyToMessageId: context.message?.messageId)
 				}
 				sema.signal()
 			}
@@ -64,7 +64,7 @@ func multiplayHandler(context: Context) -> Bool {
 					case .success(let songInfo):
 						multiplay = Multiplay(started: false, song: songInfo.content.id, players: [tgUserId])
 					case .failure(let apiError):
-						context.respondAsync(apiError.message.capitalized)
+						context.respondAsync(apiError.message.capitalized, replyToMessageId: context.message?.messageId)
 				}
 				sema.signal()
 			}
@@ -80,7 +80,7 @@ func multiplayHandler(context: Context) -> Bool {
 							case .success(let randomSong):
 								multiplay = Multiplay(started: false, song: randomSong.content.id, players: [tgUserId])
 							case .failure(let apiError):
-								context.respondAsync(apiError.message.capitalized)
+								context.respondAsync(apiError.message.capitalized, replyToMessageId: context.message?.messageId)
 						}
 						sema.signal()
 					}
@@ -91,7 +91,7 @@ func multiplayHandler(context: Context) -> Bool {
 							case .success(let randomSong):
 								multiplay = Multiplay(started: false, song: randomSong.content.id, players: [tgUserId])
 							case .failure(let apiError):
-								context.respondAsync(apiError.message.capitalized)
+								context.respondAsync(apiError.message.capitalized, replyToMessageId: context.message?.messageId)
 						}
 						sema.signal()
 					}
@@ -102,7 +102,7 @@ func multiplayHandler(context: Context) -> Bool {
 							case .success(let randomSong):
 								multiplay = Multiplay(started: false, song: randomSong.content.id, players: [tgUserId])
 							case .failure(let apiError):
-								context.respondAsync(apiError.message.capitalized)
+								context.respondAsync(apiError.message.capitalized, replyToMessageId: context.message?.messageId)
 						}
 						sema.signal()
 					}
@@ -135,7 +135,7 @@ func multiplayHandler(context: Context) -> Bool {
 		- \(info.content.name)(`\(info.content.code)`)
 		"""
 
-		context.respondAsync(respondText, parseMode: .markdown)
+		context.respondAsync(respondText, parseMode: .markdown, replyToMessageId: context.message?.messageId)
 	}
 
 	return true

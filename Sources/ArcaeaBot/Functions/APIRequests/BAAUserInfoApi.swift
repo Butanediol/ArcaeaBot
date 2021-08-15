@@ -82,7 +82,7 @@ func getUserBest30(user: User, overflow: Int = 0, completion: @escaping (Result<
     /* Start a new Task */
     let task = session.dataTask(with: request) { data, response, error in
         guard let data = data else {
-        	print("URL Session Task Failed with response \((response as! HTTPURLResponse).statusCode):", error!.localizedDescription)
+        	print("URL Session Task Failed :", error!.localizedDescription)
             completion(.failure(.networkError))
         	return
         }
