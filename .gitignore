@@ -1,0 +1,11 @@
+.DS_Store
+/.build
+/Packages
+/*.xcodeproj
+xcuserdata/
+DerivedData/
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+API.paw
+TELEGRAM_BOT_TOKEN
+Sources/ArcaeaBot/config.swift
+db

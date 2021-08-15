@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CLMDB",
+        "repositoryURL": "https://github.com/agisboye/CLMDB.git",
+        "state": {
+          "branch": null,
+          "revision": "24fd75459dd82fee490a2609c80a8def94fc695c",
+          "version": "0.9.29"
+        }
+      },
+      {
+        "package": "SwiftLMDB",
+        "repositoryURL": "https://github.com/agisboye/SwiftLMDB.git",
+        "state": {
+          "branch": null,
+          "revision": "93707ff1bcfed4b2bc4c945499ce2577f39c381e",
+          "version": "2.1.2"
+        }
+      },
+      {
+        "package": "TelegramBotSDK",
+        "repositoryURL": "https://github.com/zmeyc/telegram-bot-swift.git",
+        "state": {
+          "branch": "master",
+          "revision": "c03186fdbde69be648be33c57793a2d83c5a8256",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
