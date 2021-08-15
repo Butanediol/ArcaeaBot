@@ -133,3 +133,15 @@ func joinMultiplay(room: Int64, tgUserId: TgUserId) -> Multiplay? {
 	saveMultiplay(multiplay: newMultiplay, room: room)
 	return newMultiplay
 }
+
+func getAllUserInfo() -> [(TgUserId, UserInfo)] {
+	var allUserInfo: [TgUserId: UserInfo] = [:]
+	for (key, value) in userInfoDatabase {
+		let tgUserId = TgUserId(data: key)!
+		let userInfo = UserInfo(data: value)!	
+		allUserInfo[tgUserId] = userInfo
+	}
+	return allUserInfo.sorted {
+		return $0.value.content.rating > $1.value.content.rating
+	}
+}
