@@ -6,11 +6,14 @@ struct UserBest: Codable {
     let content: UserPlay
 }
 
+typealias PlayScore = Int
+
 // MARK: - UserPlay
 struct UserPlay: Codable {
     let songID: String
     let difficulty: Difficulty
-    let score, shinyPerfectCount, perfectCount: Int
+    let score: PlayScore
+    let shinyPerfectCount, perfectCount: Int
     let nearCount, missCount, health, modifier: Int
     let timePlayed, bestClearType, clearType: Int
     let character: Int?
