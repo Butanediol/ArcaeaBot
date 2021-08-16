@@ -4,8 +4,7 @@ import Foundation
 import FoundationNetworking
 #endif
 
-func getUserBest(user: User, songname: String, difficulty: Difficulty, completion: @escaping (Result<UserBest, APIError>) -> Void) {
-    let sessionConfig = URLSessionConfiguration.default
+func getUserBest(user: User, songname: String, difficulty: Difficulty, retry: Int = 3, completion: @escaping (Result<UserBest, APIError>) -> Void) {
 
     let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
 
@@ -36,14 +35,18 @@ func getUserBest(user: User, songname: String, difficulty: Difficulty, completio
 
     	guard let data = data else {
     		print("URL Session Task Failed:", error!.localizedDescription)
-            completion(.failure(APIError.networkError))
+            if retry > 0 { getUserBest(user: user, songname: songname, difficulty: difficulty, retry: retry - 1, completion: completion) }
+            else { completion(.failure(APIError.networkError)) }
     		return
     	}
 
     	guard let userBest = try? JSONDecoder().decode(UserBest.self, from: data) else {
     		print("\(String(data: data, encoding: .utf8) ?? "")")
-            let apiError = try? JSONDecoder().decode(APIError.self, from: data)
-            completion(.failure(apiError ?? .decodingError))
+            if retry > 0 { getUserBest(user: user, songname: songname, difficulty: difficulty, retry: retry - 1, completion: completion) }
+            else { 
+                let apiError = try? JSONDecoder().decode(APIError.self, from: data)
+                completion(.failure(apiError ?? .decodingError))
+            }
     		return
     	}
 
@@ -55,8 +58,6 @@ func getUserBest(user: User, songname: String, difficulty: Difficulty, completio
 }
 
 func getUserBest30(user: User, overflow: Int = 0, retry: Int = 3, completion: @escaping (Result<UserBest30, APIError>) -> Void) {
-    
-    let sessionConfig = URLSessionConfiguration.default
 
     let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
 
@@ -90,8 +91,11 @@ func getUserBest30(user: User, overflow: Int = 0, retry: Int = 3, completion: @e
 
         guard let userBest30 = try? JSONDecoder().decode(UserBest30.self, from: data) else {
     		print("\(String(data: data, encoding: .utf8) ?? "")")
-            let apiError = try? JSONDecoder().decode(APIError.self, from: data)
-            completion(.failure(apiError ?? .decodingError))
+            if retry > 0 { getUserBest30(user: user, retry: retry - 1, completion: completion) }
+            else {
+                let apiError = try? JSONDecoder().decode(APIError.self, from: data)
+                completion(.failure(apiError ?? .decodingError))
+            }
     		return
     	}
 
@@ -102,15 +106,13 @@ func getUserBest30(user: User, overflow: Int = 0, retry: Int = 3, completion: @e
 }
 
 
-func getUserInfo(user: User, overflow: Int = 0, completion: @escaping (Result<UserInfo, APIError>) -> Void) {
-    
-    let sessionConfig = URLSessionConfiguration.default
+func getUserInfo(user: User, recent: Int = 0, retry: Int = 3, completion: @escaping (Result<UserInfo, APIError>) -> Void) {
 
     let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
 
     guard var URL = URL(string: apiUrl + "/user/info") else {return}
     var URLParams = [
-        "recent": "1",
+        "recent": "\(recent)",
     ]
 
     switch user {
@@ -129,14 +131,18 @@ func getUserInfo(user: User, overflow: Int = 0, completion: @escaping (Result<Us
     let task = session.dataTask(with: request) { data, response, error in
 	    guard let data = data else {
 	    	print("URL Session Task Failed: %@", error!.localizedDescription)
-            completion(.failure(.networkError))
+            if retry > 0 { getUserInfo(user: user, recent: recent, retry: retry - 1, completion: completion) }
+            else { completion(.failure(.networkError)) }
 	    	return
 	    }
 
 	    guard let userInfo = try? JSONDecoder().decode(UserInfo.self, from: data) else {
 			print("UserInfo decoding error, content: \(String(data: data, encoding: .utf8) ?? "")")
-            let apiError = try? JSONDecoder().decode(APIError.self, from: data)
-            completion(.failure(apiError ?? .decodingError))
+            if retry > 0 { getUserInfo(user: user, recent: recent, retry: retry - 1, completion: completion) }
+            else { 
+                let apiError = try? JSONDecoder().decode(APIError.self, from: data)
+                completion(.failure(apiError ?? .decodingError))
+            }
 			return
 		}
 

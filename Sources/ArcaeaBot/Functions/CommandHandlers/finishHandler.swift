@@ -36,7 +36,7 @@ func finishHandler(context: Context) -> Bool {
 		return true
 	}
 
-	getUserInfo(user: .userCode(usercode), overflow: 1) { result in
+	getUserInfo(user: .userCode(usercode), recent: 1) { result in
 		switch result {
 			case.success(let info):
 				guard let play = info.content.recentScore.first else {

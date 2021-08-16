@@ -4,8 +4,9 @@ import Foundation
 import FoundationNetworking
 #endif
 
+internal let sessionConfig = URLSessionConfiguration.default
+
 func getSongInfo(search name: String, completion: @escaping (Result<SongInfo, APIError>) -> Void) {
-    let sessionConfig = URLSessionConfiguration.default
 
     let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
 
@@ -43,7 +44,6 @@ func getSongInfo(search name: String, completion: @escaping (Result<SongInfo, AP
 }
 
 func getRandomSong(from start: Int, to end: Int, completion: @escaping (Result<RandomSong, APIError>) -> Void) {
-    let sessionConfig = URLSessionConfiguration.default
 
     let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
 
