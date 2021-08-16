@@ -27,7 +27,7 @@ func bindHandler(context: Context) -> Bool {
 		arcId = .userName(bindId)
 	}
 
-	getUserInfo(user: arcId) { result in
+	getUserInfo(user: arcId, recent: 1) { result in
 
 		switch result {
 			case .success(let info):
