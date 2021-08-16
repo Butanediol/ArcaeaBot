@@ -32,7 +32,12 @@ func finishHandler(context: Context) -> Bool {
 	}
 
 	guard let info = getUserInfoFromDatabase(tgUserId: tgUserId), let usercode = info.content.code.toUsercode() else {
-		context.respondAsync("获取用户数据错误") // This should never happen
+		context.respondAsync("获取用户数据错误")
+		return true
+	}
+
+	if !multiplay.players.contains(tgUserId) {
+		context.respondAsync("你并不在本场多人游戏中。", replyToMessageId: context.message?.messageId)
 		return true
 	}
 

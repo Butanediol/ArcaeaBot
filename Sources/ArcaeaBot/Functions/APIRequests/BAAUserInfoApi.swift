@@ -106,7 +106,7 @@ func getUserBest30(user: User, overflow: Int = 0, retry: Int = 3, completion: @e
 }
 
 
-func getUserInfo(user: User, recent: Int = 0, retry: Int = 3, completion: @escaping (Result<UserInfo, APIError>) -> Void) {
+func getUserInfo(user: User, recent: Int = 0, retry: Int = 9, completion: @escaping (Result<UserInfo, APIError>) -> Void) {
 
     let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
 
