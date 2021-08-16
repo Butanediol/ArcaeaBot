@@ -5,7 +5,7 @@ struct Multiplay: Codable {
     let started: Bool
     let song: SongId
     let players: [TgUserId]
-    var result: [TgUserId: Int] = [:]
+    var result: [TgUserId: UserPlay] = [:]
 }
 
 extension Multiplay: DataConvertible {

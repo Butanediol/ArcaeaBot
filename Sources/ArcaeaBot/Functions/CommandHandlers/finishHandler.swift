@@ -50,7 +50,7 @@ func finishHandler(context: Context) -> Bool {
 				}
 
 				var result = multiplay.result
-				result[tgUserId] = play.score
+				result[tgUserId] = play
 				let newMultiplay = Multiplay(started: true, song: multiplay.song, players: multiplay.players, result: result)
 
 				if (newMultiplay.players.count == newMultiplay.result.count) || forceFlag {
@@ -87,12 +87,12 @@ func finishMultiplay(context: Context, multiplay: Multiplay) {
 	"""
 
 	let results = multiplay.result.sorted {
-		return $0.value > $1.value
+		return $0.value.score > $1.value.score
 	}
 
 	for index in results.indices {
 		guard let info = getUserInfoFromDatabase(tgUserId: results[index].key) else { return /* never happen */}
-		respondText += "\n\(intToStringRank(i: index + 1)) \(info.content.name) \(results[index].value)"
+		respondText += "\n\(intToStringRank(i: index + 1)) \(info.content.name) \(results[index].value.score) \(results[index].value.difficulty.abbr.uppercased())"
 	}
 
 	context.respondAsync(respondText, parseMode: .markdown)
