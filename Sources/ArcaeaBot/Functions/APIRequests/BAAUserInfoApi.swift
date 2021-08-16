@@ -54,8 +54,7 @@ func getUserBest(user: User, songname: String, difficulty: Difficulty, completio
     session.finishTasksAndInvalidate()
 }
 
-
-func getUserBest30(user: User, overflow: Int = 0, completion: @escaping (Result<UserBest30, APIError>) -> Void) {
+func getUserBest30(user: User, overflow: Int = 0, retry: Int = 3, completion: @escaping (Result<UserBest30, APIError>) -> Void) {
     
     let sessionConfig = URLSessionConfiguration.default
 
@@ -82,8 +81,10 @@ func getUserBest30(user: User, overflow: Int = 0, completion: @escaping (Result<
     /* Start a new Task */
     let task = session.dataTask(with: request) { data, response, error in
         guard let data = data else {
-        	print("URL Session Task Failed :", error!.localizedDescription)
-            completion(.failure(.networkError))
+            // Failed
+        	print("URL Session Task Failed :", error!.localizedDescription, " retry: ", retry)
+            if retry > 0 { getUserBest30(user: user, retry: retry - 1, completion: completion) }
+            else { completion(.failure(.networkError)) }
         	return
         }
 
