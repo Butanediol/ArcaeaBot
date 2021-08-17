@@ -96,8 +96,11 @@ func finishMultiplay(context: Context, multiplay: Multiplay) {
 	}
 
 	for index in results.indices {
+		let rank = results.rankingWithTie(index: index) {
+			return $0.value.score == $1.value.score
+		}
 		guard let info = getUserInfoFromDatabase(tgUserId: results[index].key) else { return /* never happen */}
-		respondText += "\n\(intToStringRank(i: index + 1)) \(info.content.name) \(results[index].value.score) \(results[index].value.difficulty.abbr.uppercased())"
+		respondText += "\n\(intToStringRank(i: rank + 1)) \(info.content.name) \(results[index].value.score) \(results[index].value.difficulty.abbr.uppercased())"
 	}
 
 	context.respondAsync(respondText, parseMode: .markdown)

@@ -19,6 +19,8 @@ func recentHandler(context: Context) -> Bool {
 					return
 				}
 
+				saveUserInfo(info: info, tgUserId: tgUserId)
+
 				getSongInfo(search: play.songID) { result in
 
 					switch result {
