@@ -48,7 +48,8 @@ func getMeHandler(context: Context) -> Bool {
 
 	if let info = getUserInfoFromDatabase(tgUserId: tgUserId) {
 		context.respondAsync(
-			"我认得你，你是 \(info.content.name)(`\(info.content.code)`)。", 
+			"我认得你，你是\(info.rank) \(info.content.name)(`\(info.content.code)`)。\n" + 
+			"PTT: \(Double(info.content.rating) / 100)", 
 			parseMode: .markdown, 
 			replyToMessageId: context.message?.messageId)
 	} else {

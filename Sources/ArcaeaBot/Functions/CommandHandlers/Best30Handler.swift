@@ -21,7 +21,10 @@ func best30Handler(context: Context) -> Bool {
 
 				for index in b30.content.best30List.indices {
 					let play = b30.content.best30List[index]
-					respondText += String(format:"%@ `%@` %@\n%.2f %d\n", intToStringRank(i: index + 1), play.songID, play.difficulty.abbr.uppercased(), play.rating, play.score)
+					let rank = b30.content.best30List.rankingWithTie(index: index) {
+						$0.rating == $1.rating
+					}
+					respondText += String(format:"%@ `%@` %@\n%.2f %d\n", intToStringRank(i: rank + 1), play.songID, play.difficulty.abbr.uppercased(), play.rating, play.score)
 				}
 				context.respondAsync(respondText, parseMode: .markdown, replyToMessageId: context.message?.messageId)
 			case .failure(let apiError):

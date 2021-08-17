@@ -22,7 +22,7 @@ func helpHandler(context: Context) -> Bool {
 	/cancel
 	"""
 
-	context.respondAsync(help, replyToMessageId: context.message?.messageId)
+	context.respondPrivatelyAsync(help, groupText: "帮助信息请查看私聊。")
 
 	return true
 }
