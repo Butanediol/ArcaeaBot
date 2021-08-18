@@ -3,7 +3,14 @@ import Foundation
 extension Date {
 	func formattedString() -> String {
 
-		let timeInterval = Int(Date().timeIntervalSince1970 - self.timeIntervalSince1970)
+		var timeInterval = Int(Date().timeIntervalSince1970 - self.timeIntervalSince1970)
+		var minusFlag = false
+
+		if timeInterval < 0 {
+			timeInterval = -timeInterval
+			minusFlag = true
+		}
+
 		let seconds = timeInterval % 60
 		let minutes = timeInterval / 60 % 60
 		let hours = timeInterval / 60 / 60 % 24
@@ -20,6 +27,6 @@ extension Date {
 			seconds == 0 ? "" : "\(seconds) 秒"
 		]
 
-		return String(format: "%@前", list.joined(separator: " "))
+		return String(format: "%@%@", list.joined(separator: " ").trimmed(), minusFlag ? "后" : "前")
 	}
 }

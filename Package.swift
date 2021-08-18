@@ -3,8 +3,17 @@
 
 import PackageDescription
 
+#if os(macOS)
+let platform = SupportedPlatform.macOS(.v10_12)
+#elseif os(Linux)
+let platform = SupportedPlatform.linux
+#endif
+
 let package = Package(
     name: "ArcaeaBot",
+    platforms: [
+        platform
+    ],
     dependencies: [
         .package(name: "TelegramBotSDK", url: "https://github.com/zmeyc/telegram-bot-swift.git", .branch("master")),
         .package(url: "https://github.com/agisboye/SwiftLMDB.git", from: "2.0.0"),

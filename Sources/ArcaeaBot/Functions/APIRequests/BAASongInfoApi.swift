@@ -4,7 +4,11 @@ import Foundation
 import FoundationNetworking
 #endif
 
-internal let sessionConfig = URLSessionConfiguration.default
+internal let sessionConfig: URLSessionConfiguration = {
+    let config = URLSessionConfiguration.default
+    config.timeoutIntervalForRequest = 5
+    return config
+}()
 
 func getSongInfo(search name: String, completion: @escaping (Result<SongInfo, APIError>) -> Void) {
 

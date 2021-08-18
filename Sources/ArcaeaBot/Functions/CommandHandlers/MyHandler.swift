@@ -44,7 +44,7 @@ func myHandler(context: Context) -> Bool {
 							Name: `\(info.content.name)`
 							PTT: `\(String(format: "%.2f", Double(info.content.rating) / 100))`
 
-							Recent Play: \(Date(timeIntervalSince1970: Double(play.timePlayed) / 1000).formattedString().trimmed())
+							Recent Play: \(Date(timeIntervalSince1970: Double(play.timePlayed) / 1000).formattedString())
 							Song: `\(play.songID)`
 							Difficulty: `\(play.difficulty.name.capitalized) \(String(format: "%.1f", ratingReal))`
 							Play PTT: `\(String(format: "%.2f", play.rating))`
