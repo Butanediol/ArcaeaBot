@@ -5,7 +5,8 @@ import FoundationNetworking
 #endif
 
 internal let sessionConfig: URLSessionConfiguration = {
-    let config = URLSessionConfiguration.default
+    let config = URLSessionConfiguration.ephemeral
+    config.httpMaximumConnectionsPerHost = 1
     config.timeoutIntervalForRequest = 5
     return config
 }()
