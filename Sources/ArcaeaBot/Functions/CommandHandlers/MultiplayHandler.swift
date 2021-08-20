@@ -3,6 +3,20 @@ import TelegramBotSDK
 
 func multiplayHandler(context: Context) -> Bool {
 
+	let args = context.args.scanWords()
+
+	let helpText = """
+	/multiplay
+	/multiplay <Song>
+	/multiplay <floor> <ceiling>
+	/multiplay <floor> +
+	/multiplay <ceiling> -
+	"""
+	if args.count > 2 {
+		context.respondAsync(helpText)
+		return true
+	}
+
 	if context.privateChat {
 		// in private chat
 		context.respondAsync("本功能仅支持在群组中使用。")
@@ -31,16 +45,6 @@ func multiplayHandler(context: Context) -> Bool {
 		context.respondAsync("我不认识你，使用 /bind <ArcID/ArcName> 绑定。", replyToMessageId: context.message?.messageId)
 		return true
 	}
-
-	let helpText = """
-	/multiplay
-	/multiplay <Song>
-	/multiplay <floor> <ceiling>
-	/multiplay <floor> +
-	/multiplay <ceiling> -
-	"""
-
-	let args = context.args.scanWords()
 
 	var multiplay: Multiplay?
 	let sema = DispatchSemaphore(value: 0)
@@ -117,7 +121,6 @@ func multiplayHandler(context: Context) -> Bool {
 			}
 
 		default:
-			context.respondAsync(helpText)
 			sema.signal()
 	}
 
