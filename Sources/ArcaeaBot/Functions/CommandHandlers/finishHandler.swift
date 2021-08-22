@@ -76,7 +76,7 @@ func finishHandler(context: Context) -> Bool {
 				}
 
 			case .failure(let apiError):
-				context.respondAsync(apiError.message.capitalized)
+				requestFailureHandler(context: context, error: apiError)
 		}
 
 	}

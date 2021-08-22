@@ -35,7 +35,7 @@ func bindHandler(context: Context) -> Bool {
 				context.respondAsync("绑定成功，你好\(info.rank)\(info.content.name)！", replyToMessageId: context.message?.messageId)
 
 			case .failure(let apiError):
-				context.respondAsync(apiError.message.capitalized, replyToMessageId: context.message?.messageId)
+				requestFailureHandler(context: context, error: apiError)
 		}
 	}
 

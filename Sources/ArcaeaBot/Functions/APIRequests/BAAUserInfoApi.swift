@@ -55,7 +55,7 @@ func getUserBest(user: User, songname: String, difficulty: Difficulty, retry: In
     session.finishTasksAndInvalidate()
 }
 
-func getUserBest30(user: User, overflow: Int = 0, retry: Int = 5, completion: @escaping (Result<UserBest30, APIError>) -> Void) {
+func getUserBest30(user: User, overflow: Int = 0, retry: Int = 9, completion: @escaping (Result<UserBest30, APIError>) -> Void) {
 
     let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
 

@@ -56,13 +56,13 @@ func myHandler(context: Context) -> Bool {
 
 							context.respondAsync(respondText, parseMode: .markdown, replyToMessageId: context.message?.messageId)
 						case .failure(let apiError):
-							context.respondAsync(apiError.message.capitalized, replyToMessageId: context.message?.messageId)
+							requestFailureHandler(context: context, error: apiError)
 					}
 				}
 				
 
 			case .failure(let apiError):
-				context.respondAsync(apiError.message.capitalized, replyToMessageId: context.message?.messageId)
+				requestFailureHandler(context: context, error: apiError)
 		}
 		
 	}

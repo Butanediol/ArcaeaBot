@@ -5,7 +5,9 @@ func rankHandler(context: Context) -> Bool {
 
 	// Currently not available
 
-	if context.fromId != 254213545 { return true }
+	let adminList: [Int64] = [803217365, 254213545]
+
+	guard let fromId = context.fromId, adminList.contains(fromId) else { return true }
 
 	var respondText = ""
 

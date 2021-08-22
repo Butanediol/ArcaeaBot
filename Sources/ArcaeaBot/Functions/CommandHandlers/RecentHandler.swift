@@ -44,13 +44,13 @@ func recentHandler(context: Context) -> Bool {
 							updateBest30FromRecent(info, user: usercode)
 
 						case .failure(let apiError):
-							context.respondAsync(apiError.message.capitalized, replyToMessageId: context.message?.messageId)
+							requestFailureHandler(context: context, error: apiError)
 					}
 
 				}
 
 			case .failure(let apiError):
-				context.respondAsync(apiError.message.capitalized, replyToMessageId: context.message?.messageId)
+				requestFailureHandler(context: context, error: apiError)
 		}
 
 		

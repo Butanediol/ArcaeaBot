@@ -29,7 +29,7 @@ func eventHandler(context: Context) -> Bool {
 				}
 				context.respondAsync(respondText.trimmed(), parseMode: .markdown, replyToMessageId: context.message?.messageId)
 			case .failure(let apiError):
-				context.respondAsync(apiError.message.capitalized, replyToMessageId: context.message?.messageId)
+				requestFailureHandler(context: context, error: apiError)
 		}
 	}
 	return true
