@@ -25,15 +25,20 @@ func beginHandler(context: Context) -> Bool {
 	}
 
 	if multiplay.started {
-		context.respondAsync("多人游戏正在进行中。", replyToMessageId: context.message?.messageId)
+		context.respondAsync("多人运动正在进行中。", replyToMessageId: context.message?.messageId)
 		return true
 	}
 
 	let newMultiplay = Multiplay(started: true, song: multiplay.song, players: multiplay.players)
 
 	saveMultiplay(multiplay: newMultiplay, room: room)
+	var mentionList = ""
+	for player in newMultiplay.players {
+		guard let info = getUserInfoFromDatabase(tgUserId: player) else { return true }
+		mentionList += "[@\(info.content.name)](tg://user?id=\(player)) "
+	}
 
-	context.respondAsync("多人游戏已开始！", replyToMessageId: context.message?.messageId)
+	context.respondAsync("\(mentionList)\n多人游戏已开始！", parseMode: .markdown, replyToMessageId: context.message?.messageId)
 
 	return true
 }

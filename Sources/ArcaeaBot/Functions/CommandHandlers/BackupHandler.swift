@@ -7,14 +7,26 @@ func backupHandler(context: Context) -> Bool {
 
 	guard let chatId = context.chatId else { return true }
 
+	let placeholderMessage = context.respondSync("备份中")
+
 	defer {
-		context.respondAsync("Backup Finished.")
+		context.bot.editMessageTextSync(chatId: .chat(chatId), messageId: placeholderMessage?.messageId, text: "备份完成")
 	}
 
-	let allUserInfo = getAllUserInfo()
-	let dict = allUserInfo.reduce(into: [:]) { $0[String($1.0)] = $1.1 }
-	guard let data = try? JSONEncoder().encode(dict) else { return true }
-	let backupFile = InputFile(filename: "backup.json", data: data)
-	context.bot.sendDocumentAsync(chatId: .chat(chatId), document: .inputFile(backupFile))
+	let currentPath = FileManager().currentDirectoryPath
+	let currentPathURL = URL(fileURLWithPath: currentPath).appendingPathComponent("db")
+	let dbDataPathURL = currentPathURL.appendingPathComponent("data.mdb")
+	let dbLockPathURL = currentPathURL.appendingPathComponent("lock.mdb")
+	if let dbDataData = try? Data(contentsOf: dbDataPathURL) {
+		context.bot.editMessageTextSync(chatId: .chat(chatId), messageId: placeholderMessage?.messageId, text: "备份 \(dbDataPathURL)")
+		let dbDataBackupFile = InputFile(filename: "data.mdb", data: dbDataData)
+		context.bot.sendDocumentAsync(chatId: .chat(chatId), document: .inputFile(dbDataBackupFile))
+	}
+	if let dbLockData = try? Data(contentsOf: dbDataPathURL) {
+		context.bot.editMessageTextSync(chatId: .chat(chatId), messageId: placeholderMessage?.messageId, text: "备份 \(dbLockPathURL)")
+		let dbDataBackupFile = InputFile(filename: "lock.mdb", data: dbLockData)
+		context.bot.sendDocumentAsync(chatId: .chat(chatId), document: .inputFile(dbDataBackupFile))
+	}
+
 	return true
 }
