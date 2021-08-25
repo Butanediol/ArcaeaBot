@@ -9,7 +9,12 @@ struct UserInfo: Codable {
 
 extension UserInfo: DataConvertible {
     public init?(data: Data) {
-        self = try! JSONDecoder().decode(type(of: self), from: data)
+        // - TODO: Something weird happen
+        do {
+            self = try JSONDecoder().decode(UserInfo.self, from: data)
+        } catch {
+            self = UserInfo(status: -1, content: .emptyUserInfoContent)
+        }
     }
 
     public var asData: Data {
@@ -57,4 +62,6 @@ struct UserInfoContent: Codable {
         case isMutual = "is_mutual"
         case code
     }
+
+    static let emptyUserInfoContent = UserInfoContent(userID: 0, name: "Empty User", recentScore: [], character: 0, joinDate: 0, rating: 0, code: "0", isSkillSealed: false, isCharUncapped: false, isCharUncappedOverride: false, isMutual: false)
 }

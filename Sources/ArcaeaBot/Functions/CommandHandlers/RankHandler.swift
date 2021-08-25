@@ -14,7 +14,10 @@ func rankHandler(context: Context) -> Bool {
 	let allUserInfo = getAllUserInfo()
 
 	for index in allUserInfo.indices {
-		let (_, userInfo) = allUserInfo[index]
+		let (tgUserId, userInfo) = allUserInfo[index]
+		if userInfo.status == -1 {
+			deleteUserInfoFromDatabase(tgUserId: tgUserId)
+		}
 		let rank = allUserInfo.rankingWithTie(index: index) {
 			$0.1.content.rating == $1.1.content.rating
 		}

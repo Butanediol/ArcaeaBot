@@ -25,7 +25,6 @@ router[.command(Command("event",		options: .slashRequired))] = eventHandler
 router[.command(Command("rank",			options: .slashRequired))] = rankHandler
 router[.command(Command("backup",		options: .slashRequired))] = backupHandler
 
-
 while let update = bot.nextUpdateSync() {
 	try router.process(update: update)    
 }

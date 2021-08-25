@@ -66,7 +66,6 @@ func myHandler(context: Context) -> Bool {
 		}
 		
 	}
-
-
+	
 	return true
 }
