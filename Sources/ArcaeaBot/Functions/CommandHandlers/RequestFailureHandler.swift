@@ -15,7 +15,8 @@ func requestFailureHandler(context: Context, error: APIError) {
 	}
 }
 
-func deleteMessageAfter(deadline: DispatchTime, bot: TelegramBot, chatId: ChatId, messageId: Int) {
+func deleteMessageAfter(deadline: DispatchTime, bot: TelegramBot, chatId: ChatId?, messageId: Int?) {
+	guard let chatId = chatId, let messageId = messageId else { return }
 	DispatchQueue.global().asyncAfter(deadline: deadline) {
 		bot.deleteMessageAsync(chatId: chatId, messageId: messageId)
 	}

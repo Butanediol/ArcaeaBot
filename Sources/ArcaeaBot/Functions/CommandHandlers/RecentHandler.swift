@@ -4,9 +4,13 @@ import TelegramBotSDK
 func recentHandler(context: Context) -> Bool {
 	context.sendChatActionAsync(action: "typing")
 
-	guard let tgUserId = context.fromId else { return true }
+	guard var tgUserId: TgUserId = context.fromId else { return true }
+	if let replyFrom = context.message?.replyToMessage?.from?.id {
+		tgUserId = replyFrom
+	}
 	guard let info = getUserInfoFromDatabase(tgUserId: tgUserId), let usercode = info.content.code.toUsercode() else {
-		context.respondAsync("我不认识你，使用 /bind <ArcID/ArcName> 绑定。", replyToMessageId: context.message?.messageId)
+		let message = context.respondSync("我不认识\(context.message?.replyToMessage == nil ? "你" : " TA")，使用 /bind <ArcID/ArcName> 绑定。", replyToMessageId: context.message?.messageId)
+		deleteMessageAfter(deadline: .now() + 15, bot: bot, chatId: .chat(context.chatId ?? 0), messageId: message?.messageId)
 		return true
 	}
 
