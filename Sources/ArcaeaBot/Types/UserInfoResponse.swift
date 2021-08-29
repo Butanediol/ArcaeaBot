@@ -1,36 +1,37 @@
-import SwiftLMDB
 import Foundation
+import SwiftLMDB
 
-// MARK: - UserInfo
-struct UserInfo: Codable {
-    let status: Int
-    let content: UserInfoContent
+// MARK: - UserInfoResponse
+
+struct UserInfoResponse: APIRequestResponsable {
+    var status: Int
+    var content: UserInfo
 }
 
-extension UserInfo: DataConvertible {
+extension UserInfoResponse: DataConvertible {
     public init?(data: Data) {
         // - TODO: Something weird happen
         do {
-            self = try JSONDecoder().decode(UserInfo.self, from: data)
+            self = try JSONDecoder().decode(UserInfoResponse.self, from: data)
         } catch {
-            self = UserInfo(status: -1, content: .emptyUserInfoContent)
+            self = UserInfoResponse(status: -1, content: .emptyUserInfoContent)
         }
     }
-
+    
     public var asData: Data {
         return try! JSONEncoder().encode(self)
     }
 }
 
-extension UserInfo {
+extension UserInfoResponse {
     var rank: String {
-        if self.content.rating >= 1250 {
+        if content.rating >= 1250 {
             return "，双星人"
-        } else if self.content.rating >= 1200 {
+        } else if content.rating >= 1200 {
             return "，摘星人"
-        } else if self.content.rating >= 1100 {
+        } else if content.rating >= 1100 {
             return "，红框人"
-        } else if self.content.rating >= 1000 {
+        } else if content.rating >= 1000 {
             return "，紫框人"
         } else {
             return ""
@@ -38,8 +39,9 @@ extension UserInfo {
     }
 }
 
-// MARK: - UserInfoContent
-struct UserInfoContent: Codable {
+// MARK: - UserInfo
+
+struct UserInfo: Codable {
     let userID: Int
     let name: String
     let recentScore: [UserPlay]
@@ -48,7 +50,7 @@ struct UserInfoContent: Codable {
     let rating: Int
     let code: String
     let isSkillSealed, isCharUncapped, isCharUncappedOverride, isMutual: Bool
-
+    
     enum CodingKeys: String, CodingKey {
         case userID = "user_id"
         case name
@@ -62,6 +64,6 @@ struct UserInfoContent: Codable {
         case isMutual = "is_mutual"
         case code
     }
-
-    static let emptyUserInfoContent = UserInfoContent(userID: 0, name: "Empty User", recentScore: [], character: 0, joinDate: 0, rating: 0, code: "0", isSkillSealed: false, isCharUncapped: false, isCharUncappedOverride: false, isMutual: false)
+    
+    static let emptyUserInfoContent = UserInfo(userID: 0, name: "Empty User", recentScore: [], character: 0, joinDate: 0, rating: 0, code: "0", isSkillSealed: false, isCharUncapped: false, isCharUncappedOverride: false, isMutual: false)
 }

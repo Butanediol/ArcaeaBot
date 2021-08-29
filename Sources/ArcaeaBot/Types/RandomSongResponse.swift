@@ -1,11 +1,13 @@
-// MARK: - RandomSong
-struct RandomSong: Codable {
-    let status: Int
-    let content: RandomSongContent
+// MARK: - RandomSongResponse
+
+struct RandomSongResponse: APIRequestResponsable {
+    var status: Int
+    var content: RandomSong
 }
 
 // MARK: - Content
-struct RandomSongContent: Codable {
+
+struct RandomSong: Codable {
     let id: String
     let ratingClass: Int
 

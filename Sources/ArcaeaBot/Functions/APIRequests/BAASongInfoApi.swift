@@ -1,6 +1,6 @@
 import Foundation
 
-func getSongInfo(search name: String, completion: @escaping (Result<SongInfo, APIError>) -> Void) {
+func getSongInfo(search name: String, completion: @escaping (Result<SongInfoResponse, APIError>) -> Void) {
     let urlParams = [
         "songname": name,
     ]
@@ -8,7 +8,7 @@ func getSongInfo(search name: String, completion: @escaping (Result<SongInfo, AP
     apiRequest(endpoint: "/song/info", urlParams: urlParams, retry: 2, completion: completion)
 }
 
-func getRandomSong(from start: Int, to end: Int, completion: @escaping (Result<RandomSong, APIError>) -> Void) {
+func getRandomSong(from start: Int, to end: Int, completion: @escaping (Result<RandomSongResponse, APIError>) -> Void) {
     let urlParams = [
         "start": "\(start)",
         "end": "\(end)",

@@ -30,7 +30,7 @@ var multiplayDatabase: Database = {
     return try! databaseEnvironment.openDatabase(named: "multiplay", flags: [.create])
 }()
 
-func saveUserInfo(info: UserInfo, tgUserId: TgUserId) {
+func saveUserInfo(info: UserInfoResponse, tgUserId: TgUserId) {
     do {
         try userInfoDatabase.put(value: info, forKey: tgUserId)
     } catch {
@@ -38,9 +38,9 @@ func saveUserInfo(info: UserInfo, tgUserId: TgUserId) {
     }
 }
 
-func getUserInfoFromDatabase(tgUserId: TgUserId) -> UserInfo? {
+func getUserInfoFromDatabase(tgUserId: TgUserId) -> UserInfoResponse? {
     do {
-        return try userInfoDatabase.get(type: UserInfo.self, forKey: tgUserId)
+        return try userInfoDatabase.get(type: UserInfoResponse.self, forKey: tgUserId)
     } catch {
         print("Get UserInfoFromDatabase error: \(error.localizedDescription)")
     }
@@ -72,7 +72,7 @@ func getBest30FromDatabase(user: Usercode) -> UserBest30? {
     return nil
 }
 
-func updateBest30FromRecent(_ recent: UserInfo, user: Usercode) {
+func updateBest30FromRecent(_ recent: UserInfoResponse, user: Usercode) {
     guard let oldb30 = getBest30FromDatabase(user: user) else { return }
     guard let recentScore = recent.content.recentScore.first else { return }
 
@@ -135,11 +135,11 @@ func joinMultiplay(room: Int64, tgUserId: TgUserId) -> Multiplay? {
     return newMultiplay
 }
 
-func getAllUserInfo() -> [(TgUserId, UserInfo)] {
-    var allUserInfo: [TgUserId: UserInfo] = [:]
+func getAllUserInfo() -> [(TgUserId, UserInfoResponse)] {
+    var allUserInfo: [TgUserId: UserInfoResponse] = [:]
     for (key, value) in userInfoDatabase {
         let tgUserId = TgUserId(data: key)!
-        let userInfo = UserInfo(data: value)!
+        let userInfo = UserInfoResponse(data: value)!
         allUserInfo[tgUserId] = userInfo
     }
     return allUserInfo.sorted {

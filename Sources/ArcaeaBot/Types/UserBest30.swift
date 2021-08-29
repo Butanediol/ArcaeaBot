@@ -2,12 +2,14 @@ import Foundation
 import SwiftLMDB
 
 // MARK: - UserBest30
-struct UserBest30: Codable {
-    let status: Int
-    let content: UserBest30Content
+
+struct UserBest30: APIRequestResponsable {
+    var status: Int
+    var content: UserBest30Content
 }
 
 // MARK: - Content
+
 struct UserBest30Content: Codable {
     let best30Avg, recent10Avg: Double
     let best30List: [UserPlay]
@@ -20,7 +22,6 @@ struct UserBest30Content: Codable {
         case best30Overflow = "best30_overflow"
     }
 }
-
 
 extension UserBest30: DataConvertible {
     public init?(data: Data) {

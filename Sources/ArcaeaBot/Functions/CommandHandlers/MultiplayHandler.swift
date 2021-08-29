@@ -53,8 +53,8 @@ func multiplayHandler(context: Context) -> Bool {
 		case 0:
 			getRandomSong(from: 2, to: 23) { result in
 				switch result {
-					case .success(let randomSong):
-						multiplay = Multiplay(started: false, song: randomSong.content.id, players: [tgUserId])
+					case .success(let randomSongResponse):
+						multiplay = Multiplay(started: false, song: randomSongResponse.content.id, players: [tgUserId])
 					case .failure(let apiError):
 						requestFailureHandler(context: context, error: apiError)
 				}

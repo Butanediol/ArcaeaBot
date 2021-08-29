@@ -1,12 +1,13 @@
 typealias SongId = String
 
-struct SongInfo: Codable {
-    let status: Int
-    let content: SongInfoContent
+struct SongInfoResponse: Codable, APIRequestResponsable {
+    var status: Int
+    var content: SongInfo
 }
 
 // MARK: - Content
-struct SongInfoContent: Codable {
+
+struct SongInfo: Codable {
     let id: SongId
     let titleLocalized: TitleLocalized
     let artist, bpm: String
@@ -33,6 +34,7 @@ struct SongInfoContent: Codable {
 }
 
 // MARK: - Difficulty
+
 struct SongInfoDifficulty: Codable {
     let ratingClass: Int
     let chartDesigner, jacketDesigner: String
@@ -43,6 +45,7 @@ struct SongInfoDifficulty: Codable {
 }
 
 // MARK: - TitleLocalized
+
 struct TitleLocalized: Codable {
     let en: String
     let ja: String?

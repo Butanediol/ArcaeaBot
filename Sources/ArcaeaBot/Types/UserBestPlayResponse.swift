@@ -1,14 +1,16 @@
 import Foundation
 
 // MARK: - UserBest
-struct UserBest: Codable {
-    let status: Int
-    let content: UserPlay
+
+struct UserBestPlayResponse: APIRequestResponsable {
+    var status: Int
+    var content: UserPlay
 }
 
 typealias PlayScore = Int
 
 // MARK: - UserPlay
+
 struct UserPlay: Codable {
     let songID: String
     let difficulty: Difficulty

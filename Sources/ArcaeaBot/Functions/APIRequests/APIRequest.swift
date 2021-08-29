@@ -11,7 +11,7 @@ internal let sessionConfig: URLSessionConfiguration = {
     return config
 }()
 
-func apiRequest<T>(endpoint: String, urlParams: [String: String], httpMethod: String = "GET", retry: Int, completion: @escaping (Result<T, APIError>) -> Void) where T: Codable {
+func apiRequest<T: APIRequestResponsable>(endpoint: String, urlParams: [String: String], httpMethod: String = "GET", retry: Int, completion: @escaping (Result<T, APIError>) -> Void) {
     print("endpoint: \(endpoint)")
     let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
 
