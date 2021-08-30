@@ -9,7 +9,7 @@ struct RandomSongResponse: APIRequestResponsable {
 
 struct RandomSong: Codable {
     let id: String
-    let ratingClass: Int
+    let ratingClass: Difficulty
 
     enum CodingKeys: String, CodingKey {
         case id

@@ -143,8 +143,10 @@ func getAllUserInfo() -> [(TgUserId, UserInfoResponse)] {
         allUserInfo[tgUserId] = userInfo
     }
     return allUserInfo.sorted {
-        if $0.value.content.rating > $1.value.content.rating { return true }
-        else if $0.value.content.name > $1.value.content.name { return true }
-        else { return false }
+        if $0.value.content.rating != $1.value.content.rating {
+            return $0.value.content.rating > $1.value.content.rating
+        } else {
+            return $0.value.content.name.lowercased() < $1.value.content.name.lowercased()
+        }
     }
 }
