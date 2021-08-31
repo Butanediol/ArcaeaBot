@@ -23,11 +23,7 @@ func rankHandler(context: Context) -> Bool {
         respondText += String(format: "%@ %@ %.2f\n", intToStringRank(i: rank + 1), userInfo.content.name, Double(userInfo.content.rating) / 100)
     }
 
-    context.respondAsync(respondText, replyToMessageId: context.message?.messageId) { message, _ in
-        if let chatId = context.chatId, let message = message {
-            deleteMessageAfter(deadline: .now() + 30, bot: bot, chatId: .chat(chatId), messageId: message.messageId)
-        }
-    }
+    context.sendThenDeleteMessageAsync(after: .now() + 30, text: respondText, replyToMessageId: context.message?.messageId)
 
     return true
 }
