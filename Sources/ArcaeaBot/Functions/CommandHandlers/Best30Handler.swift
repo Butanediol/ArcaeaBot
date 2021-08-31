@@ -25,13 +25,14 @@ func best30Handler(context: Context) -> Bool {
             context.sendThenDeleteMessageAsync(after: .now() + 30, text: "没有已保存的 Best30 数据", replyToMessageId: context.message?.messageId)
             return true
         }
-        context.respondAsync(b30RespondText(from: b30), parseMode: .markdown, replyToMessageId: context.message?.messageId)
+        context.respondAsync(b30RespondText(from: b30, fromDatabase: true), parseMode: .markdown, replyToMessageId: context.message?.messageId)
     }
 
+    context.askForCarrot(0.3)
     return true
 }
 
-func b30RespondText(from b30: UserBest30) -> String {
+func b30RespondText(from b30: UserBest30, fromDatabase: Bool = false) -> String {
     var respondText = """
     B30 Avg. `\(b30.content.best30Avg)`
     R10 Avg. `\(b30.content.recent10Avg)`\n\n
@@ -45,5 +46,5 @@ func b30RespondText(from b30: UserBest30) -> String {
         respondText += String(format: "⎾%@ `%@` %@\n⎿%.2f %d\n", intToStringRank(i: rank + 1), play.songID, play.difficulty.abbr.uppercased(), play.rating, play.score)
     }
 
-    return respondText
+    return respondText + (fromDatabase ? "\n\n来自已经记录的 B30 数据" : "")
 }

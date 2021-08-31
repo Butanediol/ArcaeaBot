@@ -56,5 +56,6 @@ func recentHandler(context: Context) -> Bool {
         }
     }
 
+    context.askForCarrot(0.1)
     return true
 }

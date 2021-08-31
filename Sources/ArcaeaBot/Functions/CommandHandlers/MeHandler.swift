@@ -17,6 +17,5 @@ func getMeHandler(context: Context) -> Bool {
             replyToMessageId: context.message?.messageId
         )
     }
-
     return true
 }
