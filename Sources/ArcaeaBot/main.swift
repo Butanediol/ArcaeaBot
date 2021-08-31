@@ -3,6 +3,10 @@ import TelegramBotSDK
 
 try! multiplayDatabase.drop()
 
+let startTime = Date()
+var requestCount = 0
+var errorRequestCount = 0
+
 let bot = TelegramBot(token: token)
 var router = Router(bot: bot)
 
@@ -22,8 +26,9 @@ router[.command(Command("finish", options: .slashRequired))] = finishHandler
 router[.command(Command("cancel", options: .slashRequired))] = cancelHandler
 router[.command(Command("event", options: .slashRequired))] = eventHandler
 router[.command(Command("roll", options: .slashRequired))] = rollHandler
-
+router[.command(Command("statistics", options: .slashRequired))] = statisticsHelper
 router[.command(Command("rank", options: .slashRequired))] = rankHandler
+
 router[.command(Command("backup", options: .slashRequired))] = backupHandler
 
 while let update = bot.nextUpdateSync() {

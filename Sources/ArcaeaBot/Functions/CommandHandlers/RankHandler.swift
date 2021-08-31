@@ -4,9 +4,8 @@ import TelegramBotSDK
 func rankHandler(context: Context) -> Bool {
     // Currently not available
 
-    let adminList: [Int64] = [803_217_365, 254_213_545]
-
-    guard let fromId = context.fromId, adminList.contains(fromId) else { return true }
+    // let adminList: [Int64] = [803_217_365, 254_213_545]
+    // guard let fromId = context.fromId, adminList.contains(fromId) else { return true }
 
     var respondText = ""
 
@@ -23,7 +22,7 @@ func rankHandler(context: Context) -> Bool {
         respondText += String(format: "%@ %@ %.2f\n", intToStringRank(i: rank + 1), userInfo.content.name, Double(userInfo.content.rating) / 100)
     }
 
-    context.sendThenDeleteMessageAsync(after: .now() + 30, text: respondText, replyToMessageId: context.message?.messageId)
+    context.sendThenDeleteMessageAsync(after: .now() + 15, text: respondText, replyToMessageId: context.message?.messageId)
 
     return true
 }
