@@ -9,7 +9,7 @@ func recentHandler(context: Context) -> Bool {
         tgUserId = replyFrom
     }
     guard let info = getUserInfoFromDatabase(tgUserId: tgUserId), let usercode = info.content.code.toUsercode() else {
-        context.sendThenDeleteMessageAsync(after: .now() + 30, text: "我不认识\(context.message?.replyToMessage == nil ? "你" : " TA")，使用 /bind <ArcID/ArcName> 绑定。", replyToMessageId: context.message?.messageId)
+        context.sendThenDeleteMessageAsync(text: "我不认识\(context.message?.replyToMessage == nil ? "你" : " TA")，使用 /bind <ArcID/ArcName> 绑定。", replyToMessageId: context.message?.messageId)
         return true
     }
 

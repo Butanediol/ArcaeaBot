@@ -8,6 +8,6 @@ func statisticsHelper(context: Context) -> Bool {
     \(errorRequestCount) errors occurred out of \(requestCount) requests.
     Error rate: \(String(format: "%.2f%%", Double(errorRequestCount * 100) / Double(requestCount)))
     """
-    context.sendThenDeleteMessageAsync(after: .now() + 30, text: responseText)
+    context.sendThenDeleteMessageAsync(text: responseText)
     return true
 }

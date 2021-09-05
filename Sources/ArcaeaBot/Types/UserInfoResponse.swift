@@ -17,7 +17,7 @@ extension UserInfoResponse: DataConvertible {
             self = UserInfoResponse(status: -1, content: .emptyUserInfoContent)
         }
     }
-    
+
     public var asData: Data {
         return try! JSONEncoder().encode(self)
     }
@@ -42,7 +42,7 @@ extension UserInfoResponse {
 // MARK: - UserInfo
 
 struct UserInfo: Codable {
-    let userID: Int
+    let userID: Usercode
     let name: String
     let recentScore: [UserPlay]
     let character: Int
@@ -50,7 +50,7 @@ struct UserInfo: Codable {
     let rating: Int
     let code: String
     let isSkillSealed, isCharUncapped, isCharUncappedOverride, isMutual: Bool
-    
+
     enum CodingKeys: String, CodingKey {
         case userID = "user_id"
         case name
@@ -64,6 +64,6 @@ struct UserInfo: Codable {
         case isMutual = "is_mutual"
         case code
     }
-    
+
     static let emptyUserInfoContent = UserInfo(userID: 0, name: "Empty User", recentScore: [], character: 0, joinDate: 0, rating: 0, code: "0", isSkillSealed: false, isCharUncapped: false, isCharUncappedOverride: false, isMutual: false)
 }

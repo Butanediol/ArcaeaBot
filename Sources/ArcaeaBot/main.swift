@@ -33,6 +33,12 @@ router[.command(Command("backup", options: .slashRequired))] = backupHandler
 
 while let update = bot.nextUpdateSync() {
     try router.process(update: update)
+
+    if let inlineQuery = update.inlineQuery {
+        DispatchQueue.main.async {
+            inlineQueryHandler(inlineQuery: inlineQuery)
+        }
+    }
 }
 
 fatalError("Server stopped due to error: \(String(describing: bot.lastError))")

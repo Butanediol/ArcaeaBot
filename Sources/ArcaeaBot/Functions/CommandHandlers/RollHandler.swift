@@ -5,12 +5,12 @@ func rollHandler(context: Context) -> Bool {
     context.sendChatActionAsync(action: "typing")
     let args = context.args.scanWords()
     guard args.count == 2 else {
-        context.sendThenDeleteMessageAsync(after: .now() + 30, text: "参数错误", replyToMessageId: context.message?.messageId)
+        context.sendThenDeleteMessageAsync(text: "参数错误", replyToMessageId: context.message?.messageId)
         return true
     }
 
     guard let arg1 = args[0].toArcDifficulty(), let arg2 = args[1].toArcDifficulty() else {
-        context.sendThenDeleteMessageAsync(after: .now() + 30, text: "难度错误", replyToMessageId: context.message?.messageId)
+        context.sendThenDeleteMessageAsync(text: "难度错误", replyToMessageId: context.message?.messageId)
         return true
     }
 

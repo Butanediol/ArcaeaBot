@@ -22,7 +22,7 @@ func best30Handler(context: Context) -> Bool {
         }
     } else {
         guard let b30 = getBest30FromDatabase(user: info.content.userID) else {
-            context.sendThenDeleteMessageAsync(after: .now() + 30, text: "没有已保存的 Best30 数据", replyToMessageId: context.message?.messageId)
+            context.sendThenDeleteMessageAsync(text: "没有已保存的 Best30 数据", replyToMessageId: context.message?.messageId)
             return true
         }
         context.respondAsync(b30RespondText(from: b30, fromDatabase: true), parseMode: .markdown, replyToMessageId: context.message?.messageId)
