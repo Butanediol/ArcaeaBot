@@ -1,6 +1,24 @@
 import Foundation
 
 extension Date {
+    func formattedString(identifier: String?) -> String {
+        if timeIntervalSince(self) < 2_592_000 {
+            return formattedString()
+        } else {
+            let formatter = DateFormatter()
+            formatter.doesRelativeDateFormatting = true
+            formatter.dateStyle = .short
+            formatter.timeStyle = .long
+            if let identifier = identifier {
+                formatter.locale = Locale(identifier: identifier)
+            }
+
+            let str = formatter.string(from: self)
+            print(str)
+            return str
+        }
+    }
+
     func formattedString() -> String {
         var timeInterval = Int(Date().timeIntervalSince1970 - timeIntervalSince1970)
         var minusFlag = false
