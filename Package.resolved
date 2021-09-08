@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "PythonKit",
+        "repositoryURL": "https://github.com/pvieito/PythonKit.git",
+        "state": {
+          "branch": "master",
+          "revision": "6a05a15feafeb23b368dd86e4f3ac692c3201a77",
+          "version": null
+        }
+      },
+      {
         "package": "SwiftLMDB",
         "repositoryURL": "https://github.com/agisboye/SwiftLMDB.git",
         "state": {

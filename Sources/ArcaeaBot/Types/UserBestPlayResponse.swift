@@ -39,4 +39,6 @@ struct UserPlay: Codable {
         case isCharUncapped = "is_char_uncapped"
         case rating
     }
+
+    static let emptyPlay = UserPlay(songID: "", difficulty: .future, score: 0, shinyPerfectCount: 0, perfectCount: 0, nearCount: 0, missCount: 0, health: 0, modifier: 0, timePlayed: 0, bestClearType: 0, clearType: 0, character: 0, isSkillSealed: false, isCharUncapped: false, rating: 0.0)
 }
