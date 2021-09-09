@@ -1,6 +1,11 @@
 import Foundation
 import TelegramBotSDK
 
+signal(SIGINT) {
+    print("\nSee you next time. Signal \($0).")
+    exit($0)
+}
+
 try! multiplayDatabase.drop()
 
 let startTime = Date()

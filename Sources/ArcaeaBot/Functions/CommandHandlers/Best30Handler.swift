@@ -15,7 +15,7 @@ func best30Handler(context: Context) -> Bool {
             switch result {
             case let .success(b30):
                 saveBest30(b30: b30, user: info.content.userID)
-                let graph = B30Graph(b30: b30.content.best30List)
+                let graph = B30Graph(b30: b30, userInfo: info.content)
                 let imageData = graph.draw()
                 context.bot.sendPhotoAsync(chatId: .chat(context.chatId ?? 0), photo: .inputFile(InputFile(filename: "b30.png", data: imageData)))
                 context.respondAsync(b30RespondText(from: b30), parseMode: .markdown, replyToMessageId: context.message?.messageId)
@@ -28,7 +28,7 @@ func best30Handler(context: Context) -> Bool {
             context.sendThenDeleteMessageAsync(text: "没有已保存的 Best30 数据", replyToMessageId: context.message?.messageId)
             return true
         }
-        let graph = B30Graph(b30: b30.content.best30List)
+        let graph = B30Graph(b30: b30, userInfo: info.content)
         let imageData = graph.draw()
         context.bot.sendPhotoAsync(chatId: .chat(context.chatId ?? 0), photo: .inputFile(InputFile(filename: "b30.png", data: imageData)))
         context.respondAsync(b30RespondText(from: b30, fromDatabase: true), parseMode: .markdown, replyToMessageId: context.message?.messageId)
