@@ -68,25 +68,26 @@ struct B30Graph {
     }
 
     func draw() -> Data {
-        let image = Image.open(bgDarkUrl.path).convert("RGBA")
-        let smallFont = ImageFont.truetype(fontUrl.path, 10)
-        let mediumFont = ImageFont.truetype(fontUrl.path, 18)
+        var image = Image.open(bgDarkUrl.path).convert("RGBA")
+        image = image.resize(Tuple(2572, 1930))
+        let smallFont = ImageFont.truetype(fontUrl.path, 20)
+        let mediumFont = ImageFont.truetype(fontUrl.path, 36)
         // let largeFont = ImageFont.truetype(fontUrl.path, 48)
 
         let draw = ImageDraw.Draw(image)
 
         for i in 1 ... 5 {
             for j in 1 ... 6 {
-                let topLeftX = 103 + (i - 1) * 220
-                let topLeftY = 73 + (j - 1) * 140
-                let bottomRightX = topLeftX + 200
-                let bottomRightY = topLeftY + 120
+                let topLeftX = 103 * 2 + (i - 1) * 220 * 2
+                let topLeftY = 73 * 2 + (j - 1) * 140 * 2
+                let bottomRightX = topLeftX + 200 * 2
+                let bottomRightY = topLeftY + 120 * 2
 
                 let index = (j - 1) * 5 + i
                 let play = b30play[index - 1]
                 let isPM = (play.score >= 10_000_000) ? true : false
                 let isFR = (play.missCount == 0) ? true : false
-                let length = max(10_000_000, play.score) * 200 / 10_000_000
+                let length = max(10_000_000, play.score) * 200 / 10_000_000 * 2
                 let diffColor: PILColor = {
                     switch play.difficulty {
                     case .past:
@@ -109,21 +110,21 @@ struct B30Graph {
                     draw.rectangle([Tuple(topLeftX, bottomRightY - 5), Tuple(topLeftX + length, bottomRightY)], PILColor(255, 255, 255).tuple)
                 }
 
-                draw.text(Tuple(topLeftX + 10, topLeftY + 10), "#\(String(format: "%02d", index))", PILColor(255, 255, 255, 128).tuple, mediumFont)
+                draw.text(Tuple(topLeftX + 10 * 2, topLeftY + 10 * 2), "#\(String(format: "%02d", index))", PILColor(255, 255, 255, 128).tuple, mediumFont)
                 // draw.rectangle([Tuple(topLeftX + 10, topLeftY + 33), Tuple(topLeftX + 12, topLeftY + 47)], diffColor.tuple)
                 // draw.text(Tuple(topLeftX + 15, topLeftY + 28), play.songID.capitalized, PILColor.white.tuple, mediumFont)
-                draw.text(Tuple(topLeftX + 10, topLeftY + 28), play.songID.capitalized, diffColor.tuple, mediumFont)
-                draw.text(Tuple(topLeftX + 10, topLeftY + 68), "\(play.perfectCount)(+\(play.shinyPerfectCount))/\(play.nearCount)/\(play.missCount)  PTT: \(String(format: "%.2f", play.rating))", "#ffffff", smallFont)
-                draw.text(Tuple(topLeftX + 10, topLeftY + 81), "\(play.score)", PILColor.white.tuple, mediumFont)
+                draw.text(Tuple(topLeftX + 10 * 2, topLeftY + 28 * 2), play.songID.capitalized, diffColor.tuple, mediumFont)
+                draw.text(Tuple(topLeftX + 10 * 2, topLeftY + 68 * 2), "\(play.perfectCount)(+\(play.shinyPerfectCount))/\(play.nearCount)/\(play.missCount)  PTT: \(String(format: "%.2f", play.rating))", "#ffffff", smallFont)
+                draw.text(Tuple(topLeftX + 10 * 2, topLeftY + 81 * 2), "\(play.score)", PILColor.white.tuple, mediumFont)
             }
         }
 
-        draw.rectangle([Tuple(103, 917), Tuple(1183, 941)], PILColor.black.tuple)
-        draw.text([103 + 2, 917], "B30 Avg. \(String(format: "%.3f", b30.content.best30Avg))", PILColor.white.tuple, mediumFont)
-        draw.text([323 + 2, 917], "R10 Avg. \(String(format: "%.3f", b30.content.recent10Avg))", PILColor.white.tuple, mediumFont)
-        draw.text([543 + 2, 917], "Player: \(userInfo.name)", PILColor.white.tuple, mediumFont)
-        draw.text([763 + 2, 917], "PTT: \(String(format: "%.2f", Double(userInfo.rating) / 100))", PILColor.white.tuple, mediumFont)
-        draw.text([970 + 2, 917], "Telegram@lowirosucksbot", PILColor.white.tuple, mediumFont)
+        draw.rectangle([Tuple(103 * 2, 917 * 2), Tuple(1183 * 2, 941 * 2)], PILColor.black.tuple)
+        draw.text([103 * 2 + 2, 917 * 2], "B30 Avg. \(String(format: "%.3f", b30.content.best30Avg))", PILColor.white.tuple, mediumFont)
+        draw.text([323 * 2 + 2, 917 * 2], "R10 Avg. \(String(format: "%.3f", b30.content.recent10Avg))", PILColor.white.tuple, mediumFont)
+        draw.text([543 * 2 + 2, 917 * 2], "Player: \(userInfo.name)", PILColor.white.tuple, mediumFont)
+        draw.text([763 * 2 + 2, 917 * 2], "PTT: \(String(format: "%.2f", Double(userInfo.rating) / 100))", PILColor.white.tuple, mediumFont)
+        draw.text([970 * 2 + 2, 917 * 2], "Telegram@lowirosucksbot", PILColor.white.tuple, mediumFont)
 
         let savePath = URL(fileURLWithPath: "/tmp/\(UUID().uuidString).png")
         image.save(savePath.path)
