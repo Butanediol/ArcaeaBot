@@ -25,6 +25,28 @@ Telegram Arcaea 查分 Bot
 /cancel - 取消当前的多人游戏。
 ```
 
+## 运行
+
+### 预编译文件
+
+在 release 下载对应平台的预编译二进制文件。
+
+安装 python3 和 pillow。
+
+```bash
+pip3 install pillow
+```
+
+### 自行构建
+
+编译步骤见下文。
+
+安装 python3 和 pillow。
+
+```bash
+pip3 install pillow
+```
+
 ## 构建
 
 1. Clone 项目到本地

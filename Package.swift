@@ -3,6 +3,17 @@
 
 import PackageDescription
 
+var linkerSettings: [LinkerSetting]? {
+    #if os(Linux)
+        return [
+            .linkedLibrary("CFURLSessionInterface"),
+            .linkedLibrary("curl"),
+        ]
+    #else
+        return nil
+    #endif
+}
+
 let package = Package(
     name: "ArcaeaBot",
     platforms: [
@@ -27,7 +38,8 @@ let package = Package(
             ],
             resources: [
                 .process("Resources"),
-            ]
+            ],
+            linkerSettings: linkerSettings
         ),
     ]
 )
