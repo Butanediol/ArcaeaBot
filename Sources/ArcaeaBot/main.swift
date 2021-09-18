@@ -34,6 +34,9 @@ router[.command(Command("roll", options: .slashRequired))] = rollHandler
 router[.command(Command("statistics", options: .slashRequired))] = statisticsHelper
 router[.command(Command("rank", options: .slashRequired))] = rankHandler
 
+router[.newChatMembers] = welcomeHandler
+router[.leftChatMember] = goodbyeHandler
+
 router[.command(Command("backup", options: .slashRequired))] = backupHandler
 
 while let update = bot.nextUpdateSync() {
