@@ -37,6 +37,18 @@ Telegram Arcaea 查分 Bot
 pip3 install pillow
 ```
 
+解压
+
+```bash
+tar xzf ${version}-${platform}-${architecture}.tar.gz
+```
+
+设定环境变量并运行
+
+```bash
+TELEGRAM_BOT_TOKEN=*** BAA_URL=*** BAA_USER_AGENT=*** ./ArcaeaBot
+```
+
 ### 自行构建
 
 编译步骤见下文。
