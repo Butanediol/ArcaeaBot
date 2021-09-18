@@ -123,7 +123,7 @@ struct B30Graph {
         draw.text([103 * 2 + 2, 917 * 2], "B30 Avg. \(String(format: "%.3f", b30.content.best30Avg))", PILColor.white.tuple, mediumFont)
         draw.text([323 * 2 + 2, 917 * 2], "R10 Avg. \(String(format: "%.3f", b30.content.recent10Avg))", PILColor.white.tuple, mediumFont)
         draw.text([543 * 2 + 2, 917 * 2], "Player: \(userInfo.name)", PILColor.white.tuple, mediumFont)
-        draw.text([763 * 2 + 2, 917 * 2], "PTT: \(String(format: "%.2f", Double(userInfo.rating) / 100))", PILColor.white.tuple, mediumFont)
+        draw.text([763 * 2 + 2, 917 * 2], "PTT: \(String(format: "%.2f", b30.content.best30Avg * 0.75 + b30.content.recent10Avg * 0.25))", PILColor.white.tuple, mediumFont)
         draw.text([970 * 2 + 2, 917 * 2], "Telegram@lowirosucksbot", PILColor.white.tuple, mediumFont)
 
         let savePath = URL(fileURLWithPath: "/tmp/\(UUID().uuidString).png")
