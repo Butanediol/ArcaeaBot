@@ -11,7 +11,7 @@ struct SongInfo: Codable {
     let id: SongId
     let titleLocalized: TitleLocalized
     let artist, bpm: String
-    let bpmBase: Int
+    let bpmBase: Double
     let contentSet: String
     let audioTimeSEC, side: Int
     let remoteDL, worldUnlock: Bool
