@@ -4,7 +4,7 @@ import TelegramBotSDK
 func inlineQueryHandler(inlineQuery: InlineQuery) {
     var inlineQueryResultArticles: [InlineQueryResultArticle] = []
     defer {
-        bot.answerInlineQueryAsync(inlineQueryId: inlineQuery.id, results: inlineQueryResultArticles.map { InlineQueryResult.article($0) })
+        bot.answerInlineQueryAsync(inlineQueryId: inlineQuery.id, results: inlineQueryResultArticles.map { InlineQueryResult.article($0) }, cacheTime: 5)
     }
 
     let tgUserId = inlineQuery.from.id
@@ -29,31 +29,6 @@ func inlineQueryHandler(inlineQuery: InlineQuery) {
         )
     )
 
-    if let recent = info.content.recentScore.first {
-        let respondText = """
-        Name: `\(info.content.name)`
-        PTT: `\(String(format: "%.2f", Double(info.content.rating) / 100))`
-
-        Recent Play: \(Date(timeIntervalSince1970: Double(recent.timePlayed) / 1000).formattedString())
-        Song: `\(recent.songID)`
-        Difficulty: `\(recent.difficulty.name.capitalized)`
-        Play PTT: `\(String(format: "%.2f", recent.rating))`
-        Score: `\(recent.score)`
-        Pure: `\(recent.perfectCount)(+\(recent.shinyPerfectCount))`
-        Far: `\(recent.nearCount)`
-        Lost: `\(recent.missCount)`
-        """
-
-        inlineQueryResultArticles.append(
-            InlineQueryResultArticle(
-                type: "article",
-                id: UUID().uuidString,
-                title: "已经记录的 Recent 数据",
-                inputMessageContent: .text(InputTextMessageContent(messageText: respondText, parseMode: .markdown))
-            )
-        )
-    }
-
     if let b30 = getBest30FromDatabase(user: info.content.userID) {
         inlineQueryResultArticles.append(
             InlineQueryResultArticle(
@@ -64,4 +39,46 @@ func inlineQueryHandler(inlineQuery: InlineQuery) {
             )
         )
     }
+
+    let sema = DispatchSemaphore(value: 0)
+
+    guard let userCode = info.content.code.toUsercode() else {
+        return
+    }
+
+    getUserInfo(user: .userCode(userCode), recent: 1) { result in
+        switch result {
+        case let .success(info):
+            saveUserInfo(info: info, tgUserId: tgUserId)
+            if let recent = info.content.recentScore.first {
+                let respondText = """
+                Name: `\(info.content.name)`
+                PTT: `\(String(format: "%.2f", Double(info.content.rating) / 100))`
+
+                Recent Play: \(Date(timeIntervalSince1970: Double(recent.timePlayed) / 1000).formattedString())
+                Song: `\(recent.songID)`
+                Difficulty: `\(recent.difficulty.name.capitalized)`
+                Play PTT: `\(String(format: "%.2f", recent.rating))`
+                Score: `\(recent.score)`
+                Pure: `\(recent.perfectCount)(+\(recent.shinyPerfectCount))`
+                Far: `\(recent.nearCount)`
+                Lost: `\(recent.missCount)`
+                """
+
+                inlineQueryResultArticles.append(
+                    InlineQueryResultArticle(
+                        type: "article",
+                        id: UUID().uuidString,
+                        title: "Recent 数据",
+                        inputMessageContent: .text(InputTextMessageContent(messageText: respondText, parseMode: .markdown))
+                    )
+                )
+            }
+        case let .failure(apiError):
+            print(apiError.localizedDescription)
+        }
+        sema.signal()
+    }
+
+    sema.wait()
 }
