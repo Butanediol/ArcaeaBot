@@ -29,7 +29,6 @@ router[.command(Command("join", options: .slashRequired))] = joinHandler
 router[.command(Command("begin", options: .slashRequired))] = beginHandler
 router[.command(Command("finish", options: .slashRequired))] = finishHandler
 router[.command(Command("cancel", options: .slashRequired))] = cancelHandler
-router[.command(Command("event", options: .slashRequired))] = eventHandler
 router[.command(Command("roll", options: .slashRequired))] = rollHandler
 router[.command(Command("statistics", options: .slashRequired))] = statisticsHelper
 router[.command(Command("rank", options: .slashRequired))] = rankHandler
