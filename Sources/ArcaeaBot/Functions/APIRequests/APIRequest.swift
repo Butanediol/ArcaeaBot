@@ -7,8 +7,8 @@ import Foundation
 internal let sessionConfig: URLSessionConfiguration = {
     let config = URLSessionConfiguration.ephemeral
     config.httpMaximumConnectionsPerHost = 1
-    config.timeoutIntervalForRequest = 60
-    config.timeoutIntervalForResource = 120
+    config.timeoutIntervalForRequest = 120
+    config.timeoutIntervalForResource = 240
     return config
 }()
 
