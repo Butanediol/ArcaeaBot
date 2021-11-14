@@ -33,8 +33,8 @@ func recentHandler(context: Context) -> Bool {
                     Name: `\(info.content.name)`
                     PTT: `\(String(format: "%.2f", Double(info.content.rating) / 100))`
 
-                    Recent Play: \(Date(timeIntervalSince1970: Double(play.timePlayed) / 1000).formattedString())
-                    Song: `\(play.songID)`
+                    Recent: \(Date(timeIntervalSince1970: Double(play.timePlayed) / 1000).formattedString())
+                    Song: `\(songlist.safeGetSongTitle(id: play.songID).en)`
                     Difficulty: `\(play.difficulty.name.capitalized) \(String(format: "%.1f", ratingReal))`
                     Play PTT: `\(String(format: "%.2f", play.rating))`
                     Score: `\(play.score)`

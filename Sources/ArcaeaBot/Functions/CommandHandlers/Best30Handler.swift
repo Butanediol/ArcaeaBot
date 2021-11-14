@@ -47,7 +47,7 @@ func b30RespondText(from b30: UserBest30, fromDatabase: Bool = false) -> String 
         let rank = b30.content.best30List.rankingWithTie(index: index) {
             $0.rating == $1.rating
         }
-        respondText += String(format: "⎾%@ `%@` %@\n⎿%.2f %d\n", intToStringRank(i: rank + 1), play.songID, play.difficulty.abbr.uppercased(), play.rating, play.score)
+        respondText += String(format: "⎾%@ `%@` %@\n⎿%.2f %d\n", intToStringRank(i: rank + 1), songlist.safeGetSongTitle(id: play.songID).en, play.difficulty.abbr.uppercased(), play.rating, play.score)
     }
 
     return respondText + (fromDatabase ? "\n\n来自已经记录的 B30 数据" : "")

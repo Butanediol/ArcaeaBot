@@ -113,7 +113,7 @@ struct B30Graph {
                 draw.text(Tuple(topLeftX + 10 * 2, topLeftY + 10 * 2), "#\(String(format: "%02d", index))", PILColor(255, 255, 255, 128).tuple, mediumFont)
                 // draw.rectangle([Tuple(topLeftX + 10, topLeftY + 33), Tuple(topLeftX + 12, topLeftY + 47)], diffColor.tuple)
                 // draw.text(Tuple(topLeftX + 15, topLeftY + 28), play.songID.capitalized, PILColor.white.tuple, mediumFont)
-                draw.text(Tuple(topLeftX + 10 * 2, topLeftY + 28 * 2), play.songID.capitalized, diffColor.tuple, mediumFont)
+                draw.text(Tuple(topLeftX + 10 * 2, topLeftY + 28 * 2), songlist.safeGetSongTitle(id: play.songID).en, diffColor.tuple, mediumFont)
                 draw.text(Tuple(topLeftX + 10 * 2, topLeftY + 68 * 2), "\(play.perfectCount)(+\(play.shinyPerfectCount))/\(play.nearCount)/\(play.missCount)  PTT: \(String(format: "%.2f", play.rating))", "#ffffff", smallFont)
                 draw.text(Tuple(topLeftX + 10 * 2, topLeftY + 81 * 2), "\(play.score)", PILColor.white.tuple, mediumFont)
             }

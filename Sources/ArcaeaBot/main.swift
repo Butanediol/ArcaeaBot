@@ -12,6 +12,8 @@ let startTime = Date()
 var requestCount = 0
 var errorRequestCount = 0
 
+let songlist = ARCSonglist.shared
+
 let bot = TelegramBot(token: token)
 var router = Router(bot: bot)
 
