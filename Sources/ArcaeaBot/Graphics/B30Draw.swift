@@ -9,6 +9,7 @@ let ImageDraw = Python.import("PIL.ImageDraw")
 
 let bgDarkUrl = Bundle.module.url(forResource: "bg_dark", withExtension: "jpg")!
 let fontUrl = Bundle.module.url(forResource: "Exo-Regular", withExtension: "ttf")!
+let titleFontUrl = Bundle.module.url(forResource: "Kazesawa-Regular", withExtension: "ttf")!
 
 struct PILColor {
     private let red: Int
@@ -72,7 +73,7 @@ struct B30Graph {
         image = image.resize(Tuple(2572, 1930))
         let smallFont = ImageFont.truetype(fontUrl.path, 20)
         let mediumFont = ImageFont.truetype(fontUrl.path, 36)
-        // let largeFont = ImageFont.truetype(fontUrl.path, 48)
+        let titleFont = ImageFont.truetype(titleFontUrl.path, 36)
 
         let draw = ImageDraw.Draw(image)
 
