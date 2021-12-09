@@ -1,6 +1,7 @@
 {
   "songs": [
     {
+      "idx": 0,
       "id": "sayonarahatsukoi",
       "title_localized": {
         "en": "Sayonara Hatsukoi"
@@ -38,6 +39,7 @@
       ]
     },
     {
+      "idx": 1,
       "id": "lostcivilization",
       "title_localized": {
         "en": "Lost Civilization"
@@ -83,6 +85,7 @@
       ]
     },
     {
+      "idx": 2,
       "id": "goodtek",
       "title_localized": {
         "en": "GOODTEK (Arcaea Edit)"
@@ -129,6 +132,7 @@
       ]
     },
     {
+      "idx": 3,
       "id": "viyella",
       "title_localized": {
         "en": "cry of viyella"
@@ -167,6 +171,7 @@
       ]
     },
     {
+      "idx": 4,
       "id": "rise",
       "title_localized": {
         "en": "Rise"
@@ -204,6 +209,7 @@
       ]
     },
     {
+      "idx": 5,
       "id": "lucifer",
       "title_localized": {
         "en": "Lucifer"
@@ -242,6 +248,7 @@
       ]
     },
     {
+      "idx": 6,
       "id": "fairytale",
       "title_localized": {
         "en": "Fairytale"
@@ -286,6 +293,7 @@
       ]
     },
     {
+      "idx": 7,
       "id": "hearditsaid",
       "title_localized": {
         "en": "I've heard it said"
@@ -324,6 +332,7 @@
       ]
     },
     {
+      "idx": 8,
       "id": "babaroque",
       "title_localized": {
         "en": "Babaroque"
@@ -362,6 +371,7 @@
       ]
     },
     {
+      "idx": 9,
       "id": "memoryfactory",
       "title_localized": {
         "en": "memoryfactory.lzh"
@@ -400,6 +410,7 @@
       ]
     },
     {
+      "idx": 10,
       "id": "snowwhite",
       "title_localized": {
         "en": "Snow White"
@@ -437,6 +448,7 @@
       ]
     },
     {
+      "idx": 11,
       "id": "relentless",
       "title_localized": {
         "en": "Relentless"
@@ -475,6 +487,7 @@
       ]
     },
     {
+      "idx": 12,
       "id": "shadesoflight",
       "title_localized": {
         "en": "Shades of Light in a Transcendent Realm"
@@ -513,6 +526,7 @@
       ]
     },
     {
+      "idx": 13,
       "id": "vexaria",
       "title_localized": {
         "en": "Vexaria"
@@ -557,6 +571,7 @@
       ]
     },
     {
+      "idx": 14,
       "id": "essenceoftwilight",
       "title_localized": {
         "en": "Essence of Twilight"
@@ -596,6 +611,7 @@
       ]
     },
     {
+      "idx": 15,
       "id": "qualia",
       "title_localized": {
         "en": "qualia -ideaesthesia-"
@@ -630,10 +646,19 @@
           "chartDesigner": "-chartaesthesia-",
           "jacketDesigner": "Khronetic",
           "rating": 9
+        },
+        {
+          "ratingClass": 3,
+          "chartDesigner": "moonquay -end of chartaesthesia-",
+          "jacketDesigner": "khronetic -synesthesia-",
+          "rating": 9,
+          "jacketOverride": true,
+          "ratingPlus": true
         }
       ]
     },
     {
+      "idx": 16,
       "id": "pragmatism",
       "title_localized": {
         "en": "PRAGMATISM"
@@ -669,10 +694,22 @@
           "chartDesigner": "東星",
           "jacketDesigner": "シエラ",
           "rating": 10
+        },
+        {
+          "ratingClass": 3,
+          "title_localized": {
+            "en": "PRAGMATISM -RESURRECTION-"
+          },
+          "audioOverride": true,
+          "chartDesigner": "THE LAST DREAM",
+          "jacketDesigner": "シエラ",
+          "jacketOverride": true,
+          "rating": 11
         }
       ]
     },
     {
+      "idx": 17,
       "id": "sheriruth",
       "title_localized": {
         "en": "Sheriruth"
@@ -712,6 +749,7 @@
       ]
     },
     {
+      "idx": 18,
       "id": "lumia",
       "title_localized": {
         "en": "Lumia"
@@ -757,6 +795,7 @@
       ]
     },
     {
+      "idx": 19,
       "id": "dement",
       "title_localized": {
         "en": "Dement ~after legend~"
@@ -802,6 +841,7 @@
       ]
     },
     {
+      "idx": 20,
       "id": "dandelion",
       "title_localized": {
         "en": "Dandelion"
@@ -839,6 +879,7 @@
       ]
     },
     {
+      "idx": 21,
       "id": "anokumene",
       "title_localized": {
         "en": "Anökumene",
@@ -880,6 +921,7 @@
       ]
     },
     {
+      "idx": 22,
       "id": "infinityheaven",
       "title_localized": {
         "en": "Infinity Heaven"
@@ -924,6 +966,7 @@
       ]
     },
     {
+      "idx": 23,
       "id": "partyvinyl",
       "title_localized": {
         "en": "Party Vinyl"
@@ -962,6 +1005,7 @@
       ]
     },
     {
+      "idx": 24,
       "id": "flashback",
       "title_localized": {
         "en": "Flashback"
@@ -1000,6 +1044,7 @@
       ]
     },
     {
+      "idx": 25,
       "id": "flyburg",
       "title_localized": {
         "en": "Flyburg and Endroll",
@@ -1039,6 +1084,7 @@
       ]
     },
     {
+      "idx": 26,
       "id": "nirvluce",
       "title_localized": {
         "en": "Nirv lucE"
@@ -1077,6 +1123,7 @@
       ]
     },
     {
+      "idx": 27,
       "id": "paradise",
       "title_localized": {
         "en": "Paradise"
@@ -1115,6 +1162,7 @@
       ]
     },
     {
+      "idx": 28,
       "id": "brandnewworld",
       "title_localized": {
         "en": "Brand new world"
@@ -1152,6 +1200,7 @@
       ]
     },
     {
+      "idx": 29,
       "id": "dataerror",
       "title_localized": {
         "en": "DataErr0r"
@@ -1191,6 +1240,7 @@
       ]
     },
     {
+      "idx": 30,
       "id": "crosssoul",
       "title_localized": {
         "en": "CROSS†SOUL"
@@ -1229,6 +1279,7 @@
       ]
     },
     {
+      "idx": 31,
       "id": "yourvoiceso",
       "title_localized": {
         "en": "Your voice so... feat. Such"
@@ -1267,6 +1318,7 @@
       ]
     },
     {
+      "idx": 32,
       "id": "chronostasis",
       "title_localized": {
         "en": "Chronostasis"
@@ -1304,6 +1356,7 @@
       ]
     },
     {
+      "idx": 33,
       "id": "kanagawa",
       "title_localized": {
         "en": "Kanagawa Cyber Culvert",
@@ -1339,10 +1392,19 @@
           "chartDesigner": "Nitro",
           "jacketDesigner": "白鳥怜",
           "rating": 9
+        },
+        {
+          "ratingClass": 3,
+          "chartDesigner": "Exschwas↓on",
+          "jacketDesigner": "白鳥怜 + Khronetic",
+          "rating": 9,
+          "jacketOverride": true,
+          "ratingPlus": true
         }
       ]
     },
     {
+      "idx": 34,
       "id": "moonlightofsandcastle",
       "title_localized": {
         "en": "Moonlight of Sand Castle"
@@ -1386,6 +1448,7 @@
       ]
     },
     {
+      "idx": 35,
       "id": "reconstruction",
       "title_localized": {
         "en": "REconstruction"
@@ -1429,6 +1492,7 @@
       ]
     },
     {
+      "idx": 36,
       "id": "evoltex",
       "title_localized": {
         "en": "Evoltex (poppi'n mix)"
@@ -1471,6 +1535,7 @@
       ]
     },
     {
+      "idx": 37,
       "id": "oracle",
       "title_localized": {
         "en": "Oracle"
@@ -1514,6 +1579,7 @@
       ]
     },
     {
+      "idx": 38,
       "id": "aterlbus",
       "title_localized": {
         "en": "αterlβus",
@@ -1559,6 +1625,7 @@
       ]
     },
     {
+      "idx": 39,
       "id": "clotho",
       "title_localized": {
         "en": "Clotho and the stargazer",
@@ -1597,6 +1664,7 @@
       ]
     },
     {
+      "idx": 40,
       "id": "impurebird",
       "title_localized": {
         "en": "Impure Bird",
@@ -1636,6 +1704,7 @@
       ]
     },
     {
+      "idx": 41,
       "id": "ignotus",
       "title_localized": {
         "en": "Ignotus"
@@ -1674,6 +1743,7 @@
       ]
     },
     {
+      "idx": 42,
       "id": "lethaeus",
       "title_localized": {
         "en": "Lethaeus"
@@ -1713,6 +1783,7 @@
       ]
     },
     {
+      "idx": 43,
       "id": "romancewars",
       "title_localized": {
         "en": "Romance Wars",
@@ -1752,6 +1823,7 @@
       ]
     },
     {
+      "idx": 44,
       "id": "blossoms",
       "title_localized": {
         "en": "Blossoms"
@@ -1790,6 +1862,7 @@
       ]
     },
     {
+      "idx": 45,
       "id": "moonheart",
       "title_localized": {
         "en": "Moonheart"
@@ -1836,6 +1909,7 @@
       ]
     },
     {
+      "idx": 46,
       "id": "genesis",
       "title_localized": {
         "en": "Genesis"
@@ -1874,6 +1948,7 @@
       ]
     },
     {
+      "idx": 47,
       "id": "harutopia",
       "title_localized": {
         "ja": "ハルトピア ~Utopia of Spring~",
@@ -1913,6 +1988,7 @@
       ]
     },
     {
+      "idx": 48,
       "id": "auxesia",
       "title_localized": {
         "en": "Auxesia"
@@ -1951,6 +2027,7 @@
       ]
     },
     {
+      "idx": 49,
       "id": "rabbitintheblackroom",
       "title_localized": {
         "en": "Rabbit In The Black Room"
@@ -1989,6 +2066,7 @@
       ]
     },
     {
+      "idx": 50,
       "id": "modelista",
       "title_localized": {
         "en": "Modelista"
@@ -2027,6 +2105,7 @@
       ]
     },
     {
+      "idx": 51,
       "id": "soundwitch",
       "title_localized": {
         "en": "SOUNDWiTCH"
@@ -2066,6 +2145,7 @@
       ]
     },
     {
+      "idx": 52,
       "id": "trappola",
       "title_localized": {
         "en": "trappola bewitching",
@@ -2105,6 +2185,7 @@
       ]
     },
     {
+      "idx": 53,
       "id": "iconoclast",
       "title_localized": {
         "en": "Iconoclast"
@@ -2143,6 +2224,7 @@
       ]
     },
     {
+      "idx": 54,
       "id": "conflict",
       "title_localized": {
         "en": "conflict"
@@ -2181,6 +2263,7 @@
       ]
     },
     {
+      "idx": 55,
       "id": "axiumcrisis",
       "title_localized": {
         "en": "Axium Crisis"
@@ -2221,6 +2304,7 @@
       ]
     },
     {
+      "idx": 56,
       "id": "grievouslady",
       "title_localized": {
         "en": "Grievous Lady"
@@ -2261,6 +2345,7 @@
       ]
     },
     {
+      "idx": 57,
       "id": "dreaminattraction",
       "title_localized": {
         "en": "Dreamin' Attraction!!"
@@ -2299,6 +2384,7 @@
       ]
     },
     {
+      "idx": 58,
       "id": "redandblue",
       "title_localized": {
         "en": "Red and Blue"
@@ -2337,6 +2423,7 @@
       ]
     },
     {
+      "idx": 59,
       "id": "onelastdrive",
       "title_localized": {
         "en": "One Last Drive"
@@ -2374,6 +2461,7 @@
       ]
     },
     {
+      "idx": 60,
       "id": "surrender",
       "title_localized": {
         "en": "Surrender"
@@ -2417,6 +2505,7 @@
       ]
     },
     {
+      "idx": 61,
       "id": "yozakurafubuki",
       "title_localized": {
         "en": "Yosakura Fubuki",
@@ -2456,6 +2545,7 @@
       ]
     },
     {
+      "idx": 62,
       "id": "cyanine",
       "title_localized": {
         "en": "cyanine"
@@ -2499,6 +2589,7 @@
       ]
     },
     {
+      "idx": 63,
       "id": "dreamgoeson",
       "title_localized": {
         "en": "Dream goes on"
@@ -2542,6 +2633,7 @@
       ]
     },
     {
+      "idx": 64,
       "id": "journey",
       "title_localized": {
         "en": "Journey"
@@ -2585,6 +2677,7 @@
       ]
     },
     {
+      "idx": 65,
       "id": "specta",
       "title_localized": {
         "en": "Specta"
@@ -2628,6 +2721,7 @@
       ]
     },
     {
+      "idx": 66,
       "id": "quon",
       "title_localized": {
         "en": "Quon"
@@ -2668,6 +2762,7 @@
       ]
     },
     {
+      "idx": 67,
       "id": "syro",
       "title_localized": {
         "en": "Syro"
@@ -2706,6 +2801,7 @@
       ]
     },
     {
+      "idx": 68,
       "id": "reinvent",
       "title_localized": {
         "en": "Reinvent"
@@ -2743,6 +2839,7 @@
       ]
     },
     {
+      "idx": 69,
       "id": "silentrush",
       "title_localized": {
         "en": "Silent Rush"
@@ -2781,6 +2878,7 @@
       ]
     },
     {
+      "idx": 70,
       "id": "singularity",
       "title_localized": {
         "en": "Singularity"
@@ -2820,6 +2918,7 @@
       ]
     },
     {
+      "idx": 71,
       "id": "memoryforest",
       "title_localized": {
         "en": "Memory Forest"
@@ -2859,6 +2958,7 @@
       ]
     },
     {
+      "idx": 72,
       "id": "strongholds",
       "title_localized": {
         "en": "Strongholds"
@@ -2897,6 +2997,7 @@
       ]
     },
     {
+      "idx": 73,
       "id": "nexttoyou",
       "title_localized": {
         "en": "next to you"
@@ -2942,6 +3043,7 @@
       ]
     },
     {
+      "idx": 74,
       "id": "metallicpunisher",
       "title_localized": {
         "en": "Metallic Punisher"
@@ -2980,6 +3082,7 @@
       ]
     },
     {
+      "idx": 75,
       "id": "blaster",
       "title_localized": {
         "en": "Blaster"
@@ -3019,6 +3122,7 @@
       ]
     },
     {
+      "idx": 76,
       "id": "guardina",
       "title_localized": {
         "en": "γuarδina",
@@ -3061,6 +3165,7 @@
       ]
     },
     {
+      "idx": 77,
       "id": "carminescythe",
       "title_localized": {
         "en": "carmine:scythe"
@@ -3099,6 +3204,7 @@
       ]
     },
     {
+      "idx": 78,
       "id": "bethere",
       "title_localized": {
         "en": "Be There"
@@ -3137,6 +3243,7 @@
       ]
     },
     {
+      "idx": 79,
       "id": "cyberneciacatharsis",
       "title_localized": {
         "en": "Cybernecia Catharsis"
@@ -3175,6 +3282,7 @@
       ]
     },
     {
+      "idx": 80,
       "id": "callmyname",
       "title_localized": {
         "en": "Call My Name feat. Yukacco"
@@ -3213,6 +3321,7 @@
       ]
     },
     {
+      "idx": 81,
       "id": "inkarusi",
       "title_localized": {
         "en": "inkar-usi"
@@ -3250,6 +3359,7 @@
       ]
     },
     {
+      "idx": 82,
       "id": "mazenine",
       "title_localized": {
         "en": "Maze No.9",
@@ -3289,6 +3399,7 @@
       ]
     },
     {
+      "idx": 83,
       "id": "themessage",
       "title_localized": {
         "en": "The Message"
@@ -3328,6 +3439,7 @@
       ]
     },
     {
+      "idx": 84,
       "id": "sulfur",
       "title_localized": {
         "en": "Sulfur"
@@ -3367,6 +3479,7 @@
       ]
     },
     {
+      "idx": 85,
       "id": "halcyon",
       "title_localized": {
         "en": "Halcyon"
@@ -3406,6 +3519,7 @@
       ]
     },
     {
+      "idx": 86,
       "id": "etherstrike",
       "title_localized": {
         "en": "Ether Strike"
@@ -3446,6 +3560,7 @@
       ]
     },
     {
+      "idx": 87,
       "id": "fractureray",
       "title_localized": {
         "en": "Fracture Ray"
@@ -3486,6 +3601,7 @@
       ]
     },
     {
+      "idx": 88,
       "id": "suomi",
       "title_localized": {
         "en": "Suomi"
@@ -3524,6 +3640,7 @@
       ]
     },
     {
+      "idx": 89,
       "id": "bookmaker",
       "title_localized": {
         "en": "Bookmaker (2D Version)"
@@ -3569,6 +3686,7 @@
       ]
     },
     {
+      "idx": 90,
       "id": "darakunosono",
       "title_localized": {
         "ja": "堕楽の園",
@@ -3608,6 +3726,7 @@
       ]
     },
     {
+      "idx": 91,
       "id": "dropdead",
       "title_localized": {
         "en": "dropdead"
@@ -3646,6 +3765,7 @@
       ]
     },
     {
+      "idx": 92,
       "id": "fallensquare",
       "title_localized": {
         "en": "Fallensquare"
@@ -3684,6 +3804,7 @@
       ]
     },
     {
+      "idx": 93,
       "id": "nhelv",
       "title_localized": {
         "en": "Nhelv"
@@ -3723,6 +3844,7 @@
       ]
     },
     {
+      "idx": 94,
       "id": "espebranch",
       "title_localized": {
         "ja": "白道、多希望羊と信じありく。",
@@ -3762,6 +3884,7 @@
       ]
     },
     {
+      "idx": 95,
       "id": "purgatorium",
       "title_localized": {
         "en": "Purgatorium"
@@ -3806,6 +3929,7 @@
       ]
     },
     {
+      "idx": 96,
       "id": "hikari",
       "title_localized": {
         "ja": "光",
@@ -3849,6 +3973,7 @@
       ]
     },
     {
+      "idx": 97,
       "id": "stager",
       "title_localized": {
         "en": "STAGER (ALL STAGE CLEAR)"
@@ -3893,6 +4018,7 @@
       ]
     },
     {
+      "idx": 98,
       "id": "hallofmirrors",
       "title_localized": {
         "en": "Hall of Mirrors"
@@ -3935,6 +4061,7 @@
       ]
     },
     {
+      "idx": 99,
       "id": "linearaccelerator",
       "title_localized": {
         "en": "Linear Accelerator"
@@ -3978,6 +4105,7 @@
       ]
     },
     {
+      "idx": 100,
       "id": "tiferet",
       "title_localized": {
         "en": "Tiferet"
@@ -4020,6 +4148,7 @@
       ]
     },
     {
+      "idx": 101,
       "id": "alexandrite",
       "title_localized": {
         "en": "Alexandrite"
@@ -4058,6 +4187,7 @@
       ]
     },
     {
+      "idx": 102,
       "id": "rugie",
       "title_localized": {
         "en": "Rugie"
@@ -4096,6 +4226,7 @@
       ]
     },
     {
+      "idx": 103,
       "id": "astraltale",
       "title_localized": {
         "en": "Astral tale"
@@ -4135,6 +4266,7 @@
       ]
     },
     {
+      "idx": 104,
       "id": "phantasia",
       "title_localized": {
         "en": "Phantasia"
@@ -4174,6 +4306,7 @@
       ]
     },
     {
+      "idx": 105,
       "id": "empireofwinter",
       "title_localized": {
         "en": "Empire of Winter"
@@ -4213,6 +4346,7 @@
       ]
     },
     {
+      "idx": 106,
       "id": "merlin",
       "title_localized": {
         "en": "MERLIN"
@@ -4258,6 +4392,7 @@
       ]
     },
     {
+      "idx": 107,
       "id": "dxfullmetal",
       "title_localized": {
         "ja": "DX超性能フルメタル少女",
@@ -4305,6 +4440,7 @@
       ]
     },
     {
+      "idx": 108,
       "id": "omakeno",
       "title_localized": {
         "en": "OMAKENO Stroke"
@@ -4350,6 +4486,7 @@
       ]
     },
     {
+      "idx": 109,
       "id": "scarletlance",
       "title_localized": {
         "en": "Scarlet Lance"
@@ -4395,6 +4532,7 @@
       ]
     },
     {
+      "idx": 110,
       "id": "ouroboros",
       "title_localized": {
         "en": "ouroboros -twin stroke of the end-"
@@ -4441,6 +4579,7 @@
       ]
     },
     {
+      "idx": 111,
       "id": "libertas",
       "title_localized": {
         "en": "Libertas"
@@ -4480,6 +4619,7 @@
       ]
     },
     {
+      "idx": 112,
       "id": "solitarydream",
       "title_localized": {
         "en": "Solitary Dream",
@@ -4523,6 +4663,7 @@
       ]
     },
     {
+      "idx": 113,
       "id": "antithese",
       "title_localized": {
         "en": "Antithese"
@@ -4558,10 +4699,18 @@
           "chartDesigner": "chaos//engine",
           "jacketDesigner": "釜飯轟々丸 + Khronetic",
           "rating": 8
+        },
+        {
+          "ratingClass": 3,
+          "chartDesigner": "石樂",
+          "jacketDesigner": "釜飯轟々丸 + jht",
+          "jacketOverride": true,
+          "rating": 9
         }
       ]
     },
     {
+      "idx": 114,
       "id": "corruption",
       "title_localized": {
         "en": "Corruption"
@@ -4602,6 +4751,7 @@
       ]
     },
     {
+      "idx": 115,
       "id": "blackterritory",
       "title_localized": {
         "en": "Black Territory"
@@ -4642,6 +4792,7 @@
       ]
     },
     {
+      "idx": 116,
       "id": "viciousheroism",
       "title_localized": {
         "en": "Vicious Heroism"
@@ -4681,6 +4832,7 @@
       ]
     },
     {
+      "idx": 117,
       "id": "cyaegha",
       "title_localized": {
         "en": "Cyaegha"
@@ -4721,6 +4873,7 @@
       ]
     },
     {
+      "idx": 118,
       "id": "revixy",
       "title_localized": {
         "en": "ReviXy"
@@ -4759,6 +4912,7 @@
       ]
     },
     {
+      "idx": 119,
       "id": "grimheart",
       "title_localized": {
         "en": "Grimheart"
@@ -4797,6 +4951,7 @@
       ]
     },
     {
+      "idx": 120,
       "id": "vector",
       "title_localized": {
         "en": "VECTOЯ"
@@ -4835,6 +4990,7 @@
       ]
     },
     {
+      "idx": 121,
       "id": "supernova",
       "title_localized": {
         "en": "SUPERNOVA"
@@ -4874,6 +5030,7 @@
       ]
     },
     {
+      "idx": 122,
       "id": "dottodot",
       "title_localized": {
         "en": "Dot to Dot feat. shully"
@@ -4913,6 +5070,7 @@
       ]
     },
     {
+      "idx": 123,
       "id": "garakuta",
       "title_localized": {
         "en": "Garakuta Doll Play"
@@ -4957,6 +5115,7 @@
       ]
     },
     {
+      "idx": 124,
       "id": "ikazuchi",
       "title_localized": {
         "en": "Ikazuchi",
@@ -5002,6 +5161,7 @@
       ]
     },
     {
+      "idx": 125,
       "id": "worldvanquisher",
       "title_localized": {
         "en": "World Vanquisher"
@@ -5047,6 +5207,7 @@
       ]
     },
     {
+      "idx": 126,
       "id": "dreadnought",
       "title_localized": {
         "en": "Dreadnought"
@@ -5087,6 +5248,7 @@
       ]
     },
     {
+      "idx": 127,
       "id": "particlearts",
       "title_localized": {
         "en": "Particle Arts"
@@ -5126,6 +5288,7 @@
       ]
     },
     {
+      "idx": 128,
       "id": "vindication",
       "title_localized": {
         "en": "Vindication"
@@ -5165,6 +5328,7 @@
       ]
     },
     {
+      "idx": 129,
       "id": "heavensdoor",
       "title_localized": {
         "en": "Heavensdoor"
@@ -5201,10 +5365,19 @@
           "jacketDesigner": "yusi. + Khronetic",
           "rating": 9,
           "ratingPlus": true
+        },
+        {
+          "ratingClass": 3,
+          "chartDesigner": "東星※天の門",
+          "jacketDesigner": "nonokuro",
+          "jacketOverride": true,
+          "rating": 10,
+          "ratingPlus": true
         }
       ]
     },
     {
+      "idx": 130,
       "id": "ringedgenesis",
       "title_localized": {
         "en": "Ringed Genesis"
@@ -5245,6 +5418,7 @@
       ]
     },
     {
+      "idx": 131,
       "id": "chelsea",
       "title_localized": {
         "en": "Chelsea"
@@ -5288,6 +5462,7 @@
       ]
     },
     {
+      "idx": 132,
       "id": "aiueoon",
       "title_localized": {
         "en": "AI[UE]OON"
@@ -5331,6 +5506,7 @@
       ]
     },
     {
+      "idx": 133,
       "id": "melodyoflove",
       "title_localized": {
         "en": "A Wandering Melody of Love",
@@ -5379,6 +5555,7 @@
       ]
     },
     {
+      "idx": 134,
       "id": "tiemedowngently",
       "title_localized": {
         "en": "Tie me down gently"
@@ -5422,6 +5599,7 @@
       ]
     },
     {
+      "idx": 135,
       "id": "valhallazero",
       "title_localized": {
         "en": "Valhalla:0"
@@ -5465,6 +5643,7 @@
       ]
     },
     {
+      "idx": 136,
       "id": "mirzam",
       "title_localized": {
         "en": "Mirzam"
@@ -5504,6 +5683,7 @@
       ]
     },
     {
+      "idx": 137,
       "id": "diode",
       "title_localized": {
         "en": "Diode"
@@ -5543,6 +5723,7 @@
       ]
     },
     {
+      "idx": 138,
       "id": "freefall",
       "title_localized": {
         "en": "FREEF4LL"
@@ -5582,6 +5763,7 @@
       ]
     },
     {
+      "idx": 139,
       "id": "gloryroad",
       "title_localized": {
         "en": "GLORY：ROAD"
@@ -5621,6 +5803,7 @@
       ]
     },
     {
+      "idx": 140,
       "id": "monochromeprincess",
       "title_localized": {
         "en": "Monochrome Princess"
@@ -5660,6 +5843,7 @@
       ]
     },
     {
+      "idx": 141,
       "id": "heavenlycaress",
       "title_localized": {
         "en": "Heavenly caress"
@@ -5700,6 +5884,7 @@
       ]
     },
     {
+      "idx": 142,
       "id": "senkyou",
       "title_localized": {
         "en": "Senkyou"
@@ -5739,6 +5924,7 @@
       ]
     },
     {
+      "idx": 143,
       "id": "filament",
       "title_localized": {
         "en": "Filament"
@@ -5779,6 +5965,7 @@
       ]
     },
     {
+      "idx": 144,
       "id": "avantraze",
       "title_localized": {
         "en": "Avant Raze"
@@ -5818,6 +6005,7 @@
       ]
     },
     {
+      "idx": 145,
       "id": "battlenoone",
       "title_localized": {
         "en": "BATTLE NO.1"
@@ -5858,6 +6046,7 @@
       ]
     },
     {
+      "idx": 146,
       "id": "laqryma",
       "title_localized": {
         "en": "La'qryma of the Wasteland"
@@ -5905,6 +6094,7 @@
       ]
     },
     {
+      "idx": 147,
       "id": "einherjar",
       "title_localized": {
         "en": "Einherjar Joker"
@@ -5945,6 +6135,7 @@
       ]
     },
     {
+      "idx": 148,
       "id": "izana",
       "title_localized": {
         "en": "IZANA"
@@ -5984,6 +6175,7 @@
       ]
     },
     {
+      "idx": 149,
       "id": "saikyostronger",
       "title_localized": {
         "en": "SAIKYO STRONGER",
@@ -6024,6 +6216,7 @@
       ]
     },
     {
+      "idx": 150,
       "id": "worldexecuteme",
       "title_localized": {
         "en": "world.execute(me);"
@@ -6063,6 +6256,7 @@
       ]
     },
     {
+      "idx": 151,
       "id": "blrink",
       "title_localized": {
         "en": "BLRINK"
@@ -6103,6 +6297,7 @@
       ]
     },
     {
+      "idx": 152,
       "id": "oblivia",
       "title_localized": {
         "en": "Oblivia"
@@ -6142,6 +6337,7 @@
       ]
     },
     {
+      "idx": 153,
       "id": "amygdata",
       "title_localized": {
         "en": "amygdata"
@@ -6181,6 +6377,7 @@
       ]
     },
     {
+      "idx": 154,
       "id": "corpssansorganes",
       "title_localized": {
         "en": "corps-sans-organes"
@@ -6220,6 +6417,7 @@
       ]
     },
     {
+      "idx": 155,
       "id": "equilibrium",
       "title_localized": {
         "en": "Equilibrium"
@@ -6259,6 +6457,7 @@
       ]
     },
     {
+      "idx": 156,
       "id": "antagonism",
       "title_localized": {
         "en": "Antagonism"
@@ -6299,6 +6498,7 @@
       ]
     },
     {
+      "idx": 157,
       "id": "lostdesire",
       "title_localized": {
         "en": "Lost Desire"
@@ -6339,6 +6539,7 @@
       ]
     },
     {
+      "idx": 158,
       "id": "dantalion",
       "title_localized": {
         "en": "Dantalion"
@@ -6379,6 +6580,7 @@
       ]
     },
     {
+      "idx": 159,
       "id": "ifi",
       "title_localized": {
         "en": "#1f1e33"
@@ -6419,6 +6621,7 @@
       ]
     },
     {
+      "idx": 160,
       "id": "tempestissimo",
       "title_localized": {
         "en": "Tempestissimo"
@@ -6467,6 +6670,7 @@
       ]
     },
     {
+      "idx": 161,
       "id": "arcahv",
       "title_localized": {
         "en": "Arcahv"
@@ -6511,6 +6715,7 @@
       ]
     },
     {
+      "idx": 162,
       "id": "altale",
       "title_localized": {
         "en": "Altale"
@@ -6551,6 +6756,7 @@
       ]
     },
     {
+      "idx": 163,
       "id": "givemeanightmare",
       "title_localized": {
         "en": "Give Me a Nightmare"
@@ -6590,6 +6796,7 @@
       ]
     },
     {
+      "idx": 164,
       "id": "blacklotus",
       "title_localized": {
         "en": "Black Lotus"
@@ -6630,6 +6837,7 @@
       ]
     },
     {
+      "idx": 165,
       "id": "gekka",
       "title_localized": {
         "en": "Gekka (Short Version)"
@@ -6669,6 +6877,7 @@
       ]
     },
     {
+      "idx": 166,
       "id": "vividtheory",
       "title_localized": {
         "en": "Vivid Theory"
@@ -6708,6 +6917,7 @@
       ]
     },
     {
+      "idx": 167,
       "id": "onefr",
       "title_localized": {
         "en": "1F√"
@@ -6747,6 +6957,7 @@
       ]
     },
     {
+      "idx": 168,
       "id": "scarletcage",
       "title_localized": {
         "en": "Scarlet Cage"
@@ -6787,6 +6998,7 @@
       ]
     },
     {
+      "idx": 169,
       "id": "faintlight",
       "title_localized": {
         "en": "Faint Light (Arcaea Edit)"
@@ -6826,6 +7038,7 @@
       ]
     },
     {
+      "idx": 170,
       "id": "feelssoright",
       "title_localized": {
         "en": "Feels So Right feat. Renko"
@@ -6865,6 +7078,7 @@
       ]
     },
     {
+      "idx": 171,
       "id": "teriqma",
       "title_localized": {
         "en": "Teriqma"
@@ -6909,6 +7123,7 @@
       ]
     },
     {
+      "idx": 172,
       "id": "mahoroba",
       "title_localized": {
         "en": "MAHOROBA"
@@ -6948,6 +7163,7 @@
       ]
     },
     {
+      "idx": 173,
       "id": "badtek",
       "title_localized": {
         "en": "BADTEK"
@@ -6986,9 +7202,9 @@
           "ratingPlus": true
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 174,
       "id": "maliciousmischance",
       "title_localized": {
         "en": "Malicious Mischance"
@@ -7026,9 +7242,9 @@
           "rating": 10
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 175,
       "id": "gothiveofra",
       "title_localized": {
         "en": "Got hive of Ra"
@@ -7073,9 +7289,9 @@
           "ratingPlus": true
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 176,
       "id": "buchigireberserker",
       "title_localized": {
         "en": "BUCHiGiRE Berserker"
@@ -7120,9 +7336,9 @@
           "ratingPlus": true
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 177,
       "id": "galaxyfriends",
       "title_localized": {
         "en": "Galaxy Friends"
@@ -7161,9 +7377,9 @@
           "ratingPlus": true
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 178,
       "id": "crossover",
       "title_localized": {
         "en": "CROSS†OVER"
@@ -7201,9 +7417,9 @@
           "rating": 9
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 179,
       "id": "xeraphinite",
       "title_localized": {
         "en": "Xeraphinite"
@@ -7242,9 +7458,9 @@
           "ratingPlus": true
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 180,
       "id": "lapis",
       "title_localized": {
         "en": "Lapis"
@@ -7282,9 +7498,9 @@
           "rating": 9
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 181,
       "id": "xanatos",
       "title_localized": {
         "en": "Xanatos"
@@ -7322,9 +7538,9 @@
           "rating": 10
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 182,
       "id": "purpleverse",
       "title_localized": {
         "en": "Purple Verse"
@@ -7362,9 +7578,9 @@
           "rating": 9
         }
       ]
-    }    
-	  ,
-	  {
+    },
+    {
+      "idx": 183,
       "id": "alicealamode",
       "title_localized": {
         "en": "Alice à la mode",
@@ -7403,9 +7619,9 @@
           "rating": 9
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 184,
       "id": "eccentrictale",
       "title_localized": {
         "en": "Eccentric Tale"
@@ -7443,9 +7659,9 @@
           "rating": 8
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 185,
       "id": "alicessuitcase",
       "title_localized": {
         "en": "Alice's Suitcase"
@@ -7483,9 +7699,9 @@
           "rating": 9
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 186,
       "id": "jump",
       "title_localized": {
         "en": "Jump"
@@ -7523,9 +7739,9 @@
           "rating": 9
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 187,
       "id": "felis",
       "title_localized": {
         "en": "Felis"
@@ -7563,9 +7779,9 @@
           "rating": 10
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 188,
       "id": "besideyou",
       "title_localized": {
         "en": "Beside You"
@@ -7603,9 +7819,9 @@
           "rating": 8
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 189,
       "id": "heartjackin",
       "title_localized": {
         "en": "Heart Jackin'"
@@ -7644,9 +7860,9 @@
           "ratingPlus": true
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 190,
       "id": "toaliceliddell",
       "title_localized": {
         "en": "To: Alice Liddell",
@@ -7685,9 +7901,9 @@
           "rating": 10
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 191,
       "id": "lazyaddiction",
       "title_localized": {
         "en": "Lazy Addiction"
@@ -7731,9 +7947,9 @@
           "rating": 9
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 192,
       "id": "dazzlehop",
       "title_localized": {
         "en": "Dazzle hop"
@@ -7778,9 +7994,9 @@
           "ratingPlus": true
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 193,
       "id": "viyellastears",
       "title_localized": {
         "en": "Viyella's Tears"
@@ -7824,9 +8040,9 @@
           "rating": 10
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 194,
       "id": "omegafour",
       "title_localized": {
         "en": "ω4",
@@ -7873,9 +8089,9 @@
           "ratingPlus": true
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 195,
       "id": "aprilshowers",
       "title_localized": {
         "en": "April showers",
@@ -7919,9 +8135,9 @@
           "rating": 8
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 196,
       "id": "seventhsense",
       "title_localized": {
         "en": "7thSense"
@@ -7965,9 +8181,9 @@
           "ratingPlus": true
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 197,
       "id": "oshamascramble",
       "title_localized": {
         "en": "Oshama Scramble!"
@@ -8010,9 +8226,9 @@
           "rating": 10
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 198,
       "id": "amazingmightyyyy",
       "title_localized": {
         "en": "AMAZING MIGHTYYYY!!!!"
@@ -8032,7 +8248,7 @@
       },
       "source_copyright": "©SEGA",
       "world_unlock": false,
-      "no_stream": true,   
+      "no_stream": true,
       "date": 1610064003,
       "version": "3.4",
       "difficulties": [
@@ -8056,9 +8272,9 @@
           "ratingPlus": true
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 199,
       "id": "climax",
       "title_localized": {
         "en": "Climax"
@@ -8101,9 +8317,9 @@
           "rating": 10
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 200,
       "id": "lastcelebration",
       "title_localized": {
         "en": "Last Celebration"
@@ -8146,9 +8362,9 @@
           "rating": 10
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 201,
       "id": "gou",
       "title_localized": {
         "en": "Misdeed -la bonté de Dieu et l'origine du mal-",
@@ -8193,9 +8409,9 @@
           "ratingPlus": true
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 202,
       "id": "glow",
       "title_localized": {
         "en": "Glow"
@@ -8233,9 +8449,9 @@
           "rating": 9
         }
       ]
-    }
-	,
+    },
     {
+      "idx": 203,
       "id": "attraqtia",
       "title_localized": {
         "en": "AttraqtiA"
@@ -8273,9 +8489,9 @@
           "rating": 10
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 204,
       "id": "enchantedlove",
       "title_localized": {
         "en": "enchanted love"
@@ -8313,9 +8529,9 @@
           "rating": 8
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 205,
       "id": "take",
       "title_localized": {
         "en": "Bamboo",
@@ -8355,9 +8571,9 @@
           "ratingPlus": true
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 206,
       "id": "gimmedablood",
       "title_localized": {
         "en": "GIMME DA BLOOD"
@@ -8395,9 +8611,9 @@
           "rating": 10
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 207,
       "id": "bassline",
       "title_localized": {
         "en": "Can I Friend You on Bassbook? Lol",
@@ -8436,9 +8652,9 @@
           "rating": 9
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 208,
       "id": "lifeispiano",
       "title_localized": {
         "en": "Life is PIANO"
@@ -8476,9 +8692,9 @@
           "rating": 9
         }
       ]
-    }
-	,
-	{
+    },
+    {
+      "idx": 209,
       "id": "paperwitch",
       "title_localized": {
         "en": "Paper Witch"
@@ -8516,9 +8732,9 @@
           "rating": 8
         }
       ]
-    }
-	,
+    },
     {
+      "idx": 210,
       "id": "crystalgravity",
       "title_localized": {
         "en": "Crystal Gravity"
@@ -8556,9 +8772,9 @@
           "rating": 9
         }
       ]
-    }
-	,
+    },
     {
+      "idx": 211,
       "id": "farawaylight",
       "title_localized": {
         "en": "Far Away Light"
@@ -8597,9 +8813,9 @@
           "ratingPlus": true
         }
       ]
-    }
-	,
+    },
     {
+      "idx": 212,
       "id": "loschen",
       "title_localized": {
         "en": "Löschen"
@@ -8637,9 +8853,9 @@
           "rating": 10
         }
       ]
-    }
-	,
+    },
     {
+      "idx": 213,
       "id": "aegleseeker",
       "title_localized": {
         "en": "Aegleseeker"
@@ -8677,9 +8893,9 @@
           "rating": 11
         }
       ]
-    }
-	,
+    },
     {
+      "idx": 214,
       "id": "coastalhighway",
       "title_localized": {
         "en": "Coastal Highway"
@@ -8717,9 +8933,9 @@
           "rating": 8
         }
       ]
-    }
-	,
+    },
     {
+      "idx": 215,
       "id": "odysseia",
       "title_localized": {
         "en": "ΟΔΥΣΣΕΙΑ"
@@ -8757,9 +8973,9 @@
           "rating": 9
         }
       ]
-    }
-	,
+    },
     {
+      "idx": 216,
       "id": "overwhelm",
       "title_localized": {
         "en": "Overwhelm"
@@ -8797,9 +9013,9 @@
           "rating": 10
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 217,
       "id": "vandalism",
       "title_localized": {
         "en": "Vandalism"
@@ -8838,9 +9054,9 @@
           "ratingPlus": true
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 218,
       "id": "turbocharger",
       "title_localized": {
         "en": "Turbocharger"
@@ -8878,9 +9094,9 @@
           "rating": 8
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 219,
       "id": "theultimacy",
       "title_localized": {
         "en": "THE ULTIMACY"
@@ -8919,9 +9135,9 @@
           "ratingPlus": true
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 220,
       "id": "rekkaresonance",
       "title_localized": {
         "en": "REKKA RESONANCE",
@@ -8961,9 +9177,9 @@
           "ratingPlus": true
         }
       ]
-    }
-	,
-	{
+    },
+    {
+      "idx": 221,
       "id": "kyogenkigo",
       "title_localized": {
         "en": "False Embellishment",
@@ -9002,9 +9218,9 @@
           "rating": 9
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 222,
       "id": "hivemind",
       "title_localized": {
         "en": "HIVEMIND"
@@ -9043,9 +9259,9 @@
           "ratingPlus": true
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 223,
       "id": "seclusion",
       "title_localized": {
         "en": "Seclusion"
@@ -9083,9 +9299,9 @@
           "rating": 10
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 224,
       "id": "smallcloud",
       "title_localized": {
         "en": "Small Cloud Sugar Candy"
@@ -9123,9 +9339,9 @@
           "rating": 9
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 225,
       "id": "alterale",
       "title_localized": {
         "en": "AlterAle"
@@ -9164,9 +9380,9 @@
           "ratingPlus": true
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 226,
       "id": "divinelight",
       "title_localized": {
         "en": "Divine Light of Myriad",
@@ -9206,9 +9422,9 @@
           "ratingPlus": true
         }
       ]
-    }
-	,
-	{
+    },
+    {
+      "idx": 227,
       "id": "mazymetroplex",
       "title_localized": {
         "en": "Mazy Metroplex"
@@ -9249,9 +9465,9 @@
           "ratingPlus": true
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 228,
       "id": "quonwacca",
       "title_localized": {
         "en": "Quon"
@@ -9294,13 +9510,13 @@
           "ratingClass": 3,
           "chartDesigner": "XIII: The Journey/Nitro",
           "jacketDesigner": "",
-		  "jacketOverride": false,
+          "jacketOverride": false,
           "rating": 10
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 229,
       "id": "withu",
       "title_localized": {
         "en": "with U"
@@ -9340,9 +9556,9 @@
           "rating": 9
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 230,
       "id": "genocider",
       "title_localized": {
         "en": "GENOCIDER"
@@ -9383,9 +9599,9 @@
           "ratingPlus": true
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 231,
       "id": "letyoudivermx",
       "title_localized": {
         "en": "Let you DIVE! (nitro rmx)"
@@ -9424,9 +9640,9 @@
           "rating": 9
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 232,
       "id": "sheriruthrmx",
       "title_localized": {
         "en": "Sheriruth (Laur Remix)"
@@ -9465,9 +9681,9 @@
           "rating": 10
         }
       ]
-    }
-	,
+    },
     {
+      "idx": 233,
       "id": "eveninginscarlet",
       "title_localized": {
         "en": "Evening in Scarlet",
@@ -9510,9 +9726,9 @@
           "rating": 9
         }
       ]
-    }
-	,
+    },
     {
+      "idx": 234,
       "id": "bluecomet",
       "title_localized": {
         "en": "blue comet"
@@ -9550,9 +9766,9 @@
           "rating": 8
         }
       ]
-    }
-	,
+    },
     {
+      "idx": 235,
       "id": "energysynergymatrix",
       "title_localized": {
         "en": "ENERGY SYNERGY MATRIX"
@@ -9590,9 +9806,9 @@
           "rating": 9
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 236,
       "id": "gengaozo",
       "title_localized": {
         "en": "G e n g a o z o"
@@ -9630,9 +9846,9 @@
           "rating": 10
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 237,
       "id": "goldenslaughterer",
       "title_localized": {
         "en": "goldenslaughterer"
@@ -9671,9 +9887,9 @@
           "ratingPlus": true
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 238,
       "id": "lastendconductor",
       "title_localized": {
         "en": "lastendconductor"
@@ -9717,9 +9933,9 @@
           "rating": 10
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 239,
       "id": "redolentshape",
       "title_localized": {
         "en": "Redolent Shape"
@@ -9757,9 +9973,9 @@
           "rating": 10
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 240,
       "id": "cosmica",
       "title_localized": {
         "en": "Cosmica"
@@ -9797,9 +10013,9 @@
           "rating": 8
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 241,
       "id": "ascent",
       "title_localized": {
         "en": "Ascent"
@@ -9838,9 +10054,9 @@
           "ratingPlus": true
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 242,
       "id": "livefastdieyoung",
       "title_localized": {
         "en": "Live Fast Die Young"
@@ -9878,9 +10094,9 @@
           "rating": 10
         }
       ]
-    }
-    ,
+    },
     {
+      "idx": 243,
       "id": "summerfireworks",
       "title_localized": {
         "en": "Summer Fireworks of Love",
@@ -9922,6 +10138,210 @@
           "jacketDesigner": "シエラ",
           "rating": 9,
           "ratingPlus": true
+        }
+      ]
+    },
+    {
+      "idx": 244,
+      "id": "firstsnow",
+      "title_localized": {
+        "en": "First Snow"
+      },
+      "artist": "黒魔",
+      "bpm": "88",
+      "bpm_base": 88,
+      "set": "dividedheart",
+      "purchase": "dividedheart",
+      "audioPreview": 49090,
+      "audioPreviewEnd": 73636,
+      "side": 0,
+      "bg": "hime_light",
+      "remote_dl": true,
+      "world_unlock": false,
+      "date": 1639008000,
+      "version": "3.10",
+      "difficulties": [
+        {
+          "ratingClass": 0,
+          "chartDesigner": "Nitro",
+          "jacketDesigner": "ヒトこもる",
+          "rating": 2
+        },
+        {
+          "ratingClass": 1,
+          "chartDesigner": "Nitro",
+          "jacketDesigner": "ヒトこもる",
+          "rating": 4
+        },
+        {
+          "ratingClass": 2,
+          "chartDesigner": "Nitro",
+          "jacketDesigner": "ヒトこもる",
+          "rating": 7
+        }
+      ]
+    },
+    {
+      "idx": 245,
+      "id": "bluerose",
+      "title_localized": {
+        "en": "Blue Rose"
+      },
+      "artist": "Cosmograph",
+      "bpm": "250-295",
+      "bpm_base": 295,
+      "set": "dividedheart",
+      "purchase": "dividedheart",
+      "audioPreview": 47394,
+      "audioPreviewEnd": 75055,
+      "side": 0,
+      "bg": "hime_light",
+      "remote_dl": true,
+      "world_unlock": false,
+      "date": 1639008001,
+      "version": "3.10",
+      "difficulties": [
+        {
+          "ratingClass": 0,
+          "chartDesigner": "CERiNG",
+          "jacketDesigner": "チェリム",
+          "rating": 2
+        },
+        {
+          "ratingClass": 1,
+          "chartDesigner": "CERiNG",
+          "jacketDesigner": "チェリム",
+          "rating": 5
+        },
+        {
+          "ratingClass": 2,
+          "chartDesigner": "CERiNG",
+          "jacketDesigner": "チェリム",
+          "rating": 9
+        }
+      ]
+    },
+    {
+      "idx": 246,
+      "id": "blockedlibrary",
+      "title_localized": {
+        "en": "Blocked Library"
+      },
+      "artist": "影虎。",
+      "bpm": "148",
+      "bpm_base": 148,
+      "set": "dividedheart",
+      "purchase": "dividedheart",
+      "audioPreview": 34054,
+      "audioPreviewEnd": 60000,
+      "side": 1,
+      "bg": "hime_conflict",
+      "remote_dl": true,
+      "world_unlock": false,
+      "date": 1639008002,
+      "version": "3.10",
+      "difficulties": [
+        {
+          "ratingClass": 0,
+          "chartDesigner": "Exschwasion",
+          "jacketDesigner": "めとこ",
+          "rating": 3
+        },
+        {
+          "ratingClass": 1,
+          "chartDesigner": "Exschwasion",
+          "jacketDesigner": "めとこ",
+          "rating": 6
+        },
+        {
+          "ratingClass": 2,
+          "chartDesigner": "Exschwasion",
+          "jacketDesigner": "めとこ",
+          "rating": 9
+        }
+      ]
+    },
+    {
+      "idx": 247,
+      "id": "neokosmo",
+      "title_localized": {
+        "en": "nέο κόsmo",
+        "ko": "neo kosmo",
+        "zh-Hant": "neo kosmo",
+        "zh-Hans": "neo kosmo"
+      },
+      "artist": "ak+q × Street",
+      "bpm": "190",
+      "bpm_base": 190,
+      "set": "dividedheart",
+      "purchase": "dividedheart",
+      "audioPreview": 41684,
+      "audioPreviewEnd": 65684,
+      "side": 1,
+      "bg": "hime_conflict",
+      "remote_dl": true,
+      "world_unlock": false,
+      "date": 1639008003,
+      "version": "3.10",
+      "difficulties": [
+        {
+          "ratingClass": 0,
+          "chartDesigner": "Nitro × Toaster",
+          "jacketDesigner": "久坂んむり",
+          "rating": 4
+        },
+        {
+          "ratingClass": 1,
+          "chartDesigner": "Nitro × Toaster",
+          "jacketDesigner": "久坂んむり",
+          "rating": 7
+        },
+        {
+          "ratingClass": 2,
+          "chartDesigner": "Nitro × Toaster",
+          "jacketDesigner": "久坂んむり",
+          "rating": 9,
+          "ratingPlus": true
+        }
+      ]
+    },
+    {
+      "idx": 248,
+      "id": "lightningscrew",
+      "title_localized": {
+        "en": "Lightning Screw"
+      },
+      "artist": "HiTECH NINJA",
+      "bpm": "190",
+      "bpm_base": 190,
+      "set": "dividedheart",
+      "purchase": "dividedheart",
+      "audioPreview": 12631,
+      "audioPreviewEnd": 36631,
+      "side": 0,
+      "bg": "hime_light",
+      "remote_dl": true,
+      "world_unlock": false,
+      "date": 1639008004,
+      "version": "3.10",
+      "difficulties": [
+        {
+          "ratingClass": 0,
+          "chartDesigner": "東星",
+          "jacketDesigner": "シエラ",
+          "rating": 4
+        },
+        {
+          "ratingClass": 1,
+          "chartDesigner": "東星",
+          "jacketDesigner": "シエラ",
+          "rating": 7
+        },
+        {
+          "ratingClass": 2,
+          "chartDesigner": "東星",
+          "jacketDesigner": "シエラ",
+          "rating": 10
         }
       ]
     }
