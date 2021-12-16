@@ -9,3 +9,4 @@ API.paw
 TELEGRAM_BOT_TOKEN
 Sources/ArcaeaBot/config.swift
 db
+Users.json

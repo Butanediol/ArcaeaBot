@@ -2,30 +2,21 @@
   "object": {
     "pins": [
       {
-        "package": "CLMDB",
-        "repositoryURL": "https://github.com/agisboye/CLMDB.git",
+        "package": "swift-argument-parser",
+        "repositoryURL": "https://github.com/apple/swift-argument-parser",
         "state": {
           "branch": null,
-          "revision": "24fd75459dd82fee490a2609c80a8def94fc695c",
-          "version": "0.9.29"
+          "revision": "e1465042f195f374b94f915ba8ca49de24300a0d",
+          "version": "1.0.2"
         }
       },
       {
-        "package": "PythonKit",
-        "repositoryURL": "https://github.com/pvieito/PythonKit.git",
-        "state": {
-          "branch": "master",
-          "revision": "6a05a15feafeb23b368dd86e4f3ac692c3201a77",
-          "version": null
-        }
-      },
-      {
-        "package": "SwiftLMDB",
-        "repositoryURL": "https://github.com/agisboye/SwiftLMDB.git",
+        "package": "swift-log",
+        "repositoryURL": "https://github.com/apple/swift-log.git",
         "state": {
           "branch": null,
-          "revision": "93707ff1bcfed4b2bc4c945499ce2577f39c381e",
-          "version": "2.1.2"
+          "revision": "5d66f7ba25daf4f94100e7022febf3c75e37a6c7",
+          "version": "1.4.2"
         }
       },
       {
