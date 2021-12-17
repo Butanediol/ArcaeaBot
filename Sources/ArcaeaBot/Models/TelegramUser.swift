@@ -3,12 +3,13 @@ import Foundation
 struct TelegramUser: Codable {
 	let telegramUserId: TelegramUserId
 	let arcaeaFriendCode: ArcaeaFriendCode
+	let userInfo: UserInfo
 }
 
 typealias TelegramUserId = Int64
 typealias ArcaeaFriendCode = Int
 
-actor UserManager {
+class UserManager {
 	private let url: URL
 
 	init(path: String) {
@@ -17,7 +18,7 @@ actor UserManager {
 
 	func getAllUser() -> [TelegramUser] {
 		guard let data = try? Data(contentsOf: url), let users = try? JSONDecoder().decode([TelegramUser].self, from: data) else {
-			print("Error: Failed to get users.")
+			ArcaeaBot.logger.error("Error: Failed to get users.")
 			return []
 		}
 		return users
@@ -29,18 +30,14 @@ actor UserManager {
 			let content = String(data: data, encoding: .utf8)!
 			try content.write(to: url, atomically: true, encoding: .utf8)
 		} catch {
-			print("Error: Failed to save users.")
+			ArcaeaBot.logger.error("Error: Failed to save users.")
 		}
 	}
 
-	func addUser(telegramUserId: TelegramUserId, arcaeaFriendCode: ArcaeaFriendCode) -> TelegramUser? {
+	func addUser(telegramUserId: TelegramUserId, arcaeaFriendCode: ArcaeaFriendCode, userInfo: UserInfo){
 		var users = getAllUser()
-		
-		if let existedUser = getUser(telegramUserId: telegramUserId) { return existedUser }
-
-		users.append(TelegramUser(telegramUserId: telegramUserId, arcaeaFriendCode: arcaeaFriendCode))
+		users.append(TelegramUser(telegramUserId: telegramUserId, arcaeaFriendCode: arcaeaFriendCode, userInfo: userInfo))
 		saveUsers(users)
-		return nil
 	}
 
 	func deleteUser(telegramUserId: TelegramUserId) {

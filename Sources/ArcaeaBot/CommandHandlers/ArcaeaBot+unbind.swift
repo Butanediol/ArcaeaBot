@@ -3,7 +3,7 @@ import TelegramBotSDK
 
 extension ArcaeaBot {
 
-	func whoami(context: Context) throws -> Bool {
+	func unbind(context: Context) throws -> Bool {
 
 		guard let telegramUserId = context.fromId else {
 			ArcaeaBot.logger.info("Get telegram user id failed.")
@@ -15,7 +15,9 @@ extension ArcaeaBot {
 			return true
 		}
 
-		context.respondSync("Hello \(user.userInfo.displayName).")
+		userManager.deleteUser(telegramUserId: telegramUserId)
+
+		context.respondSync("Goodbye \(user.userInfo.displayName).")
 
 		return true
 	}

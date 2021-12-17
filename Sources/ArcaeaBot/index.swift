@@ -16,7 +16,8 @@ struct ArcaeaBotEntry: ParsableCommand {
 
 	mutating func run() throws {
 		let telegramBot = TelegramBot(token: telegramBotToken)
-		let arcaeaBot = ArcaeaBot(using: telegramBot, userManager: UserManager(path: usersFilePath))
+		let arcaeaLimitedAPI = ArcaeaLimitedApi(token: arcaeaLimitedAPIToken, logger: ArcaeaBot.logger)
+		let arcaeaBot = ArcaeaBot(using: telegramBot, userManager: UserManager(path: usersFilePath), api: arcaeaLimitedAPI)
 
 		try arcaeaBot.run()
 	}
@@ -25,14 +26,16 @@ struct ArcaeaBotEntry: ParsableCommand {
 class ArcaeaBot {
 	let bot: TelegramBot
 	let router: Router
-	let logger: Logger
 	let userManager: UserManager
+	let api: ArcaeaLimitedApi
 
-	init(using bot: TelegramBot, userManager: UserManager) {
+	static let logger = Logger(label: "ArcaeaBot")
+
+	init(using bot: TelegramBot, userManager: UserManager, api: ArcaeaLimitedApi) {
 		self.bot = bot
 		self.router = Router(bot: self.bot)
-		self.logger = Logger(label: "ArcaeaBot")
 		self.userManager = userManager
+		self.api = api
 	}
 
 	func run() throws {
@@ -46,6 +49,8 @@ class ArcaeaBot {
 	func setUpHandlers() {
 		router[.command(Command("whoami"))] = self.whoami
 		router[.command(Command("bind"))] = self.bind
+		router[.command(Command("unbind"))] = self.unbind
+		router[.command(Command("recent"))] = self.recent
 	}
 }
 

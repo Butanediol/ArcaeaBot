@@ -6,21 +6,35 @@ extension ArcaeaBot {
 	func bind(context: Context) throws -> Bool {
 		guard let arg = context.args.scanWords().first, let friendCode = Int(arg) else {
 			context.respondSync("Usage:\n\t/bind <Friend Code>")
-			logger.debug("Binding \(context.fromId ?? -1) Failed: No valid argument.")
+			ArcaeaBot.logger.debug("Binding \(context.fromId ?? -1) Failed: No valid argument.")
 			return true
 		}
 
 		guard let telegramUserId = context.fromId else {
-			logger.info("Get telegram user id failed.")
+			ArcaeaBot.logger.info("Get telegram user id failed.")
 			return true
 		}
 
-		logger.info("Binding \(telegramUserId) <-> \(String(format: "%09d", friendCode))")
-		Task {
-			await userManager.addUser(telegramUserId: telegramUserId, arcaeaFriendCode: friendCode)
+		ArcaeaBot.logger.info("Binding \(telegramUserId) <-> \(String(format: "%09d", friendCode))")
+		
+		if let existedUser =  userManager.getUser(telegramUserId: telegramUserId) {
+			ArcaeaBot.logger.info("Bind user failed: rebinding.")
+			context.respondSync("You have already binded to \(existedUser.userInfo.displayName)(\(existedUser.arcaeaFriendCode))")
+		} else {
+			ArcaeaBot.logger.info("No existed user, binding.")
+
+			api.get(endpoint: .userInfo(friendCode)) { (result: Result<UserInfoResponse, Error>) in
+				switch result {
+					case .success(let userInfoResponse):
+						self.userManager.addUser(telegramUserId: telegramUserId, arcaeaFriendCode: friendCode, userInfo: userInfoResponse.userInfo)
+						context.respondSync("Binded successfully! Welcome \(userInfoResponse.userInfo.displayName)!")
+					case .failure(let error):
+						ArcaeaBot.logger.error("\(error.localizedDescription)")
+				}
+				ArcaeaBot.logger.info("Bind ended.")
+			}
 		}
-
-
+		
 		return true
 	}
 
