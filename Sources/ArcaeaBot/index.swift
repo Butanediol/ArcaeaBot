@@ -48,9 +48,11 @@ class ArcaeaBot {
 
 	func setUpHandlers() {
 		router[.command(Command("whoami"))] = self.whoami
-		router[.command(Command("bind"))] = self.bind
+		router[.command(Command("bind", options: .exactMatch))] = self.bind
 		router[.command(Command("unbind"))] = self.unbind
 		router[.command(Command("recent"))] = self.recent
+		router[.command(Command("best30"))] = self.best30
+		router[.command(Command("my"))] = self.my
 	}
 }
 

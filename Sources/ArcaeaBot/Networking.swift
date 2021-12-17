@@ -20,8 +20,9 @@ struct ArcaeaLimitedApi {
 		self.session = URLSession(configuration: config)
 	}
 
-	func request(endpoint: Endpoint, httpMethod: String, completion: @escaping (Result<RawResposne, Error>) -> Void) {
-		var request = URLRequest(url: endpoint.url(baseUrl: baseUrl))
+	func request(endpoint: Endpoint, httpMethod: String, paramaters: [String: String] = [:], completion: @escaping (Result<RawResposne, Error>) -> Void) {
+		let url = endpoint.url(baseUrl: baseUrl)
+		var request = URLRequest(url: url)
 		request.httpMethod = httpMethod
 
 		request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -42,15 +43,17 @@ struct ArcaeaLimitedApi {
 		}.resume()
 	}
 
-	func get<T: Codable>(endpoint: Endpoint, completion: @escaping (Result<T, Error>) -> Void) {
-		request(endpoint: endpoint, httpMethod: "GET") { result in
+	func get<T: Codable>(endpoint: Endpoint, paramaters: [String: String] = [:], completion: @escaping (Result<T, Error>) -> Void) {
+		request(endpoint: endpoint, httpMethod: "GET", paramaters: paramaters) { result in
 			switch result {
 				case .success(let rawResponse):
 					do {
 						let model = try JSONDecoder().decode(T.self, from: rawResponse)
 						completion(.success(model))
 					} catch {
-						completion(.failure(error))
+						let apiError = try? JSONDecoder().decode(APIError.self, from: rawResponse)
+						logger.error("\(String(data: rawResponse, encoding: .utf8)!)")
+						completion(.failure(apiError ?? error))
 					}
 				case .failure(let error):
 					completion(.failure(error))
@@ -62,14 +65,14 @@ struct ArcaeaLimitedApi {
 
 	enum Endpoint {
 		case userInfo(ArcaeaFriendCode)
-		case score(ArcaeaFriendCode)
+		case score(Difficulty, ArcaeaFriendCode, String)
 		case best(ArcaeaFriendCode)
 
 		var path: String {
 			switch self {
 				case .userInfo(let friend_code):
 					return "/user/\(String(format: "%09d", friend_code))"
-				case .score(let friend_code):
+				case .score(_, let friend_code, _):
 					return "/user/\(String(format: "%09d", friend_code))/score"
 				case .best(let friend_code):
 					return "/user/\(String(format: "%09d", friend_code))/best"
@@ -78,7 +81,56 @@ struct ArcaeaLimitedApi {
 
 		func url(baseUrl: URL) -> URL {
 			let newUrl = baseUrl.appendingPathComponent(self.path)
-			return newUrl
+			switch self {
+				case .score(let difficulty, _, let songId):
+					return newUrl.appendingQueryParameters([ "difficulty": "\(difficulty.rawValue)", "song_id": songId])
+				default:
+					return newUrl
+			}
 		}
 	}
+}
+
+struct APIError: LocalizedError, Codable {
+	let message: String
+
+	var errorDescription: String? {
+		self.message
+	}
+}
+
+protocol URLQueryParameterStringConvertible {
+    var queryParameters: String {get}
+}
+
+extension Dictionary : URLQueryParameterStringConvertible {
+    /**
+     This computed property returns a query parameters string from the given NSDictionary. For
+     example, if the input is @{@"day":@"Tuesday", @"month":@"January"}, the output
+     string will be @"day=Tuesday&month=January".
+     @return The computed parameters string.
+    */
+    var queryParameters: String {
+        var parts: [String] = []
+        for (key, value) in self {
+            let part = String(format: "%@=%@",
+                String(describing: key).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!,
+                String(describing: value).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+            parts.append(part as String)
+        }
+        return parts.joined(separator: "&")
+    }
+    
+}
+
+extension URL {
+    /**
+     Creates a new URL by adding the given query parameters.
+     @param parametersDictionary The query parameter dictionary to add.
+     @return A new URL.
+    */
+    func appendingQueryParameters(_ parametersDictionary : Dictionary<String, String>) -> URL {
+        let URLString : String = String(format: "%@?%@", self.absoluteString, parametersDictionary.queryParameters)
+        return URL(string: URLString)!
+    }
 }
