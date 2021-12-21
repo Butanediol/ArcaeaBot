@@ -24,7 +24,13 @@ extension ArcaeaBot {
 					context.respondSync(
 						"B30 Avg: \(String(format: "%.2f", avg))\n" +
 						b30response.best30.map { play in
-							return "\(play.songID) \(play.score) \(String(format: "%.2f", play.potentialValue ?? 0))"
+							let song = self.arcSong.getSong(sid: play.songID)
+							let songName = song?.nameEn ?? play.songID
+
+							return """
+							⎾\(songName) \(play.difficulty.abbr.uppercased()) \(song?.constant(of: play.difficulty) ?? -1)
+							⎿\(play.score) \(Double(play.potentialValue ?? -1).formatString(with: 2))
+							"""
 						}.joined(separator: "\n")
 					)
 

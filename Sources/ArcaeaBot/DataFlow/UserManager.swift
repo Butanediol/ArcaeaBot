@@ -31,6 +31,12 @@ class UserManager {
 		saveUsers(users)
 	}
 
+	func addUser(user: TelegramUser){
+		var users = getAllUser()
+		users.append(user)
+		saveUsers(users)
+	}
+
 	func deleteUser(telegramUserId: TelegramUserId) {
 		var users = getAllUser()
 		users.removeAll(where: { $0.telegramUserId == telegramUserId })
@@ -41,5 +47,13 @@ class UserManager {
 		return getAllUser().filter {
 			$0.telegramUserId == telegramUserId
 		}.first
+	}
+
+	func updateUserInfo(telegramUserId: TelegramUserId, userInfo: UserInfo) {
+		if var user = getUser(telegramUserId: telegramUserId) {
+			user.userInfo = userInfo
+			deleteUser(telegramUserId: telegramUserId)
+			addUser(user: user)
+		}
 	}
 }

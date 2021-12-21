@@ -39,7 +39,22 @@ extension ArcaeaBot {
 		api.get(endpoint: .score(diff, user.arcaeaFriendCode, songId), paramaters: [:]) { (result: Result<BestPlayResponse, Error>) in
 			switch result {
 				case .success(let bestPlayResponse):
-					context.respondSync("\(bestPlayResponse.bestPlay.songID) \(bestPlayResponse.bestPlay.score)")
+					let play = bestPlayResponse.bestPlay
+					let song = self.arcSong.getSong(sid: play.songID)
+
+					let playPtt = song?.playPtt(difficulty: diff, score: play.score) ?? 0
+
+					let replyText = """
+					\(user.userInfo.displayName) \(Double(user.userInfo.potential) / 100)
+					Song: \(song?.nameEn ?? play.songID)
+					Difficulty: \(play.difficulty.fullName) (\((song?.constant(of: play.difficulty) ?? -1).formatString(with: 1)))
+					Score: \(play.score)
+					PlayPTT: \(playPtt.formatString(with: 2))
+					P/F/L
+					\(play.pureCount)+\(play.shinyPureCount)/\(play.farCount)/\(play.lostCount)
+					"""
+
+					context.respondSync(replyText)
 				case .failure(let error):
 					context.respondSync("\(error.localizedDescription)")
 			}

@@ -3,7 +3,7 @@ import Foundation
 struct TelegramUser: Codable {
 	let telegramUserId: TelegramUserId
 	let arcaeaFriendCode: ArcaeaFriendCode
-	let userInfo: UserInfo
+	var userInfo: UserInfo
 }
 
 typealias TelegramUserId = Int64
