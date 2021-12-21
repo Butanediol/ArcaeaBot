@@ -1,31 +1,31 @@
 extension ArcaeaBot {
     func fuzzySearchSong(searchText: String) -> String? {
         let fuse = Fuse()
-        
-        let song = arcSongAlias.keys.sorted { a, b in
-            fuse.search(searchText, in: a)?.score ?? 1 < fuse.search(searchText, in: b)?.score ?? 1
-            // let resultA = fuse.search(sid, in: a)
-            // let resultB = fuse.search(sid, in: b)
-            
-            // let scoreA = resultA?.score ?? 1
-            // let scoreB = resultB?.score ?? 1
 
-            // let rangesA = resultA?.ranges
-            // let rangesB = resultB?.ranges
-
-            // if scoreA < scoreB { return true }
-            // else if scoreA > scoreB { return false }
-            // else {
-            //  return rangesA?.count ?? 100 < rangesB?.count ?? 100
-            // }
+        if let song = arcSong.first(where: { song in
+            // Full match of song name or song id, case insensitive
+            song.sid == searchText || song.nameEn.lowercased().replacingOccurrences(of: " ", with: "") == searchText.replacingOccurrences(of: " ", with: "").lowercased()
+        }) {
+            ArcaeaBot.logger.info("\(searchText) matches song name \(song.nameEn) or song id \(song.sid)")
+            return song.sid
         }
 
-        // let resultA = fuse.search(sid, in: "farawaylight")
-        // let resultB = fuse.search(sid, in: "fractureray")
+        for (sid, aliases) in arcSongAlias {
+            // Full match of song alias
+            for alias in aliases {
+                if alias.contains(searchText.lowercased()) { 
+                    ArcaeaBot.logger.info("\(searchText) matches song alias \(alias)")
+                    return sid 
+                }
+            }
+        }
+        
+        let song = arcSongAlias.keys.sorted { a, b in
+            // song id fuzzy search
+            fuse.search(searchText, in: a)?.score ?? 1 < fuse.search(searchText, in: b)?.score ?? 1
+        }
 
-        // print(resultA?.score, resultA?.ranges)
-        // print(resultB?.score, resultB?.ranges)
-
+        ArcaeaBot.logger.info("\(searchText) matches songid fuzzy search\(song.first ?? "nil")")
         return song.first
     }
 }

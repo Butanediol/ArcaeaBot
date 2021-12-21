@@ -16,7 +16,7 @@ extension ArcaeaBot {
 		}
 
 		guard let searchText = context.args.scanWord(), let songId = fuzzySearchSong(searchText: searchText) else {
-			context.respondSync("Usage:\n/my <SongId> [Difficulty]")
+			context.respondSync("Usage:\n/my <SongName/SongId/SongAlias/SongIdFuzzySearch> [Difficulty]")
 			return true
 		}
 
