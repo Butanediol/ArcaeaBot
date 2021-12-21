@@ -12,7 +12,7 @@ extension ArcaeaBot {
 
         for (sid, aliases) in arcSongAlias {
             // Full match of song alias
-            for alias in aliases {
+            for alias in aliases.map({ $0.lowercased() }) {
                 if alias.contains(searchText.lowercased()) { 
                     ArcaeaBot.logger.info("\(searchText) matches song alias \(alias)")
                     return sid 
@@ -25,7 +25,7 @@ extension ArcaeaBot {
             fuse.search(searchText, in: a)?.score ?? 1 < fuse.search(searchText, in: b)?.score ?? 1
         }
 
-        ArcaeaBot.logger.info("\(searchText) matches songid fuzzy search\(song.first ?? "nil")")
+        ArcaeaBot.logger.info("\(searchText) matches songid fuzzy search \(song.first ?? "nil")")
         return song.first
     }
 }
