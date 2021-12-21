@@ -18,9 +18,15 @@ extension ArcaeaBot {
 		api.get(endpoint: .best(user.arcaeaFriendCode)) { (result: Result<Best30Response, Error>) in
 			switch result {
 				case .success(let b30response):
-					context.respondSync(b30response.best30.map { play in
-						return "\(play.songID) \(play.score)"
-					}.joined(separator: "\n"))
+					let avg = b30response.best30.reduce(into: 0) { result, play in
+							result += play.potentialValue ?? 0
+						} / Double(b30response.best30.count)
+					context.respondSync(
+						"B30 Avg: \(String(format: "%.2f", avg))\n" +
+						b30response.best30.map { play in
+							return "\(play.songID) \(play.score) \(String(format: "%.2f", play.potentialValue ?? 0))"
+						}.joined(separator: "\n")
+					)
 
 				case .failure(let error):
 					context.respondSync("\(error.localizedDescription)")

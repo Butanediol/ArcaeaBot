@@ -7,6 +7,7 @@ struct Play: Codable {
     let score, shinyPureCount, pureCount: Int
     let farCount, lostCount, recollectionRate, timePlayed: Int
     let gaugeType: Int
+    let potentialValue: Double?
 
     enum CodingKeys: String, CodingKey {
         case songID = "song_id"
@@ -18,5 +19,6 @@ struct Play: Codable {
         case recollectionRate = "recollection_rate"
         case timePlayed = "time_played"
         case gaugeType = "gauge_type"
+        case potentialValue = "potential_value"
     }
 }

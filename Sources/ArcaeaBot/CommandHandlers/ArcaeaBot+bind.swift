@@ -27,7 +27,7 @@ extension ArcaeaBot {
 				switch result {
 					case .success(let userInfoResponse):
 						self.userManager.addUser(telegramUserId: telegramUserId, arcaeaFriendCode: friendCode, userInfo: userInfoResponse.userInfo)
-						context.respondSync("Binded successfully! Welcome \(userInfoResponse.userInfo.displayName)!")
+						context.respondSync("Welcome \(userInfoResponse.userInfo.displayName)!")
 					case .failure(let error):
 						ArcaeaBot.logger.error("\(error.localizedDescription)")
 				}
