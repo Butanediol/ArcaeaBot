@@ -11,7 +11,7 @@ extension ArcaeaBot {
 		}
 
 		guard let user = userManager.getUser(telegramUserId: telegramUserId) else {
-			context.respondSync("You have not binded yet. Try /bind .")
+			context.respondAsync("You have not binded yet. Try /bind .")
 			return true
 		}
 
@@ -42,10 +42,10 @@ extension ArcaeaBot {
 						"""
 					}
 
-					context.respondSync(replyText)
+					context.respondAsync(replyText)
 
 				case .failure(let error):
-					context.respondSync("\(error.localizedDescription)")
+					context.respondAsync("\(error.localizedDescription)")
 			}
 		}
 

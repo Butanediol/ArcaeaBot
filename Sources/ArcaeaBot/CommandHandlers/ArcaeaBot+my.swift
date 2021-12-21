@@ -11,12 +11,12 @@ extension ArcaeaBot {
 		}
 
 		guard let user = userManager.getUser(telegramUserId: telegramUserId) else {
-			context.respondSync("You have not binded yet. Try /bind .")
+			context.respondAsync("You have not binded yet. Try /bind .")
 			return true
 		}
 
 		guard let searchText = context.args.scanWord(), let songId = fuzzySearchSong(searchText: searchText) else {
-			context.respondSync("Usage:\n/my <SongName/SongId/SongAlias/SongIdFuzzySearch> [Difficulty]")
+			context.respondAsync("Usage:\n/my <SongName/SongId/SongAlias/SongIdFuzzySearch> [Difficulty]")
 			return true
 		}
 
@@ -54,9 +54,9 @@ extension ArcaeaBot {
 					\(play.pureCount)+\(play.shinyPureCount)/\(play.farCount)/\(play.lostCount)
 					"""
 
-					context.respondSync(replyText)
+					context.respondAsync(replyText)
 				case .failure(let error):
-					context.respondSync("\(error.localizedDescription)")
+					context.respondAsync("\(error.localizedDescription)")
 			}
 		}
 

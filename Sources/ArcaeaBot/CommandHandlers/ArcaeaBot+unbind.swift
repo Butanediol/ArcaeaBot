@@ -11,13 +11,13 @@ extension ArcaeaBot {
 		}
 
 		guard let user = userManager.getUser(telegramUserId: telegramUserId) else {
-			context.respondSync("You have not binded yet. Try /bind .")
+			context.respondAsync("You have not binded yet. Try /bind .")
 			return true
 		}
 
 		userManager.deleteUser(telegramUserId: telegramUserId)
 
-		context.respondSync("Goodbye \(user.userInfo.displayName).")
+		context.respondAsync("Goodbye \(user.userInfo.displayName).")
 
 		return true
 	}

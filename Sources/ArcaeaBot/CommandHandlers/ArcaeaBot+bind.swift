@@ -5,7 +5,7 @@ extension ArcaeaBot {
 
 	func bind(context: Context) throws -> Bool {
 		guard let arg = context.args.scanWords().first, let friendCode = Int(arg) else {
-			context.respondSync("Usage:\n\t/bind <Friend Code>")
+			context.respondAsync("Usage:\n\t/bind <Friend Code>")
 			ArcaeaBot.logger.debug("Binding \(context.fromId ?? -1) Failed: No valid argument.")
 			return true
 		}
@@ -19,7 +19,7 @@ extension ArcaeaBot {
 		
 		if let existedUser =  userManager.getUser(telegramUserId: telegramUserId) {
 			ArcaeaBot.logger.info("Bind user failed: rebinding.")
-			context.respondSync("You have already binded to \(existedUser.userInfo.displayName)(\(existedUser.arcaeaFriendCode))")
+			context.respondAsync("You have already binded to \(existedUser.userInfo.displayName)(\(existedUser.arcaeaFriendCode))")
 		} else {
 			ArcaeaBot.logger.info("No existed user, binding.")
 
@@ -27,7 +27,7 @@ extension ArcaeaBot {
 				switch result {
 					case .success(let userInfoResponse):
 						self.userManager.addUser(telegramUserId: telegramUserId, arcaeaFriendCode: friendCode, userInfo: userInfoResponse.userInfo)
-						context.respondSync("Welcome \(userInfoResponse.userInfo.displayName)!")
+						context.respondAsync("Welcome \(userInfoResponse.userInfo.displayName)!")
 					case .failure(let error):
 						ArcaeaBot.logger.error("\(error.localizedDescription)")
 				}
@@ -41,7 +41,7 @@ extension ArcaeaBot {
 }
 
 extension Context {
-	func respondSync<T: Localizable>(_ text: T,
+	func respondAsync<T: Localizable>(_ text: T,
                             parseMode: ParseMode? = nil,
                             disableWebPagePreview: Bool? = nil,
                             disableNotification: Bool? = nil,
@@ -49,7 +49,7 @@ extension Context {
                             replyMarkup: ReplyMarkup? = nil,
                             _ parameters: [String: Encodable?] = [:]) -> Message? {
 
-		return self.respondSync(text.localizedString, parseMode: parseMode, disableWebPagePreview: disableWebPagePreview, disableNotification: disableNotification, replyToMessageId: replyToMessageId, replyMarkup: replyMarkup, parameters)
+		return self.respondAsync(text.localizedString, parseMode: parseMode, disableWebPagePreview: disableWebPagePreview, disableNotification: disableNotification, replyToMessageId: replyToMessageId, replyMarkup: replyMarkup, parameters)
 	}
 }
 
