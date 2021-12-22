@@ -24,12 +24,16 @@ extension ArcaeaBot {
 							result += play.potentialValue ?? 0
 						} / Double(b30response.best30.count)
 
-					let r10 = 4 * Double(user.userInfo.potential) / 100 - avg * 3
-
 					var replyText = """
 					B30 Avg: \(String(format: "%.2f", avg))
-					R10 Avg: \(String(format: "%.2f", r10))\n
 					"""
+
+					if let userPtt = user.userInfo.potential {
+						let r10 = 4 * Double(userPtt) / 100 - avg * 3
+						replyText += "\nR10 Avg: \(String(format: "%.2f", r10))\n"
+					} else {
+						replyText += "\n"
+					}
 
 					for index in b30response.best30.indices {
 						let play = b30response.best30[index]

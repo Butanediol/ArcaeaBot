@@ -23,19 +23,24 @@ extension ArcaeaBot {
 					let play = userInfoResponse.userInfo.lastPlayedSong
 					let song = self.arcSong.getSong(sid: play.songID)
 
+					let userPtt = user.userInfo.potential != nil ? String(Double(user.userInfo.potential!) / 100) : "Hidden"
 					let playPtt = song?.playPtt(difficulty: play.difficulty, score: play.score) ?? 0
+					let playDate = Date(timeIntervalSince1970: Double(play.timePlayed / 1000))
+
+					let formatter = RelativeDateTimeFormatter()
+					formatter.locale = Locale(identifier: context.message?.from?.languageCode ?? "en_US")
+					let relativeTimeString = formatter.localizedString(for: Date(), relativeTo: playDate)
 
 					let replyText = """
-					\(user.userInfo.displayName) \(Double(user.userInfo.potential) / 100)
-					Song: \(song?.nameEn ?? play.songID)
+					\(user.userInfo.displayName)(\(userPtt)) played `\(song?.nameEn ?? play.songID)` \(relativeTimeString)
+
 					Difficulty: \(play.difficulty.fullName) (\((song?.constant(of: play.difficulty) ?? -1).formatString(with: 1)))
 					Score: \(play.score)
 					PlayPTT: \(playPtt.formatString(with: 2))
-					P/F/L
-					\(play.pureCount)+\(play.shinyPureCount)/\(play.farCount)/\(play.lostCount)
+					\(play.pureCount) (+\(play.shinyPureCount)) / \(play.farCount) / \(play.lostCount)
 					"""
 
-					context.respondAsync(replyText)
+					context.respondAsync(replyText, parseMode: .markdown)
 				case .failure(let error):
 					context.respondAsync("Error: \(error.localizedDescription)")
 			}

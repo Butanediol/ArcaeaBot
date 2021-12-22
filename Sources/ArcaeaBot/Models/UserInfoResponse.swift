@@ -12,7 +12,7 @@ struct UserInfoResponse: Codable {
 // MARK: - UserInfo
 struct UserInfo: Codable {
     let displayName: String
-    let potential: Int
+    let potential: Int?
     let partner: Partner
     let lastPlayedSong: Play
 
