@@ -11,7 +11,7 @@ extension ArcaeaBot {
 		}
 
 		guard let user = userManager.getUser(telegramUserId: telegramUserId) else {
-			context.respondAsync("You have not bind yet. Try /bind .")
+			context.respondAsync("You have not bind yet. Try send bind in private message.")
 			return true
 		}
 
