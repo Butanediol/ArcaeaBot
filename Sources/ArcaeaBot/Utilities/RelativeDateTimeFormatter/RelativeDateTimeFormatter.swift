@@ -6,8 +6,10 @@ final class RelativeDateTimeFormatter {
 	init() {}
 
 	func localizedString(for date: Date, relativeTo referenceDate: Date) -> String {
-		let timeInterval = date.timeIntervalSince1970 - referenceDate.timeIntervalSince1970
-		let indicator = timeInterval >= 0 ? "ago" : "before"
+		var timeInterval = date.timeIntervalSince1970 - referenceDate.timeIntervalSince1970
+		let indicator = timeInterval <= 0 ? "ago" : "after"
+
+		timeInterval = abs(timeInterval)
 
 		let month: Double = 259200
 		let day: Double = 86400

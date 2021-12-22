@@ -29,7 +29,7 @@ extension ArcaeaBot {
 
 					let formatter = RelativeDateTimeFormatter()
 					formatter.locale = Locale(identifier: context.message?.from?.languageCode ?? "en_US")
-					let relativeTimeString = formatter.localizedString(for: Date(), relativeTo: playDate)
+					let relativeTimeString = formatter.localizedString(for: playDate, relativeTo: Date())
 
 					let replyText = """
 					\(user.userInfo.displayName)(\(userPtt)) played `\(song?.nameEn ?? play.songID)` \(relativeTimeString)

@@ -41,7 +41,7 @@ extension ArcaeaBot {
 }
 
 extension Context {
-	func respondAsync<T: Localizable>(_ text: T,
+	func respondSync<T: Localizable>(_ text: T,
                             parseMode: ParseMode? = nil,
                             disableWebPagePreview: Bool? = nil,
                             disableNotification: Bool? = nil,
@@ -49,7 +49,7 @@ extension Context {
                             replyMarkup: ReplyMarkup? = nil,
                             _ parameters: [String: Encodable?] = [:]) -> Message? {
 
-		return self.respondAsync(text.localizedString, parseMode: parseMode, disableWebPagePreview: disableWebPagePreview, disableNotification: disableNotification, replyToMessageId: replyToMessageId, replyMarkup: replyMarkup, parameters)
+		return self.respondSync(text.localizedString, parseMode: parseMode, disableWebPagePreview: disableWebPagePreview, disableNotification: disableNotification, replyToMessageId: replyToMessageId, replyMarkup: replyMarkup, parameters)
 	}
 }
 
