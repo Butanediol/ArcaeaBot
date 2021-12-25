@@ -33,7 +33,7 @@ extension Arcsong {
 		} else if score >= 9_800_800 {
 			return constant + 1 + Double(score - 9_800_000) / 200_000
 		} else {
-			return constant + Double(score - 9_500_000) / 300_000
+			return max(constant + Double(score - 9_500_000) / 300_000, 0)
 		}
 	}
 }
