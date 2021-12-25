@@ -2,18 +2,24 @@ import Foundation
 
 final class RelativeDateTimeFormatter {
 	var locale = Locale(identifier: "en_US")
+	var dateFormatter = DateFormatter()
 
 	init() {}
 
+	func fullLocalizedString(for date: Date, relativeTo referenceDate: Date) -> String {
+		dateFormatter.locale = locale
+		dateFormatter.dateStyle = .medium
+
+		return dateFormatter.string(from: date)
+	}
+
 	func localizedString(for date: Date, relativeTo referenceDate: Date) -> String {
-		print(date.timeIntervalSince1970)
-		print(referenceDate.timeIntervalSince1970)
 		var timeInterval = date.timeIntervalSince1970 - referenceDate.timeIntervalSince1970
 		let indicator = timeInterval <= 0 ? "ago" : "after"
 
 		timeInterval = abs(timeInterval)
 
-		let month: Double = 259200
+		let month: Double = 2592000
 		let day: Double = 86400
 		let hour: Double = 3600
 		let minute: Double = 60
@@ -24,14 +30,8 @@ final class RelativeDateTimeFormatter {
 		let minutes = floor((timeInterval - months * month - days * day - hours * hour) / minute)
 		let seconds = timeInterval - months * month - days * day - hours * hour - minutes * minute
 
-		print(months, days, hours, minutes, seconds, timeInterval)
-
 		if timeInterval >= month * 12 {
-			let formatter = DateFormatter()
-			formatter.locale = locale
-			formatter.dateStyle = .medium
-
-			return formatter.string(from: date)
+			return fullLocalizedString(for: date, relativeTo: referenceDate)
 		} else if months != 0 {
 			return String(format: "%.0f", months) + " month(s) \(indicator)"
 		} else if days != 0 {
