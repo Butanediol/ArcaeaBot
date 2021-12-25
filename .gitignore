@@ -10,3 +10,5 @@ TELEGRAM_BOT_TOKEN
 Sources/ArcaeaBot/config.swift
 db
 Users.json
+arcsong.sqbpro
+Sources/ArcaeaBot/Resources/arcsong.db-journal
