@@ -4,6 +4,11 @@ import TelegramBotSDK
 extension ArcaeaBot {
 
 	func bind(context: Context) throws -> Bool {
+
+		if context.message?.from?.isBot == true || context.message?.from?.id == 136817688 { // Channel bot
+			return guardBot(context: context)
+		}
+
 		guard let arg = context.args.scanWords().first, let friendCode = Int(arg) else {
 			context.respondAsync("Usage:\n\tbind <Friend Code>")
 			ArcaeaBot.logger.debug("Binding \(context.fromId ?? -1) Failed: No valid argument.")

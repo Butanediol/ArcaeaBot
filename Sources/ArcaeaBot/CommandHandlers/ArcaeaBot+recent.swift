@@ -11,8 +11,7 @@ extension ArcaeaBot {
 		}
 
 		guard let user = userManager.getUser(telegramUserId: telegramUserId) else {
-			context.respondAsync("You have not bind yet. Try send bind in private message.")
-			return true
+			return guardUser(context: context)
 		}
 
 		api.get(endpoint: .userInfo(user.arcaeaFriendCode)) { (result: Result<UserInfoResponse, Error>) in
