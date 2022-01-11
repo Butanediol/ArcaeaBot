@@ -28,4 +28,13 @@ extension ArcaeaBot {
         ArcaeaBot.logger.info("\(searchText) matches songid fuzzy search \(song.first ?? "nil")")
         return song.first
     }
+
+    func fuzzySearchPack(searchText: String) -> String? {
+        let fuse = Fuse()
+        let pack = Set(arcSong.map {$0.packSet.lowercased()})
+        let packSimilarityRank = pack.sorted { pack1, pack2 in
+            fuse.search(searchText, in: pack1)?.score ?? 1 < fuse.search(searchText, in: pack2)?.score ?? 1
+        }
+        return packSimilarityRank.first
+    }
 }

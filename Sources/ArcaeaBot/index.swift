@@ -84,6 +84,11 @@ class ArcaeaBot {
 			let songs = Table("songs")
 			let sid = Expression<String>("sid")
 			let name_en = Expression<String>("name_en")
+			let pack_set = Expression<String>("pakset")
+			let difficulty_pst = Expression<Int>("difficultly_pst")
+			let difficulty_prs = Expression<Int>("difficultly_prs")
+			let difficulty_ftr = Expression<Int>("difficultly_ftr")
+			let difficulty_byn = Expression<Int>("difficultly_byn")
 			let rating_pst = Expression<Int>("rating_pst")
 			let rating_prs = Expression<Int>("rating_prs")
 			let rating_ftr = Expression<Int>("rating_ftr")
@@ -93,7 +98,12 @@ class ArcaeaBot {
 				arcSong.append(
 					Arcsong(
 						sid: song[sid], 
-						nameEn: song[name_en], 
+						nameEn: song[name_en],
+						packSet: song[pack_set],
+						difficultyPst: song[difficulty_pst],
+						difficultyPrs: song[difficulty_prs],
+						difficultyFtr: song[difficulty_ftr],
+						difficultyByn: song[difficulty_byn],
 						ratingPst: Double(song[rating_pst])/10, 
 						ratingPrs: Double(song[rating_prs])/10, 
 						ratingFtr: Double(song[rating_ftr])/10, 
@@ -110,6 +120,7 @@ class ArcaeaBot {
 	func setUpHandlers() {
 		router[.command(Command("whoami"))] = self.whoami
 		router[.command(Command("bind", options: .exactMatch))] = self.bind
+		router[.command(Command("dice"))] = self.dice
 		router[.command(Command("unbind"))] = self.unbind
 		router[.command(Command("recent"))] = self.recent
 		router[.command(Command("best30"))] = self.best30

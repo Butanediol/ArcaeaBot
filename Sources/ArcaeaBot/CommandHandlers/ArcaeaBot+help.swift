@@ -13,6 +13,7 @@ extension ArcaeaBot {
 		Diffifulty is optional, which can be "past/present/future/beyond" or "pst/prs/ftr/byd", default is future.
 		/best30: No parameter needed.
 		/whoami: No parameter needed.
+		/dice: <Diffifulty> [Song Pack]
 		"""
 
 		context.sendChatActionAsync(action: "typing")

@@ -3,6 +3,11 @@ import Foundation
 struct Arcsong {
 	let sid: String
 	let nameEn: String
+	let packSet: String
+	let difficultyPst: Int
+	let difficultyPrs: Int
+	let difficultyFtr: Int
+	let difficultyByn: Int
 	let ratingPst: Double
 	let ratingPrs: Double
 	let ratingFtr: Double
