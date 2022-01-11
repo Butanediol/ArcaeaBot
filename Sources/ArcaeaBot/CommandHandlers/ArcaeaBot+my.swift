@@ -36,6 +36,7 @@ extension ArcaeaBot {
 		}
 
 		api.get(endpoint: .score(diff, user.arcaeaFriendCode, songId), paramaters: [:]) { (result: Result<BestPlayResponse, Error>) in
+			context.sendChatActionAsync(action: "typing")
 			switch result {
 				case .success(let bestPlayResponse):
 					let play = bestPlayResponse.bestPlay

@@ -15,6 +15,7 @@ extension ArcaeaBot {
 		/whoami: No parameter needed.
 		"""
 
+		context.sendChatActionAsync(action: "typing")
 		context.respondPrivatelySync(helpText, groupText: "Help menu was sent privately.")
 
 		return true

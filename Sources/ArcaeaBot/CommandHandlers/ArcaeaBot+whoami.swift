@@ -14,6 +14,7 @@ extension ArcaeaBot {
 			return guardUser(context: context)
 		}
 
+		context.sendChatActionAsync(action: "typing")
 		context.respondAsync("Hello \(user.userInfo.displayName).")
 
 		return true

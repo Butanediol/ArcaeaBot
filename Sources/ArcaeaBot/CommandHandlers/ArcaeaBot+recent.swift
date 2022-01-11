@@ -15,6 +15,7 @@ extension ArcaeaBot {
 		}
 
 		api.get(endpoint: .userInfo(user.arcaeaFriendCode)) { (result: Result<UserInfoResponse, Error>) in
+			context.sendChatActionAsync(action: "typing")
 			switch result {
 				case .success(let userInfoResponse):
 					self.userManager.updateUserInfo(telegramUserId: telegramUserId, userInfo: userInfoResponse.userInfo)

@@ -15,6 +15,7 @@ extension ArcaeaBot {
 		}
 
 		api.get(endpoint: .best(user.arcaeaFriendCode)) { (result: Result<Best30Response, Error>) in
+			context.sendChatActionAsync(action: "typing")
 			switch result {
 				case .success(let b30response):
 

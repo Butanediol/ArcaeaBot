@@ -24,11 +24,13 @@ extension ArcaeaBot {
 		
 		if let existedUser =  userManager.getUser(telegramUserId: telegramUserId) {
 			ArcaeaBot.logger.info("Bind user failed: rebinding.")
+			context.sendChatActionAsync(action: "typing")
 			context.respondAsync("You have already binded to \(existedUser.userInfo.displayName)(\(existedUser.arcaeaFriendCode))")
 		} else {
 			ArcaeaBot.logger.info("No existed user, binding.")
 
 			api.get(endpoint: .userInfo(friendCode)) { (result: Result<UserInfoResponse, Error>) in
+				context.sendChatActionAsync(action: "typing")
 				switch result {
 					case .success(let userInfoResponse):
 						self.userManager.addUser(telegramUserId: telegramUserId, arcaeaFriendCode: friendCode, userInfo: userInfoResponse.userInfo)
