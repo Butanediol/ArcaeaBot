@@ -35,16 +35,15 @@ extension ArcaeaBot {
 			if let packSetSearchText = context.args.scanWord(), let packSet = fuzzySearchPack(searchText: packSetSearchText.lowercased()){
 				print("Search song in \(packSet) for difficulty \(diff)")
 				songSet = arcSong.filter { $0.packSet == packSet}
-				replyText += "[\(packSet)] "
 			}
 
 			if let (randomSong, difficulty) = selectSong(of: diff, from: songSet) {
-				replyText += "\(randomSong.nameEn)\n\(difficulty.abbr.uppercased()) \(randomSong.constant(of: difficulty))"
+				replyText = "[\(randomSong.packSet)] \(randomSong.nameEn)\n\(difficulty.abbr.uppercased()) \(randomSong.constant(of: difficulty))"
 			} else {
-				replyText += "No songs found that meet the criteria."
+				replyText = "No songs found that meet the criteria."
 			}
 		} else {
-			replyText += "Not a valid difficulty."
+			replyText = "Not a valid difficulty."
 		}
 
 		context.sendChatActionAsync(action: "typing")
