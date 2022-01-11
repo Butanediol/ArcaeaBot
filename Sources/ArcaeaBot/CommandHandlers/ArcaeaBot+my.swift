@@ -15,7 +15,7 @@ extension ArcaeaBot {
 		}
 
 		guard let searchText = context.args.scanWord(), let songId = fuzzySearchSong(searchText: searchText) else {
-			context.respondAsync("Usage:\n/my <SongName/SongId/SongAlias/SongIdFuzzySearch> [Difficulty]")
+			context.respondAsync("Usage:\n/my <SongName/SongId/SongAlias/SongIdFuzzySearch> [Difficulty]", replyToMessageId: context.message?.messageId)
 			return true
 		}
 
@@ -59,9 +59,9 @@ extension ArcaeaBot {
 					\(play.pureCount) (+\(play.shinyPureCount)) / \(play.farCount) / \(play.lostCount)
 					"""
 
-					context.respondAsync(replyText, parseMode: .markdown)
+					context.respondAsync(replyText, parseMode: .markdown, replyToMessageId: context.message?.messageId)
 				case .failure(let error):
-					context.respondAsync("\(error.localizedDescription)")
+					context.respondAsync("\(error.localizedDescription)", replyToMessageId: context.message?.messageId)
 			}
 		}
 

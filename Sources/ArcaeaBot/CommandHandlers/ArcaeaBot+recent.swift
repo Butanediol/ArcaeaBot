@@ -40,9 +40,9 @@ extension ArcaeaBot {
 					\(play.pureCount) (+\(play.shinyPureCount)) / \(play.farCount) / \(play.lostCount)
 					"""
 
-					context.respondAsync(replyText, parseMode: .markdown)
+					context.respondAsync(replyText, parseMode: .markdown, replyToMessageId: context.message?.messageId)
 				case .failure(let error):
-					context.respondAsync("Error: \(error.localizedDescription)")
+					context.respondAsync("Error: \(error.localizedDescription)", replyToMessageId: context.message?.messageId)
 			}
 		}
 

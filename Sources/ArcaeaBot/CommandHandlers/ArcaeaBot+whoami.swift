@@ -15,7 +15,7 @@ extension ArcaeaBot {
 		}
 
 		context.sendChatActionAsync(action: "typing")
-		context.respondAsync("Hello \(user.userInfo.displayName).")
+		context.respondAsync("Hello \(user.userInfo.displayName).", replyToMessageId: context.message?.messageId)
 
 		return true
 	}

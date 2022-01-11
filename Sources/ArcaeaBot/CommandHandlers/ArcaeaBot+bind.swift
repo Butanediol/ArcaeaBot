@@ -10,7 +10,7 @@ extension ArcaeaBot {
 		}
 
 		guard let arg = context.args.scanWords().first, let friendCode = Int(arg) else {
-			context.respondAsync("Usage:\n\tbind <Friend Code>")
+			context.respondAsync("Usage:\n\tbind <Friend Code>", replyToMessageId: context.message?.messageId)
 			ArcaeaBot.logger.debug("Binding \(context.fromId ?? -1) Failed: No valid argument.")
 			return true
 		}
@@ -25,7 +25,7 @@ extension ArcaeaBot {
 		if let existedUser =  userManager.getUser(telegramUserId: telegramUserId) {
 			ArcaeaBot.logger.info("Bind user failed: rebinding.")
 			context.sendChatActionAsync(action: "typing")
-			context.respondAsync("You have already binded to \(existedUser.userInfo.displayName)(\(existedUser.arcaeaFriendCode))")
+			context.respondAsync("You have already binded to \(existedUser.userInfo.displayName)(\(existedUser.arcaeaFriendCode))", replyToMessageId: context.message?.messageId)
 		} else {
 			ArcaeaBot.logger.info("No existed user, binding.")
 
@@ -34,7 +34,7 @@ extension ArcaeaBot {
 				switch result {
 					case .success(let userInfoResponse):
 						self.userManager.addUser(telegramUserId: telegramUserId, arcaeaFriendCode: friendCode, userInfo: userInfoResponse.userInfo)
-						context.respondAsync("Welcome \(userInfoResponse.userInfo.displayName)!")
+						context.respondAsync("Welcome \(userInfoResponse.userInfo.displayName)!", replyToMessageId: context.message?.messageId)
 					case .failure(let error):
 						ArcaeaBot.logger.error("\(error.localizedDescription)")
 				}

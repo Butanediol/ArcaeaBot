@@ -17,7 +17,7 @@ extension ArcaeaBot {
 		userManager.deleteUser(telegramUserId: telegramUserId)
 
 		context.sendChatActionAsync(action: "typing")
-		context.respondAsync("Goodbye \(user.userInfo.displayName).")
+		context.respondAsync("Goodbye \(user.userInfo.displayName).", replyToMessageId: context.message?.messageId)
 
 		return true
 	}

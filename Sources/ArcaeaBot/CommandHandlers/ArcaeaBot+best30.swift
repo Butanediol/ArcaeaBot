@@ -46,7 +46,7 @@ extension ArcaeaBot {
 						"""
 					}
 
-					context.respondAsync(replyText)
+					context.respondAsync(replyText, replyToMessageId: context.message?.messageId)
 
 				case .failure(let error):
 					context.respondAsync("\(error.localizedDescription)")
