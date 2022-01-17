@@ -27,7 +27,7 @@ router[.command(Command("my", options: .slashRequired))] = myHandler
 router[.command(Command("help", options: .slashRequired))] = helpHandler
 router[.command(Command("start", options: .slashRequired))] = helpHandler
 router[.command(Command("begin", options: .slashRequired))] = beginHandler
-router[.command(Command("roll", options: .slashRequired))] = rollHandler
+// router[.command(Command("roll", options: .slashRequired))] = rollHandler
 router[.command(Command("statistics", options: .slashRequired))] = statisticsHelper
 router[.command(Command("rank", options: .slashRequired))] = rankHandler
 
