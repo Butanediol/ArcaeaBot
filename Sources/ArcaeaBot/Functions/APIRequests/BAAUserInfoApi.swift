@@ -16,9 +16,10 @@ func getUserBest(user: User, songname: String, difficulty: Difficulty, retry: In
     apiRequest(endpoint: "/user/best", urlParams: urlParams, retry: retry, completion: completion)
 }
 
-func getUserBest30(user: User, overflow: Int = 0, retry: Int = 9, completion: @escaping (Result<UserBest30, APIError>) -> Void) {
+func getUserBest30(user: User, overflow: Int = 0, withSongInfo: Bool = false, retry: Int = 9, completion: @escaping (Result<UserBest30Response, APIError>) -> Void) {
     var urlParams = [
         "overflow": "\(overflow)",
+        "withsonginfo": "\(withSongInfo)"
     ]
 
     switch user {

@@ -8,9 +8,9 @@ func unbindHandler(context: Context) -> Bool {
     if let arg = context.args.scanWord() {
         // With username provided
         for (id, info) in getAllUserInfo() {
-            if info.content.name == arg {
+            if info.content.accountInfo.name == arg {
                 deleteUserInfoFromDatabase(tgUserId: id)
-                context.respondAsync("再见，\(info.content.name)！", replyToMessageId: context.message?.messageId)
+                context.respondAsync("再见，\(info.content.accountInfo.name)！", replyToMessageId: context.message?.messageId)
                 return true
             }
         }
@@ -26,7 +26,7 @@ func unbindHandler(context: Context) -> Bool {
 
         deleteUserInfoFromDatabase(tgUserId: tgUserId)
 
-        context.respondAsync("再见，\(info.content.name)！", replyToMessageId: context.message?.messageId)
+        context.respondAsync("再见，\(info.content.accountInfo.name)！", replyToMessageId: context.message?.messageId)
     }
 
     return true

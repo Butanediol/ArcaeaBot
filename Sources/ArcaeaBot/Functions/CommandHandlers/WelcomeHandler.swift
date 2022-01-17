@@ -27,7 +27,7 @@ func welcomeHandler(context: Context) -> Bool {
     // Real new members
     for user in newUsers {
         if let info = getUserInfoFromDatabase(tgUserId: user.id) {
-            context.sendThenDeleteMessageAsync(text: "你好\(info.rank)\(info.content.name)。")
+            context.sendThenDeleteMessageAsync(text: "你好\(info.content.accountInfo.rank)\(info.content.accountInfo.name)。")
         } else {
             context.sendThenDeleteMessageAsync(text: "你好，\(user.firstName + (user.lastName ?? ""))，欢迎来到\(chat.title ?? "")，使用 /bind <ArcID/ArcName> 来绑定 Arcaea 账号。")
         }

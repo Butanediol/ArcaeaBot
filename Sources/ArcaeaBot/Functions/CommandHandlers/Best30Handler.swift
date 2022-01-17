@@ -11,24 +11,24 @@ func best30Handler(context: Context) -> Bool {
     }
     let args = context.args.scanWords()
     if args.isEmpty {
-        getUserBest30(user: .userName(info.content.name)) { result in
+        getUserBest30(user: .userName(info.content.accountInfo.name)) { result in
             switch result {
             case let .success(b30):
-                saveBest30(b30: b30, user: info.content.userID)
+                saveBest30(b30: b30, user: info.content.accountInfo.userId)
                 context.respondAsync(b30RespondText(from: b30), parseMode: .markdown, replyToMessageId: context.message?.messageId)
-                let imageData = B30Graph(b30: b30, userInfo: info.content).draw()
+                let imageData = B30Graph(b30: b30, userInfo: info.content.accountInfo).draw()
                 context.bot.sendPhotoAsync(chatId: .chat(context.chatId ?? 0), photo: .inputFile(InputFile(filename: "b30.png", data: imageData)))
             case let .failure(apiError):
                 requestFailureHandler(context: context, error: apiError)
             }
         }
     } else {
-        guard let b30 = getBest30FromDatabase(user: info.content.userID) else {
+        guard let b30 = getBest30FromDatabase(user: info.content.accountInfo.userId) else {
             context.sendThenDeleteMessageAsync(text: "没有已保存的 Best30 数据", replyToMessageId: context.message?.messageId)
             return true
         }
         context.respondAsync(b30RespondText(from: b30, fromDatabase: true), parseMode: .markdown, replyToMessageId: context.message?.messageId)
-        let imageData = B30Graph(b30: b30, userInfo: info.content).draw()
+        let imageData = B30Graph(b30: b30, userInfo: info.content.accountInfo).draw()
         context.bot.sendPhotoAsync(chatId: .chat(context.chatId ?? 0), photo: .inputFile(InputFile(filename: "b30.png", data: imageData)))
     }
 
@@ -36,7 +36,7 @@ func best30Handler(context: Context) -> Bool {
     return true
 }
 
-func b30RespondText(from b30: UserBest30, fromDatabase: Bool = false) -> String {
+func b30RespondText(from b30: UserBest30Response, fromDatabase: Bool = false) -> String {
     var respondText = """
     B30 Avg. `\(b30.content.best30Avg)`
     R10 Avg. `\(b30.content.recent10Avg)`\n\n

@@ -16,10 +16,11 @@ func rankHandler(context: Context) -> Bool {
         if userInfo.status == -1 {
             deleteUserInfoFromDatabase(tgUserId: tgUserId)
         }
-        let rank = allUserInfo.rankingWithTie(index: index) {
-            $0.1.content.rating == $1.1.content.rating
+        let rank = allUserInfo.rankingWithTie(index: index) { a, b in
+            a.1.content.accountInfo.rating == b.1.content.accountInfo.rating
+            // $0.1.content.rating == $1.1.content.rating
         }
-        respondText += String(format: "%@ %@ %.2f\n", intToStringRank(i: rank + 1), userInfo.content.name, Double(userInfo.content.rating) / 100)
+        respondText += String(format: "%@ %@ %.2f\n", intToStringRank(i: rank + 1), userInfo.content.accountInfo.rating, Double(userInfo.content.accountInfo.rating) / 100)
     }
 
     context.sendThenDeleteMessageAsync(after: .now() + 30, text: respondText, replyToMessageId: context.message?.messageId)

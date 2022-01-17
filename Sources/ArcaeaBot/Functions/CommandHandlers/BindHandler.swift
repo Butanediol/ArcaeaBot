@@ -8,7 +8,7 @@ func bindHandler(context: Context) -> Bool {
 
     if let info = getUserInfoFromDatabase(tgUserId: tgUserId) {
         // Already bind
-        context.respondAsync("你好\(info.content.name)，你已经绑定过了。\n如果想解除绑定请使用 /unbind。", replyToMessageId: context.message?.messageId)
+        context.respondAsync("你好\(info.content.accountInfo.name)，你已经绑定过了。\n如果想解除绑定请使用 /unbind。", replyToMessageId: context.message?.messageId)
         return true
     }
 
@@ -31,7 +31,7 @@ func bindHandler(context: Context) -> Bool {
         switch result {
         case let .success(info):
             saveUserInfo(info: info, tgUserId: tgUserId)
-            context.respondAsync("绑定成功，你好\(info.rank)\(info.content.name)！", replyToMessageId: context.message?.messageId)
+            context.respondAsync("绑定成功，你好\(info.content.accountInfo.rank)\(info.content.accountInfo.name)！", replyToMessageId: context.message?.messageId)
 
         case let .failure(apiError):
             requestFailureHandler(context: context, error: apiError)

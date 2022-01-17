@@ -3,7 +3,7 @@ import TelegramBotSDK
 
 func myHandler(context: Context) -> Bool {
     guard let tgUserId = context.fromId else { return true }
-    guard let info = getUserInfoFromDatabase(tgUserId: tgUserId), let usercode = info.content.code.toUsercode() else {
+    guard let info = getUserInfoFromDatabase(tgUserId: tgUserId), let usercode = info.content.accountInfo.code.toUsercode() else {
         context.respondAsync("我不认识你，使用 /bind <ArcID> 绑定。", replyToMessageId: context.message?.messageId)
         return true
     }
@@ -35,11 +35,11 @@ func myHandler(context: Context) -> Bool {
             getSongInfo(search: best.content.songID) { result in
                 switch result {
                 case let .success(songInfo):
-                    let ratingReal = songInfo.content.difficulties[best.content.difficulty.rawValue].ratingReal
+                    let ratingReal = songInfo.content.difficulties[best.content.difficulty.rawValue].realrating
                     let play = best.content
                     let respondText = """
-                    Name: `\(info.content.name)`
-                    PTT: `\(String(format: "%.2f", Double(info.content.rating) / 100))`
+                    Name: `\(info.content.accountInfo.name)`
+                    PTT: `\(String(format: "%.2f", Double(info.content.accountInfo.rating) / 100))`
 
                     Recent Play: \(Date(timeIntervalSince1970: Double(play.timePlayed) / 1000).formattedString(identifier: context.message?.from?.languageCode))
                     Song: `\(songlist.safeGetSongTitle(id: play.songID).en)`

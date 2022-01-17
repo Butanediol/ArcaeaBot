@@ -3,29 +3,35 @@ import SwiftLMDB
 
 // MARK: - UserBest30
 
-struct UserBest30: APIRequestResponsable {
+struct UserBest30Response: APIRequestResponsable {
     var status: Int
-    var content: UserBest30Content
+    var content: UserBest30ResponseContent
 }
 
 // MARK: - Content
 
-struct UserBest30Content: Codable {
+struct UserBest30ResponseContent: Codable {
     let best30Avg, recent10Avg: Double
-    let best30List: [UserPlay]
-    let best30Overflow: [UserPlay]?
+    let accountInfo: AccountInfo
+    let best30List: [Score]
+    let best30Overflow: [Score]?
+    let best30Songinfo: [SongInfoResponseContent]?
+    let best30OverflowSonginfo: [SongInfoResponseContent]?
 
     enum CodingKeys: String, CodingKey {
         case best30Avg = "best30_avg"
         case recent10Avg = "recent10_avg"
         case best30List = "best30_list"
         case best30Overflow = "best30_overflow"
+        case accountInfo = "account_info"
+        case best30Songinfo = "best30_songinfo"
+        case best30OverflowSonginfo = "best30_overflow_songinfo"
     }
 }
 
-extension UserBest30: DataConvertible {
+extension UserBest30Response: DataConvertible {
     public init?(data: Data) {
-        self = try! JSONDecoder().decode(UserBest30.self, from: data)
+        self = try! JSONDecoder().decode(UserBest30Response.self, from: data)
     }
 
     public var asData: Data {

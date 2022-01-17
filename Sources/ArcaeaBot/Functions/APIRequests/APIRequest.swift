@@ -38,6 +38,8 @@ func apiRequest<T: APIRequestResponsable>(endpoint: String, urlParams: [String: 
             return
         }
 
+        try! JSONDecoder().decode(T.self, from: data)
+
         guard let returning = try? JSONDecoder().decode(T.self, from: data) else {
             print("\(String(data: data, encoding: .utf8) ?? "")")
             if let apiError = try? JSONDecoder().decode(APIError.self, from: data) { completion(.failure(apiError)) }

@@ -55,7 +55,7 @@ func deleteUserInfoFromDatabase(tgUserId: TgUserId) {
     }
 }
 
-func saveBest30(b30: UserBest30, user: Usercode) {
+func saveBest30(b30: UserBest30Response, user: Usercode) {
     do {
         try best30Database.put(value: b30, forKey: user)
     } catch {
@@ -63,9 +63,9 @@ func saveBest30(b30: UserBest30, user: Usercode) {
     }
 }
 
-func getBest30FromDatabase(user: Usercode) -> UserBest30? {
+func getBest30FromDatabase(user: Usercode) -> UserBest30Response? {
     do {
-        return try best30Database.get(type: UserBest30.self, forKey: user)
+        return try best30Database.get(type: UserBest30Response.self, forKey: user)
     } catch {
         print("Get Best30 from database error: \(error)")
     }
@@ -90,11 +90,11 @@ func updateBest30FromRecent(_ recent: UserInfoResponse, user: Usercode) {
         return total / 30
     }()
     let newr10Avg: Double = {
-        40 * Double(recent.content.rating) - newb30Avg * 30
+        40 * Double(recent.content.accountInfo.rating) - newb30Avg * 30
     }()
-    let newb30 = UserBest30(
+    let newb30 = UserBest30Response(
         status: oldb30.status,
-        content: UserBest30Content(best30Avg: newb30Avg, recent10Avg: newr10Avg, best30List: newb30List, best30Overflow: nil)
+        content: UserBest30ResponseContent(best30Avg: newb30Avg, recent10Avg: newr10Avg, accountInfo: oldb30.content.accountInfo, best30List: newb30List, best30Overflow: oldb30.content.best30Overflow, best30Songinfo: oldb30.content.best30Songinfo, best30OverflowSonginfo: oldb30.content.best30OverflowSonginfo)
     )
     saveBest30(b30: newb30, user: user)
 }
@@ -143,10 +143,10 @@ func getAllUserInfo() -> [(TgUserId, UserInfoResponse)] {
         allUserInfo[tgUserId] = userInfo
     }
     return allUserInfo.sorted {
-        if $0.value.content.rating != $1.value.content.rating {
-            return $0.value.content.rating > $1.value.content.rating
+        if $0.value.content.accountInfo.rating != $1.value.content.accountInfo.rating {
+            return $0.value.content.accountInfo.rating > $1.value.content.accountInfo.rating
         } else {
-            return $0.value.content.name.lowercased() < $1.value.content.name.lowercased()
+            return $0.value.content.accountInfo.name.lowercased() < $1.value.content.accountInfo.name.lowercased()
         }
     }
 }

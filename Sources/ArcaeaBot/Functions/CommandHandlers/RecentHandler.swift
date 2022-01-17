@@ -8,7 +8,7 @@ func recentHandler(context: Context) -> Bool {
     if let replyFrom = context.message?.replyToMessage?.from?.id {
         tgUserId = replyFrom
     }
-    guard let info = getUserInfoFromDatabase(tgUserId: tgUserId), let usercode = info.content.code.toUsercode() else {
+    guard let info = getUserInfoFromDatabase(tgUserId: tgUserId), let usercode = info.content.accountInfo.code.toUsercode() else {
         context.sendThenDeleteMessageAsync(text: "我不认识\(context.message?.replyToMessage == nil ? "你" : " TA")，使用 /bind <ArcID/ArcName> 绑定。", replyToMessageId: context.message?.messageId)
         return true
     }
@@ -28,10 +28,10 @@ func recentHandler(context: Context) -> Bool {
 
                 switch result {
                 case let .success(songInfo):
-                    let ratingReal = songInfo.content.difficulties[play.difficulty.rawValue].ratingReal
+                    let ratingReal = songInfo.content.difficulties[play.difficulty.rawValue].realrating
                     let respondText = """
-                    Name: `\(info.content.name)`
-                    PTT: `\(String(format: "%.2f", Double(info.content.rating) / 100))`
+                    Name: `\(info.content.accountInfo.name)`
+                    PTT: `\(String(format: "%.2f", Double(info.content.accountInfo.rating) / 100))`
 
                     Recent: \(Date(timeIntervalSince1970: Double(play.timePlayed) / 1000).formattedString())
                     Song: `\(songlist.safeGetSongTitle(id: play.songID).en)`

@@ -25,11 +25,11 @@ func inlineQueryHandler(inlineQuery: InlineQuery) {
             type: "article",
             id: UUID().uuidString,
             title: "账号信息",
-            inputMessageContent: .text(InputTextMessageContent(messageText: "\(info.content.name)(`\(info.content.code)`)", parseMode: .markdown))
+            inputMessageContent: .text(InputTextMessageContent(messageText: "\(info.content.accountInfo.name)(`\(info.content.accountInfo.code)`)", parseMode: .markdown))
         )
     )
 
-    if let b30 = getBest30FromDatabase(user: info.content.userID) {
+    if let b30 = getBest30FromDatabase(user: info.content.accountInfo.userId) {
         inlineQueryResultArticles.append(
             InlineQueryResultArticle(
                 type: "article",
@@ -42,7 +42,7 @@ func inlineQueryHandler(inlineQuery: InlineQuery) {
 
     let sema = DispatchSemaphore(value: 0)
 
-    guard let userCode = info.content.code.toUsercode() else {
+    guard let userCode = info.content.accountInfo.code.toUsercode() else {
         return
     }
 
@@ -52,8 +52,8 @@ func inlineQueryHandler(inlineQuery: InlineQuery) {
             saveUserInfo(info: info, tgUserId: tgUserId)
             if let recent = info.content.recentScore.first {
                 let respondText = """
-                Name: `\(info.content.name)`
-                PTT: `\(String(format: "%.2f", Double(info.content.rating) / 100))`
+                Name: `\(info.content.accountInfo.name)`
+                PTT: `\(String(format: "%.2f", Double(info.content.accountInfo.rating) / 100))`
 
                 Recent Play: \(Date(timeIntervalSince1970: Double(recent.timePlayed) / 1000).formattedString())
                 Song: `\(recent.songID)`

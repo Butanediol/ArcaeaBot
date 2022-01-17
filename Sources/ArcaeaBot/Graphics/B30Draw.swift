@@ -53,16 +53,16 @@ struct Tuple: PythonConvertible {
 }
 
 struct B30Graph {
-    private var b30: UserBest30
-    private var b30play: [UserPlay]
-    private var userInfo: UserInfo
+    private var b30: UserBest30Response
+    private var b30play: [Score]
+    private var userInfo: AccountInfo
 
-    init(b30: UserBest30, userInfo: UserInfo) {
+    init(b30: UserBest30Response, userInfo: AccountInfo) {
         self.b30 = b30
         b30play = b30.content.best30List
         if b30play.count < 30 {
             for _ in 1 ... (30 - b30play.count) {
-                b30play.append(.emptyPlay)
+                b30play.append(.empty)
             }
         }
         self.userInfo = userInfo

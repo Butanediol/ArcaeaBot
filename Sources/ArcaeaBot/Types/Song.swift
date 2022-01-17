@@ -2,20 +2,17 @@ typealias SongId = String
 
 struct SongInfoResponse: Codable, APIRequestResponsable {
     var status: Int
-    var content: SongInfo
+    var content: SongInfoResponseContent
 }
 
-// MARK: - Content
-
-struct SongInfo: Codable {
-    let id: SongId
+struct SongInfoResponseContent: Codable {
+    let id: String
     let titleLocalized: TitleLocalized
     let artist, bpm: String
-    let bpmBase: Double
+    let bpmBase: Int
     let contentSet: String
-    let audioTimeSEC, side: Int
-    let remoteDL, worldUnlock: Bool
-    let date: Int
+    let worldUnlock, remoteDL: Bool
+    let side, date: Int
     let version: String
     let difficulties: [SongInfoDifficulty]
 
@@ -25,26 +22,18 @@ struct SongInfo: Codable {
         case artist, bpm
         case bpmBase = "bpm_base"
         case contentSet = "set"
-        case audioTimeSEC = "audioTimeSec"
-        case side
-        case remoteDL = "remote_dl"
         case worldUnlock = "world_unlock"
-        case date, version, difficulties
+        case remoteDL = "remote_dl"
+        case side, date, version, difficulties
     }
 }
-
-// MARK: - Difficulty
 
 struct SongInfoDifficulty: Codable {
     let ratingClass: Int
     let chartDesigner, jacketDesigner: String
-    let rating: Int
-    let ratingReal: Double
-    let totalNotes: Int
-    let ratingPlus: Bool?
+    let jacketOverride: Bool
+    let realrating: Int
 }
-
-// MARK: - TitleLocalized
 
 struct TitleLocalized: Codable {
     let en: String

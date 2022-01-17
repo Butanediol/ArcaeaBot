@@ -35,7 +35,7 @@ func beginHandler(context: Context) -> Bool {
 	var mentionList = ""
 	for player in newMultiplay.players {
 		guard let info = getUserInfoFromDatabase(tgUserId: player) else { return true }
-		mentionList += "[@\(info.content.name)](tg://user?id=\(player)) "
+		mentionList += "[@\(info.content.accountInfo.name)](tg://user?id=\(player)) "
 	}
 
 	context.respondAsync("\(mentionList)\n多人游戏已开始！", parseMode: .markdown, replyToMessageId: context.message?.messageId)
