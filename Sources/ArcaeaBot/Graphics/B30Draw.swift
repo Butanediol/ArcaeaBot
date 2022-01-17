@@ -7,7 +7,7 @@ let Image = Python.import("PIL.Image")
 let ImageFont = Python.import("PIL.ImageFont")
 let ImageDraw = Python.import("PIL.ImageDraw")
 
-let bgDarkUrl = Bundle.module.url(forResource: "bg_dark", withExtension: "jpg")!
+let bgDarkUrl = Bundle.module.url(forResource: "bg_dark", withExtension: "png")!
 let fontUrl = Bundle.module.url(forResource: "Exo-Regular", withExtension: "ttf")!
 let titleFontUrl = Bundle.module.url(forResource: "Kazesawa-Regular", withExtension: "ttf")!
 
