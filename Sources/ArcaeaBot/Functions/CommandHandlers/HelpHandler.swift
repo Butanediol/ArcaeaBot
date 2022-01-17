@@ -11,16 +11,6 @@ func helpHandler(context: Context) -> Bool {
 	/me
 	/bind <ArcID/ArcName>
 
-	/multiplay 
-	/multiplay <Song>
-	/multiplay <Floor> <Ceiling>
-	/multiplay <Floor> +
-	/multiplay <Ceiling> -
-
-	/begin
-	/finish
-	/cancel
-
 	We built another bot using the official API provided by lowiro. Please check @SakuraDoubleStarBot
 	"""
 

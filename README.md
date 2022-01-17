@@ -10,19 +10,6 @@ Telegram Arcaea 查分 Bot
 /best30 - 查询 Best 30
 /me - 我是谁？
 /bind <ArcID/ArcName> - 绑定 Arcaea 玩家账号
-
-多人游戏
-/multiplay - 随机选歌
-/multiplay <Song> - 指定歌曲
-/multiplay <Floor> <Ceiling> - 在 Floor 到 Ceiling 难度之间随机选歌
-/multiplay <Floor> + 随机选择 Floor 或更难的歌曲
-/multiplay <Ceiling> - 随机选择 Ceiling 或更简单的歌曲
-
-注意：这里的难度是 Arcaea 游戏中的难度，例如 9, 9+, 10, 10+
-
-/begin - 开始游戏，开始后新玩家不能加入。
-/finish - 结束游戏，当你完成曲目后发送，当所有人都完成后会结束多人游戏。
-/cancel - 取消当前的多人游戏。
 ```
 
 ## 运行
