@@ -6,7 +6,7 @@ extension ArcaeaBot {
 	func recent(context: Context) throws -> Bool {
 
 		guard let telegramUserId = context.fromId else {
-			ArcaeaBot.logger.info("Get telegram user id failed.")
+			ArcaeaBot.logger.info("\(Prompts.getIdFailed.rawValue)")
 			return true
 		}
 
