@@ -52,6 +52,12 @@ class ArcaeaBot {
 
 		while let update = bot.nextUpdateSync() {
 			try router.process(update: update)
+
+			if let inlineQuery = update.inlineQuery {
+				DispatchQueue.main.async {
+					self.inlineQueryHandler(inlineQuery)
+				}
+			}
 		}
 	}
 
