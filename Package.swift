@@ -12,7 +12,7 @@ let package = Package(
         .package(url: "https://github.com/apple/swift-argument-parser", from: "1.0.0"),
         .package(url: "https://github.com/apple/swift-log.git", from: "1.0.0"),
         .package(url: "https://github.com/stephencelis/SQLite.swift.git", from: "0.13.1"),
-        .package(name: "TelegramBotSDK", url: "https://github.com/zmeyc/telegram-bot-swift.git", .branch("master")),
+        .package(name: "TelegramBotSDK", url: "https://github.com/Butanediol/telegram-bot-swift", .branch("patch-1")),
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
     ],

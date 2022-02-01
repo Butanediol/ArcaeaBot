@@ -30,10 +30,10 @@
       },
       {
         "package": "TelegramBotSDK",
-        "repositoryURL": "https://github.com/zmeyc/telegram-bot-swift.git",
+        "repositoryURL": "https://github.com/Butanediol/telegram-bot-swift",
         "state": {
-          "branch": "master",
-          "revision": "c03186fdbde69be648be33c57793a2d83c5a8256",
+          "branch": "patch-1",
+          "revision": "5ccb48a43a49005cc6d1b022325cdfb17fb297fb",
           "version": null
         }
       }
