@@ -15,7 +15,15 @@ extension ArcaeaBot {
 		}
 
 		context.sendChatActionAsync(action: "typing")
-		context.respondAsync("Hello \(user.userInfo.displayName).", replyToMessageId: context.message?.messageId)
+
+		var text: String
+		if context.args.scanWord() == "debug" {
+			text = String(data: try JSONEncoder().encode(user), encoding: .utf8) ?? Prompts.jsonEncodingError.rawValue
+		} else {
+			text = "Hello \(user.userInfo.displayName)."
+		}
+
+		context.respondAsync(text, replyToMessageId: context.message?.messageId)
 
 		return true
 	}
