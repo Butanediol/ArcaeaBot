@@ -23,7 +23,7 @@ extension ArcaeaBot {
 					let play = userInfoResponse.userInfo.lastPlayedSong
 					let song = self.arcSong.getSong(sid: play.songID)
 
-					let userPtt = user.userInfo.potential != nil ? String(Double(user.userInfo.potential!) / 100) : "Hidden"
+					let userPtt = userInfoResponse.userInfo.potential != nil ? String(Double(userInfoResponse.userInfo.potential!) / 100) : "Hidden"
 					let playPtt = song?.playPtt(difficulty: play.difficulty, score: play.score) ?? 0
 					let playDate = Date(timeIntervalSince1970: Double(play.timePlayed / 1000))
 
